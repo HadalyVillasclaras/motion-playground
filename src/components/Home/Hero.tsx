@@ -10,11 +10,6 @@ export const Hero = () => {
             <motion.div
               initial={{
                 top: '7rem',
-                transition: {
-                  duration: 1,
-                  ease: [0.83, 0, 0.17, 1],
-                  delay: -0.25,
-                },
               }}
               animate={{
                 top: 0,
@@ -34,12 +29,7 @@ export const Hero = () => {
             <motion.div
               className={styles.h1}
               initial={{
-                top: '7rem',
-                transition: {
-                  duration: 1,
-                  ease: [0.83, 0, 0.17, 1],
-                  delay: -0.1,
-                },
+                top: '7rem'
               }}
               animate={{
                 top: 0,
@@ -58,12 +48,7 @@ export const Hero = () => {
             <motion.div
               className={styles.h1}
               initial={{
-                top: '7rem',
-                transition: {
-                  duration: 1,
-                  ease: [0.83, 0, 0.17, 1],
-                  delay: 0.05,
-                },
+                top: '7rem'
               }}
               animate={{
                 top: 0,
@@ -84,12 +69,7 @@ export const Hero = () => {
             <motion.div
               className={styles.h1} // Use CSS module class
               initial={{
-                top: "7rem",
-                transition: {
-                  duration: 1,
-                  ease: [0.83, 0, 0.17, 1],
-                  delay: -0.25,
-                },
+                top: "7rem"
               }}
               animate={{
                 top: 0,
@@ -108,12 +88,7 @@ export const Hero = () => {
             <motion.div
               className={styles.h1} // Use CSS module class
               initial={{
-                top: "7rem",
-                transition: {
-                  duration: 1,
-                  ease: [0.83, 0, 0.17, 1],
-                  delay: -0.1,
-                },
+                top: "7rem"
               }}
               animate={{
                 top: 0,
@@ -132,12 +107,7 @@ export const Hero = () => {
             <motion.div
               className={styles.h1} // Use CSS module class
               initial={{
-                top: "7rem",
-                transition: {
-                  duration: 1,
-                  ease: [0.83, 0, 0.17, 1],
-                  delay: 0.05,
-                },
+                top: "7rem"
               }}
               animate={{
                 top: 0,
@@ -158,11 +128,7 @@ export const Hero = () => {
         <motion.div
           className={styles.divider}
           initial={{
-            width: 0,
-            transition: {
-              duration: 1,
-              ease: [0.83, 0, 0.17, 1],
-            },
+            width: 0
           }}
           animate={{
             width: "100%",
@@ -176,8 +142,7 @@ export const Hero = () => {
           className={styles['footer-content']}
           initial={{
             y: 200,
-            opacity: 0,
-            transition: { duration: 1, ease: [0.83, 0, 0.17, 1], delay: 2 },
+            opacity: 0
           }}
           animate={{
             y: 0,

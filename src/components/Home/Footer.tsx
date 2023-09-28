@@ -5,27 +5,21 @@ export const Footer = () => {
     <footer className={styles.footer}>
       <div className={styles.divider}></div>
       <div className={styles['footer-content']}>
-        <div className={styles['footer-col']}>
-          <div className={styles.arrow}>
-            <p>&#8593;</p>
-          </div>
-          <div className={styles.arrow}>
-            <p>&#8593;</p>
-          </div>
+      <div className={styles['footer-col']}>
+         <p>work in progress</p>
         </div>
         <div className={styles['footer-col']}>
           <p>
-            &copyright by <br /> not codegrid
           </p>
         </div>
         <div className={styles['footer-col']}>
           <p>
-            no rights for <br /> creative dev
+            hv
           </p>
         </div>
         <div className={styles['footer-col']}>
           <p>
-            no rights for <br /> any design
+          Copyright © 2023
           </p>
         </div>
       </div>

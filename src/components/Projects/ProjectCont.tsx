@@ -14,12 +14,7 @@ export function ProjectCont({ project }) {
         <motion.div
           className={styles['project-img']}
           initial={{
-            clipPath: "polygon(0 0, 0 0, 0 100%, 0% 100%)",
-            transition: {
-              duration: 0.15,
-              ease: [0.83, 0, 0.17, 1],
-              delay: -0.1,
-            },
+            clipPath: "polygon(0 0, 0 0, 0 100%, 0% 100%)"
           }}
           animate={{
             clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
@@ -34,20 +29,11 @@ export function ProjectCont({ project }) {
             src={project.img}
             alt=""
             initial={{
-              scale: 1.5,
-              transition: {
-                duration: 0.15,
-                ease: [0.83, 0, 0.17, 1],
-                delay: 0,
-              },
+              scale: 1.5
             }}
             animate={{
               scale: 1,
-              transition: {
-                duration: 1.75,
-                ease: [0.83, 0, 0.17, 1],
-                delay: 0,
-              },
+             
             }}
           />
         </motion.div>
@@ -55,12 +41,7 @@ export function ProjectCont({ project }) {
           className={styles['project-description']}
           initial={{
             x: -40,
-            opacity: 0,
-            transition: {
-              duration: 1,
-              ease: [0.83, 0, 0.17, 1],
-              delay: 0.25,
-            },
+            opacity: 0
           }}
           animate={{
             x: 0,

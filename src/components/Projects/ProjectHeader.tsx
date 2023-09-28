@@ -27,7 +27,7 @@ export const ProjectHeader = () => {
           }}
         >
           <div className={styles['back']}>
-            <p>&#8592;</p>
+            <p>BACK</p>
           </div>
         </motion.div>
       </Link>

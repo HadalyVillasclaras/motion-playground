@@ -111,9 +111,9 @@ export const DATA = [
   },
   {
     id: 19,
-    title: "Icarius",
+    title: "Gypsum",
     imgUrl:
-      "https://images.unsplash.com/photo-1642059870522-bb7a747cb4c1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=927&q=80",
+      "https://media.springernature.com/lw685/springer-static/image/chp%3A10.1007%2F978-3-030-85889-6_89/MediaObjects/481266_1_En_89_Fig1_HTML.png",
   },
   {
     id: 20,
@@ -174,35 +174,5 @@ export const DATA = [
     title: "Agate",
     imgUrl:
       "https://img.freepik.com/free-photo/colorful-natural-mineral-agate-decoration_53876-74728.jpg?w=1800&t=st=1695849357~exp=1695849957~hmac=03932b1caa80ecadff3107d1799e615272dfdacd9af32705c5594e0ff7cee7a4",
-  },
-  {
-    id: 30,
-    title: "Aleksandra Khaprenko",
-    imgUrl:
-      "https://images.unsplash.com/photo-1547628641-ec2098bb5812?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340&q=80",
-  },
-  {
-    id: 31,
-    title: "Rodion Kutsaev",
-    imgUrl:
-      "https://images.unsplash.com/photo-1550684849-39df3781f7b0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340&q=80",
-  },
-  {
-    id: 32,
-    title: "Rodion Kutsaev",
-    imgUrl:
-      "https://images.unsplash.com/photo-1445630945852-d2fe3e22edf9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340&q=80",
-  },
-  {
-    id: 33,
-    title: "Allec Gomes",
-    imgUrl:
-      "https://images.unsplash.com/photo-1615773146406-277d9d3e7c2f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80",
-  },
-  {
-    id: 34,
-    title: "J Lee",
-    imgUrl:
-      "https://images.unsplash.com/photo-1605003179269-c446bb939f00?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80",
-  },
+  }
 ];

@@ -1,13 +1,36 @@
 import { useEffect, useRef } from 'react';
+declare global {
+  interface Window {
+      p5: any;
+      Matter: any;
+  }
+}
+
+const isDesktop = () => {
+  return window.innerWidth > 1024;
+}
+
 
 export const MotionPills = () => {
   const canvasRef = useRef<HTMLDivElement | null>(null);
+  if (!isDesktop()) {
+    return (
+      <div style={{position: 'relative', top: '30vh', margin:'2rem'}}>
+        <p>
+         Sorry, this content is only available on desktop devices.
+        </p>
+      </div>
+    );
+  }
+
+
   useEffect(() => {
     const p5 = window.p5;
     const Matter = window.Matter;
 
     const sketch = (p) => {
-      let customFont;
+      // let customFont;
+
       const Engine = Matter.Engine;
       const World = Matter.World;
       const Bodies = Matter.Bodies;
@@ -30,9 +53,9 @@ export const MotionPills = () => {
         "Lawsonite",
       ];
 
-      p.preload = () => {
-        customFont = p.loadFont("/MonumentExtended-Bold.otf");
-      };
+      // p.preload = () => {
+      //   customFont = p.loadFont("/MonumentExtended-Bold.otf");
+      // };
 
       p.setup = () => {
         p.createCanvas(p.windowWidth, p.windowHeight - 60);
@@ -55,6 +78,7 @@ export const MotionPills = () => {
         }
       };
 
+
       p.draw = () => {
         p.background("#2d2d30");
         Engine.update(engine);
@@ -64,6 +88,8 @@ export const MotionPills = () => {
       };
 
       class Word {
+        body: any;
+        word: string;
         constructor(x, y, word) {
           this.body = Bodies.rectangle(x, y, word.length * 20, 40);
           this.word = word;
@@ -78,13 +104,13 @@ export const MotionPills = () => {
           p.translate(pos.x, pos.y);
           p.rotate(angle);
           p.rectMode(p.CENTER);
-          p.fill('#cfa3c1');
-          p.stroke("#fff");
+          p.fill('#2d2d30');
+          p.stroke("#b69393");
           p.strokeWeight(3);
           p.rect(0, 0, this.word.length * 30 + 80, 100, 60);
           p.noStroke();
           // p.textFont(customFont);
-          p.fill("#fff");
+          p.fill("#b69393");
           p.textSize(30);
           p.textAlign(p.CENTER, p.CENTER);
           p.text(this.word.toUpperCase(), 0, 0);

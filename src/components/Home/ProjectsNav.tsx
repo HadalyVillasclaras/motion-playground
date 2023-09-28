@@ -1,37 +1,34 @@
 import styles from "./Home.module.css"; 
 import { Link } from "react-router-dom";
+import {zinc, feldspar, stichite, augite} from '../../assets/images/index.ts';
 
-import Project1Img from "../../assets/images/project-1.png";
-import Project2Img from "../../assets/images/project-2.png";
-import Project3Img from "../../assets/images/project-3.png";
-import Project4Img from "../../assets/images/project-4.png";
-// import Project5Img from "../../assets/images/project-5.png";
+
 
 const projects = [
   {
     to: 'project/pills',
-    imgSrc: Project1Img,
+    imgSrc: zinc,
     name: 'Motion pills',
     category: 'p5 | Matter',
     year: '2023',
   },
   {
     to: 'project/circular',
-    imgSrc: Project2Img,
+    imgSrc: feldspar,
     name: 'Circular Scroll',
     category: 'GSAP',
     year: '2023',
   },
   {
     to: 'project/img-interaction',
-    imgSrc: Project3Img,
+    imgSrc: stichite,
     name: 'Image Interaction',
-    category: 'GSAP | p5 ',
+    category: 'Inter. obs. | GSAP ',
     year: '2023',
   },
   {
-    to: 'project',
-    imgSrc: Project4Img,
+    to: '#',
+    imgSrc: augite,
     name: 'Webflow',
     category: 'GSAP',
     year: '2023',

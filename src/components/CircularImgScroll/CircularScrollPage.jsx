@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import styles from "./CircularScroll.module.css";
-
+import * as imgx from '../../assets/images/index.ts';
 import * as imgs from './imgs';
 import { ProjectHeader } from "../Projects/ProjectHeader";
 import { ProjectFooter } from "../Projects/ProjectFooter";
@@ -19,6 +19,19 @@ const images = [
   imgs.image8,
   imgs.image9,
   imgs.image10
+];
+
+const imgxx = [
+  imgx.augite,
+  imgx.gem,
+  imgx.halite,
+  imgx.gemstone,
+  imgx.feldspar,
+  imgx.ferro,
+  imgx.gypsum,
+  imgx.zinc,
+  imgx.stichite,
+  imgx.labradorite,
 ];
 
 const project =  
@@ -83,26 +96,22 @@ export const CircularScrollPage = () => {
         <main className={styles['circular-container']}>
           <div className={styles['header-scroll']}>
             <h1 className={styles['h1-scroll']}>
-              Human stories, <br />
-              Superhuman audiovisuals
+              Scroll down
             </h1>
           </div>
           <section className={styles['slider-section']}>
             <div id="wheel" className={styles['wheel']}>
-              {images.map((imgSrc, index) => (
+              {imgxx.map((imgSrc, index) => (
                 <div id="wheel-card" key={index} className={styles['wheel__card']}>
                   <img src={imgSrc} className={styles['wheel__img']} alt={`Slide ${index + 1}`} />
                 </div>
               ))}
             </div>
           </section>
-          <h3 className={styles['scroll-down']}>Scroll down</h3>
-          <div className={styles['scroll-down-icon']}>
-            <img
-              src="https://storage.googleapis.com/studio-design-asset-files/projects/BXaxK3jMq7/s-61x9_2c6bd15e-43e5-4ebf-bf39-a6ff23fb93dd.svg"
-              alt="Scroll down icon"
-            />
-          </div>
+          {/* <h3 className={styles['scroll-down']}>Scroll down</h3> */}
+          <p className={styles['scroll-down-icon']}>
+          &rarr;
+          </p>
         </main>
         <div className={styles['footer-wrapper']}>
           <ProjectFooter project={project}/>

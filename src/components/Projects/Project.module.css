@@ -63,11 +63,11 @@
 
 .backButton {
   position: fixed;
-  margin: 2em ;
-  width: 24px;
-  height: 24px;
-  background: var(--text);
-  border-radius: 100%;
+  margin: 2rem ;
+  /* width: 24px;
+  height: 24px; */
+  /* background: var(--text); */
+  /* border-radius: 100%; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -75,8 +75,9 @@
 .backLink {
 z-index: 2;
 }
-.back p{
-  color: var(--bg);
+.back p:hover{
+  text-decoration: underline;
+  /* color: var(--bg); */
 
 }
 

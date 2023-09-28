@@ -7,9 +7,8 @@ export const About = () => {
         <div className={styles['about-col']}>
           <h3>About this project</h3>
           <p>
-            This space showcases a blend of web motion and webflow designs. It's
-            a playground where I've pieced together exercises and practices from
-            my learning journey.
+            This space showcases a selected web motion experiments that I collect here as I 
+            learn new technologies, mostly focused on creative coding and interactive animations.
           </p><br />
           <h3>Made with</h3>
           <ul className={styles['about-list']}>
@@ -26,7 +25,7 @@ export const About = () => {
           <div className={styles.socials}>
             <p><b>hadalyvg@gmail.com</b></p><br />
             <a href="https://github.com/HadalyVillasclaras">github &#8599;</a>
-            <a href="#">linkedin &#8599;</a>
+            <a href="https://www.linkedin.com/in/hadaly-villasclaras/">linkedin &#8599;</a>
           </div>
         </div>
       </div>

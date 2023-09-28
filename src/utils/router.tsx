@@ -1,4 +1,4 @@
-import { createBrowserRouter} from 'react-router-dom';
+import {createHashRouter} from 'react-router-dom';
 import HomePage from '../components/Home/HomePage';
 import { CircularScrollPage } from '../components/CircularImgScroll/CircularScrollPage';
 import ProjectPage from '../components/Projects/ProjectPage';
@@ -6,7 +6,7 @@ import { MotionPillsPage } from '../components/MotionPills/MotionPillsPage';
 import { ImgInteraction } from '../components/ImgInteraction/ImgInteraction';
 
 /* replaced createBrowserRouter for createHashRouter in order to make it work in GitHub pages. */
-export const router = createBrowserRouter([
+export const router = createHashRouter([
   {
     path: '/',
     element: <HomePage />,

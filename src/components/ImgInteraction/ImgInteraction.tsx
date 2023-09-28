@@ -4,6 +4,16 @@ import Scrollbar from "smooth-scrollbar";
 import { gsap } from "gsap";
 // import { ModalPlugin } from "./plugins/scroll-disable";
 import { DATA } from "./data";
+import { ProjectHeader } from '../Projects/ProjectHeader';
+import { ProjectFooter } from '../Projects/ProjectFooter';
+
+const project =  
+  {
+    title: 'Image interaction',
+    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum nobis itaque laboriosam! Temporibus esse eius iusto voluptatum maiores at asperiores, quo quos omnis delectus cumque consequuntur provident dolores minus tenetur quisquam rem odit. Aut unde velit sint natus recusandae eos! Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+    category: 'Gsap | Intersection Observer API',
+    year: '2023'
+  }
 
 export const ImgInteraction = () => {
   const contentRef = useRef(null);
@@ -148,14 +158,23 @@ export const ImgInteraction = () => {
   }, [])
 
   return (
+    <div className="main-wrapper">
+      <ProjectHeader/>
+
     <div className="main">
       <div className="heading" ref={headingRef}>
         <h4 className="heading-text">Scroll</h4>
-        <svg className="scroll-down">
-          {/* <use xlink: href="./src/assets/icons.svg#ic-chevron-small-down"></use> */}
-        </svg>
+        <p className="scroll-down">
+        &darr;
+        </p>
       </div>
       <section className="content" ref={contentRef}></section>
     </div>
+    <div className="img-footer-wrapper">
+    <ProjectFooter project={project}/>
+
+    </div>
+    </div>
+
   )
 }
