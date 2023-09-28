@@ -19,7 +19,7 @@ export const DATA = [
   },
   {
     id: 4,
-    title: "Rhodochrosite",
+    title: "Rhodochrose",
     imgUrl:
       "https://i.etsystatic.com/10495116/r/il/2ef2ba/2876463405/il_570xN.2876463405_78fr.jpg",
   },
@@ -93,13 +93,13 @@ export const DATA = [
   },
   {
     id: 16,
-    title: "Kimberlite",
+    title: "Kimbelite",
     imgUrl:
       "https://investingnews.com/media-library/kimberlite-pipe.jpg?id=27732943&width=1200&height=600&coordinates=0%2C42%2C0%2C42",
   },
   {
     id: 17,
-    title: "Leucophanite",
+    title: "Leucophane",
     imgUrl:
       "https://www.dakotamatrix.com/images/products/leucophane40482b.jpg",
   },
@@ -147,9 +147,9 @@ export const DATA = [
   },
   {
     id: 25,
-    title: "Zinc",
+    title: "Labadite",
     imgUrl:
-      "https://www.bbva.com/wp-content/uploads/2023/01/mineria-sostenible-zinc.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/3/38/Labradorite_polie_3%28Madagascar%29.jpg",
   },
   {
     id: 26,
@@ -159,9 +159,9 @@ export const DATA = [
   },
   {
     id: 27,
-    title: "Labradorite",
+    title: "Zinc",
     imgUrl:
-      "https://upload.wikimedia.org/wikipedia/commons/3/38/Labradorite_polie_3%28Madagascar%29.jpg",
+      "https://www.bbva.com/wp-content/uploads/2023/01/mineria-sostenible-zinc.jpg ",
   },
   {
     id: 28,

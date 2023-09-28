@@ -24,8 +24,8 @@ export const About = () => {
         <div className={styles['about-col']}>
           <div className={styles.socials}>
             <p><b>hadalyvg@gmail.com</b></p><br />
-            <a href="https://github.com/HadalyVillasclaras">github &#8599;</a>
-            <a href="https://www.linkedin.com/in/hadaly-villasclaras/">linkedin &#8599;</a>
+            <a target="_blank"  href="https://github.com/HadalyVillasclaras">github &#8599;</a>
+            <a  target="_blank" href="https://www.linkedin.com/in/hadaly-villasclaras/">linkedin &#8599;</a>
           </div>
         </div>
       </div>
