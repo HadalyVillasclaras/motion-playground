@@ -1,0 +1,29 @@
+.pills-container {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  overflow: hidden;
+  background: var(--bg);
+  position: relative;
+}
+
+.pills {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100% !important;
+  height: 90vh !important;
+}
+
+canvas {
+  position: relative;
+  width: 100% ;
+  height: 100% !important;
+}
+
+.footer-pills-wrapper {
+  height: 10vh;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+}
