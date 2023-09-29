@@ -1,21 +1,17 @@
-import styles from "./Home.module.css";
+import styles from "./Home.module.scss";
+import '../../index.css'
 import { motion } from "framer-motion";
-import transition from "../../utils/transition.js";
-import { About } from "./About";
-import { Footer } from "./Footer";
-import { ProjectsNav } from "./ProjectsNav";
-// import { Hero } from "./Hero";
-import { HomeHeader } from "./HomeHeader.js";
+import { Header, ProjectsNav, About, Footer } from './sections';
+import transition from "../Shared/transition";
 
 const HomePage = () => {
   return (
-    <motion.div className={styles.Home}>
-      <div className={styles.bg}></div>
+    <motion.div className={styles.home}>
       {/* <Hero /> */}
-      <HomeHeader/>
+      <Header/>
       <main>
-      <ProjectsNav />
-      <About />
+        <ProjectsNav />
+        <About />
       </main>
       <Footer />
     </motion.div>

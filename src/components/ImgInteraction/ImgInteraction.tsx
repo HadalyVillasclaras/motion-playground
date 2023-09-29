@@ -4,8 +4,8 @@ import Scrollbar from "smooth-scrollbar";
 import { gsap } from "gsap";
 // import { ModalPlugin } from "./plugins/scroll-disable";
 import { DATA } from "./data";
-import { ProjectHeader } from '../Projects/ProjectHeader';
-import { ProjectFooter } from '../Projects/ProjectFooter';
+import { ProjectHeader } from '../Projects/sections/ProjectHeader';
+import { ProjectFooter } from '../Projects/sections/ProjectFooter';
 
 const project =  
   {
@@ -18,6 +18,8 @@ const project =
 export const ImgInteraction = () => {
   const contentRef = useRef(null);
   const headingRef = useRef(null);
+
+  //fix top position on resize!!
 
   useEffect(() => {
     const PADDING = 8;
@@ -170,10 +172,7 @@ export const ImgInteraction = () => {
       </div>
       <section className="content" ref={contentRef}></section>
     </div>
-    <div className="img-footer-wrapper">
     <ProjectFooter project={project}/>
-
-    </div>
     </div>
 
   )

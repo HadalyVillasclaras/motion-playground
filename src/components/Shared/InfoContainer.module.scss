@@ -1,0 +1,22 @@
+.info-container {
+  padding: 0.75em;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+@media (max-width: 900px) {
+  .info-container {
+    flex-wrap: wrap;
+
+    > * {  
+      width: 50%;
+      margin: 0.5rem 0;
+    }
+
+    > :nth-child(2), 
+    > :nth-child(4) {
+      text-align: right;
+    }
+  }
+}

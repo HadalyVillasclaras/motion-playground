@@ -1,4 +1,4 @@
-.circular-container {
+.wheel-container {
   padding: 0;
   margin: 0;
   height: 600vh;
@@ -47,8 +47,6 @@
   aspect-ratio: 1 / 1;
   cursor: pointer;
   height: 230px;
-
-
 }
 
 @media (min-width: 900px) {
@@ -87,10 +85,3 @@
   left: 2em;
   overflow: visible;
 }  
-
-.footer-wrapper {
-  position: fixed;
-  width: 100%;
-  bottom: 0;
-  left: 0;
-}

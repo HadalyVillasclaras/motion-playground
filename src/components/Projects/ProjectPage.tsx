@@ -1,12 +1,10 @@
-import ProjectImg from "../../assets/images/project-1.png";
 import {  useParams } from "react-router-dom";
-import { ProjectCont } from "./ProjectCont";
-import transition from "../../utils/transition";
+import { DefaultProjectPage } from "./DefaultProjectPage";
+import transition from "../Shared/transition";
 
 const project =  
   {
     title: 'impressions',
-    img: ProjectImg,
     description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum nobis itaque laboriosam! Temporibus esse eius iusto voluptatum maiores at asperiores, quo quos omnis delectus cumque consequuntur provident dolores minus tenetur quisquam rem odit. Aut unde velit sint natus recusandae eos! Lorem ipsum dolor sit amet consectetur adipisicing elit.',
     category: 'portfolio design',
     squad: 'impressions io',
@@ -20,7 +18,7 @@ const ProjectPage = () => {
   return (
     <>
       <div className="bg"></div>
-      <ProjectCont project={project}/>
+      <DefaultProjectPage project={project}/>
     </>
   );
 };

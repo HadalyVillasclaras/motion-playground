@@ -1,4 +1,4 @@
-import styles from './Home.module.css';
+import styles from '../Home.module.scss';
 
 export const About = () => {
   return (
@@ -25,7 +25,7 @@ export const About = () => {
           <div className={styles.socials}>
             <p><b>hadalyvg@gmail.com</b></p><br />
             <a target="_blank"  href="https://github.com/HadalyVillasclaras">github &#8599;</a>
-            <a  target="_blank" href="https://www.linkedin.com/in/hadaly-villasclaras/">linkedin &#8599;</a>
+            <a target="_blank" href="https://www.linkedin.com/in/hadaly-villasclaras/">linkedin &#8599;</a>
           </div>
         </div>
       </div>

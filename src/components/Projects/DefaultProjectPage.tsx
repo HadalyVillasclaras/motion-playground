@@ -1,20 +1,17 @@
 import { motion } from "framer-motion";
-import { ProjectHeader } from './ProjectHeader';
-import { ProjectFooter } from './ProjectFooter';
 import styles from "./Project.module.css";
+import { ProjectHeader } from "./sections/ProjectHeader";
+import { ProjectFooter } from "./sections/ProjectFooter";
 
-export function ProjectCont({ project }) {
+export function DefaultProjectPage({ project }) {
   return (
-    <div className={styles['project-container']}
-    >
+    <div className={styles["project-container"]}>
       <ProjectHeader />
-      <div
-        className={styles['project-info']}
-      >
+      <div className={styles["project-info"]}>
         <motion.div
-          className={styles['project-img']}
+          className={styles["project-img"]}
           initial={{
-            clipPath: "polygon(0 0, 0 0, 0 100%, 0% 100%)"
+            clipPath: "polygon(0 0, 0 0, 0 100%, 0% 100%)",
           }}
           animate={{
             clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
@@ -29,19 +26,18 @@ export function ProjectCont({ project }) {
             src={project.img}
             alt=""
             initial={{
-              scale: 1.5
+              scale: 1.5,
             }}
             animate={{
               scale: 1,
-             
             }}
           />
         </motion.div>
         <motion.div
-          className={styles['project-description']}
+          className={styles["project-description"]}
           initial={{
             x: -40,
-            opacity: 0
+            opacity: 0,
           }}
           animate={{
             x: 0,
@@ -56,9 +52,7 @@ export function ProjectCont({ project }) {
           <p>
             <b>{project.title}</b>
           </p>
-          <p>
-            {project.description}
-          </p>
+          <p>{project.description}</p>
         </motion.div>
       </div>
       <ProjectFooter project={project} />

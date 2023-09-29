@@ -1,4 +1,6 @@
-import styles from './Home.module.css';
+import Divider from '../../Shared/Divider';
+import { InfoContainer } from '../../Shared/InfoContainer';
+import styles from '../Home.module.scss';
 import { motion } from "framer-motion";
 
 export const Hero = () => {
@@ -21,7 +23,7 @@ export const Hero = () => {
               }}
               className={styles.h1}
             >
-              joe sournair
+              hv
             </motion.div>
             <div className={styles['h1-revealer']}></div>
           </h1>
@@ -40,7 +42,7 @@ export const Hero = () => {
                 },
               }}
             >
-              &nbsp;visual
+              &nbsp;web
             </motion.div>
             <div className={styles['h1-revealer']}></div>
           </h1>
@@ -67,7 +69,7 @@ export const Hero = () => {
         <div className={`${styles.header} ${styles['header-2']}`}>
           <h1>
             <motion.div
-              className={styles.h1} // Use CSS module class
+              className={styles.h1} 
               initial={{
                 top: "7rem"
               }}
@@ -86,7 +88,7 @@ export const Hero = () => {
           </h1>
           <h1>
             <motion.div
-              className={styles.h1} // Use CSS module class
+              className={styles.h1} 
               initial={{
                 top: "7rem"
               }}
@@ -99,13 +101,13 @@ export const Hero = () => {
                 },
               }}
             >
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2022&
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2023&
             </motion.div>
             <div className={styles['h1-revealer']}></div>
           </h1>
           <h1>
             <motion.div
-              className={styles.h1} // Use CSS module class
+              className={styles.h1}
               initial={{
                 top: "7rem"
               }}
@@ -125,35 +127,10 @@ export const Hero = () => {
         </div>
       </div>
       <div className={styles.footer}>
-        <motion.div
-          className={styles.divider}
-          initial={{
-            width: 0
-          }}
-          animate={{
-            width: "100%",
-            transition: {
-              duration: 1.5,
-              ease: [0.83, 0, 0.17, 1],
-            },
-          }}
-        ></motion.div>
-        <motion.div
-          className={styles['footer-content']}
-          initial={{
-            y: 200,
-            opacity: 0
-          }}
-          animate={{
-            y: 0,
-            opacity: 1,
-            transition: {
-              duration: 2,
-              ease: [0.83, 0, 0.17, 1],
-            },
-          }}
+     <Divider/>
+        <InfoContainer
         >
-          <div className={styles['footer-col']}>
+          <div>
             <div className={styles.arrow}>
               <p>&darr;</p>
             </div>
@@ -161,22 +138,22 @@ export const Hero = () => {
               <p>&darr;</p>
             </div>
           </div>
-          <div className={styles['footer-col']}>
+          <div>
             <p>
-              currently creating at <br /> impressions studio
+              currently 
             </p>
           </div>
-          <div className={styles['footer-col']}>
+          <div>
             <p>
-              previously visual dev at <br /> chromatic waves
+             ----
             </p>
           </div>
-          <div className={styles['footer-col']}>
+          <div>
             <p>
-              prev intern <br /> at mario
+              ---
             </p>
           </div>
-        </motion.div>
+        </InfoContainer>
       </div>
     </section>
   )

@@ -1,10 +1,8 @@
-import styles from "./Home.module.css"; 
+import styles from "../Home.module.scss"; 
 import { Link } from "react-router-dom";
-import {zinc, feldspar, stichite, augite} from '../../assets/images/index.ts';
+import {zinc, feldspar, stichite, augite} from '../../../assets/images/index.ts';
 
-
-
-const projects = [
+const projectList = [
   {
     to: 'project/pills',
     imgSrc: zinc,
@@ -13,9 +11,9 @@ const projects = [
     year: '2023',
   },
   {
-    to: 'project/circular',
+    to: 'project/wheel',
     imgSrc: feldspar,
-    name: 'Circular Scroll',
+    name: 'Wheel Scroll',
     category: 'GSAP',
     year: '2023',
   },
@@ -36,17 +34,16 @@ const projects = [
 ];
 export const ProjectsNav = () => {
   return (
-    <div className={styles["projects-nav"]}>
-      <div className={styles["projects-nav-container"]}>
-        {projects.map((project, index) => (
-          <div className={styles["project-item"]} key={index}>
-            <Link to={project.to}>
-              <div className={styles["project-link"]}>
-                <div className={styles["project-l"]}>
-                  <div className={styles["project-link-img"]}>
+    <nav className={styles["projects-nav"]}>
+      <ul className={styles["projects-nav-container"]}>
+        {projectList.map((project, index) => (
+          <li key={index}>
+            <Link className={styles["project"]} to={project.to}>
+                <div className={styles["project__l"]}>
+                  <div className={styles["project__l-img"]}>
                     <img src={project.imgSrc} alt="" />
                   </div>
-                  <div className={styles["project-name"]}>
+                  <div className={styles["project__l-name"]}>
                     <h2>{project.name}</h2>
                     {
                       project.name === 'Webflow' &&
@@ -54,18 +51,17 @@ export const ProjectsNav = () => {
                     }
                   </div>
                 </div>
-                <div className={styles["project-date"]}>
+                <div className={styles["project__date"]}>
                   <p>{project.category}</p>
                   <p>/{project.year}</p>
                 </div>
-                <div className={styles["project-dir"]}>
+                <div className={styles["project__dir"]}>
                   <p>&#8599;</p>
                 </div>
-              </div>
             </Link>
-          </div>
+          </li>
         ))}
-      </div>
-    </div>
+      </ul>
+    </nav>
   )
 }
