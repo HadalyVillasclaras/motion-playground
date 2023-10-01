@@ -8,13 +8,12 @@ export const Footer = () => {
       <Divider />
       <InfoContainer>
         <div>
-          <p>work in progress</p>
+          <p>Web dev</p>
         </div>
         <div>
-          <p></p>
+          <p>Motion Playground</p>
         </div>
         <div>
-          <p>hv</p>
         </div>
         <div>
           <p>Copyright © 2023</p>

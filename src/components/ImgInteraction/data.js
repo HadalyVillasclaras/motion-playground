@@ -15,19 +15,19 @@ export const DATA = [
     id: 3,
     title: "Muscovite",
     imgUrl:
-      "https://img.tradeford.com/pimages/l/6/1026546.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/2/26/Muscovite-Albite-122887.jpg",
   },
   {
     id: 4,
-    title: "Rhodochrose",
+    title: "Biotite",
     imgUrl:
-      "https://i.etsystatic.com/10495116/r/il/2ef2ba/2876463405/il_570xN.2876463405_78fr.jpg",
+      "https://www.alexstrekeisen.it/immagini/diagrammi/biotite2020.png",
   },
   {
     id: 5,
     title: "Feldspar",
     imgUrl:
-      "https://globalminechem.com/wp-content/uploads/2019/02/Potash-Feldspar.jpg",
+      "https://www.mindat.org/imagecache/18/d1/02900780014946252048428.jpg",
   },
   {
     id: 6,
@@ -39,25 +39,24 @@ export const DATA = [
     id: 7,
     title: "Lawsonite",
     imgUrl:
-      "https://img.freepik.com/free-photo/colorful-natural-mineral-agate-decoration_53876-74728.jpg?w=1800&t=st=1695849357~exp=1695849957~hmac=03932b1caa80ecadff3107d1799e615272dfdacd9af32705c5594e0ff7cee7a4",
+      "https://www.dakotamatrix.com/images/products/lawsonite39889b_2.jpg",
   },
   {
     id: 8,
-    title: "Gypsum",
-    imgUrl:
-      "https://media.springernature.com/lw685/springer-static/image/chp%3A10.1007%2F978-3-030-85889-6_89/MediaObjects/481266_1_En_89_Fig1_HTML.png",
+    title: "Zinc",
+    imgUrl:"https://www.bbva.com/wp-content/uploads/2023/01/mineria-sostenible-zinc.jpg ",
   },
   {
     id: 9,
     title: "Stichtite",
     imgUrl:
-      "https://www.rosellminerals.com/archivos/minerals/RM2077-stichtite-australia-a.jpg",
+      "https://www.mindat.org/imagecache/f5/a9/07157300015476735403885.jpg",
   },
   {
     id: 10,
     title: "Augite",
     imgUrl:
-      "https://upload.wikimedia.org/wikipedia/commons/8/8a/Augite_Rwanda.jpg",
+      "https://www.mindat.org/imagecache/85/bd/00374970014948588818102.jpg",
   },
   {
     id: 11,
@@ -71,7 +70,7 @@ export const DATA = [
     title: "Pyroxene",
 
     imgUrl:
-      "https://www.fabreminerals.com/specimens/s_imagesAP4/Ferro-actinolite-JFD198AP4dm.jpg",
+      "https://www.dakotamatrix.com/images/products/pyroxene43117j.jpg",
   },
   {
     id: 13,
@@ -81,9 +80,9 @@ export const DATA = [
   },
   {
     id: 14,
-    title: "Olivine",
+    title: "Andradite",
     imgUrl:
-      "https://commonminerals.esci.umn.edu/sites/commonminerals.esci.umn.edu/files/2021-06/Olivine%20web_0.jpg",
+      "https://i.etsystatic.com/16237774/r/il/95fb56/3459440999/il_fullxfull.3459440999_3jz2.jpg",
   },
   {
     id: 15,
@@ -99,9 +98,8 @@ export const DATA = [
   },
   {
     id: 17,
-    title: "Leucophane",
-    imgUrl:
-      "https://www.dakotamatrix.com/images/products/leucophane40482b.jpg",
+    title: "Agate",
+    imgUrl:"https://kidsloverocks.com/wp-content/uploads/2022/05/MG_8415-copy.jpg",
   },
   {
     id: 18,
@@ -125,19 +123,19 @@ export const DATA = [
     id: 21,
     title: "Gneiss",
     imgUrl:
-      "https://rockseeker.com/wp-content/uploads/2022/12/gneiss-rock-type.jpg",
+      "https://i0.wp.com/geologyscience.com/wp-content/uploads/2018/04/Augen-gneiss.jpg?ssl=1",
   },
   {
     id: 22,
     title: "Malachite",
     imgUrl:
-      "https://cdn.irocks.com/storage/media/98574/conversions/sm22-68b-wm-large.jpg",
+      "https://images.squarespace-cdn.com/content/v1/56df36ce2fe1316ffbfe01f6/1598327819830-PU1AG1I1ZMF8PBBPTBYV/IMG_1751.JPEG?format=1000w",
   },
   {
     id: 23,
     title: "Llanite",
     imgUrl:
-      "https://i.etsystatic.com/15509576/r/il/0d622e/2441892939/il_fullxfull.2441892939_igny.jpg",
+      "https://www.mindat.org/imagecache/6b/26/05775190015477029885233.jpg",
   },
   {
     id: 24,
@@ -155,24 +153,6 @@ export const DATA = [
     id: 26,
     title: "Andesite",
     imgUrl:
-      "https://media.sciencephoto.com/c0/53/27/27/c0532727-800px-wm.jpg",
-  },
-  {
-    id: 27,
-    title: "Zinc",
-    imgUrl:
-      "https://www.bbva.com/wp-content/uploads/2023/01/mineria-sostenible-zinc.jpg ",
-  },
-  {
-    id: 28,
-    title: "Andradite",
-    imgUrl:
-      "https://upload.wikimedia.org/wikipedia/commons/5/5e/Garnet_Andradite20.jpg",
-  },
-  {
-    id: 29,
-    title: "Agate",
-    imgUrl:
-      "https://img.freepik.com/free-photo/colorful-natural-mineral-agate-decoration_53876-74728.jpg?w=1800&t=st=1695849357~exp=1695849957~hmac=03932b1caa80ecadff3107d1799e615272dfdacd9af32705c5594e0ff7cee7a4",
+      "https://www.alexstrekeisen.it/immagini/diagrammi/amygdale2020(1).png",
   }
 ];

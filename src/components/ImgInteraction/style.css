@@ -2,12 +2,12 @@
   --font-dk: 7.5rem;
   --mask-bg-dk: 8rem;
 
-  --font-mb: 2.3rem;
+  --font-mb: 3rem;
   --mask-bg-mb: 2.5rem;
 }
 
 .main-wrapper {
-  background-image: linear-gradient(to left, var(--c-dark-1), var(--c-dark-2));
+  /* background-image: linear-gradient(to left, var(--c-dark-1), var(--c-dark-2)); */
   z-index: 0;
   position: relative;
   width: 100%;
@@ -16,6 +16,7 @@
   overscroll-behavior: none;
   overflow: hidden
 }
+
 .main {
   display: grid;
   grid-template-columns: auto;
@@ -57,7 +58,7 @@
   inline-size: 600px;
   overflow: hidden;
   left: 14%;
-  top: 54%;
+  bottom: 2rem;
   z-index: -1;
 }
 
@@ -112,6 +113,13 @@
 }
 
 @media (max-width: 900px) {
+
+  .picture {
+    top: 4rem;
+    block-size: 290px;
+    inline-size:250px;
+    left: 0;
+  }
   .scroll-content {
     top: -132px;
   }

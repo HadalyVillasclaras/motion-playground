@@ -1,5 +1,5 @@
 import { ReactNode } from 'react'
-import styles from "./ProjectTemplate.module.scss";
+// import styles from "./ProjectTemplate.module.scss";
 import { ProjectHeader } from './sections/ProjectHeader';
 import { ProjectFooter } from './sections/ProjectFooter';
 

@@ -4,6 +4,8 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 import styles from "./WheelScroll.module.css";
 import * as imgs from "../../assets/images/index.ts";
 import { ProjectTemplate } from "../Projects/ProjectTemplate.tsx";
+import { ProjectHeader } from "../Projects/sections/ProjectHeader.tsx";
+import { ProjectFooter } from "../Projects/sections/ProjectFooter.tsx";
 
 gsap.registerPlugin(ScrollTrigger);
 const images = [
@@ -29,13 +31,12 @@ const project = {
 
 export const WheelScrollPage = () => {
   const wheelRef = useRef(null);
-  const imagesRef = useRef(null);
-
+  
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
     let wheel = wheelRef.current;
-    let images = gsap.utils.toArray(imagesRef.current);
+    let images = gsap.utils.toArray("#wheel-card");
 
     function setup() {
       let radius = wheel.offsetWidth / 2;
@@ -78,32 +79,33 @@ export const WheelScrollPage = () => {
     };
   }, []);
 
-  return (
-    <ProjectTemplate projectInfo={project}>
-      <main className={styles["wheel-container"]}>
-        <div className={styles["header-scroll"]}>
-          <h1>Scroll down</h1>
-        </div>
-        <section className={styles["slider-section"]}>
-          <div ref={wheelRef} className={styles["wheel"]}>
-            {images.map((imgSrc, index) => (
-              <div
-                ref={imagesRef}
-                key={index}
-                className={styles["wheel__card"]}
-              >
-                <img
-                  src={imgSrc}
-                  className={styles["wheel__img"]}
-                  alt={`Slide ${index + 1}`}
-                />
-              </div>
-            ))}
+    return (
+      <>
+      <ProjectTemplate projectInfo={project}>
+
+
+        <main className={styles['wheel-container']}>
+          <div className={styles['header-scroll']}>
+            <h1 className={styles['h1-scroll']}>
+              Scroll down
+            </h1>
           </div>
-        </section>
-        {/* <h3 className={styles['scroll-down']}>Scroll down</h3> */}
-        <p className={styles["scroll-down-icon"]}>&rarr;</p>
-      </main>
-    </ProjectTemplate>
-  );
-};
+          <section className={styles['slider-section']}>
+            <div ref={wheelRef} id="wheel" className={styles['wheel']}>
+              {images.map((imgSrc, index) => (
+                <div id="wheel-card" key={index} className={styles['wheel__card']}>
+                  <img src={imgSrc} className={styles['wheel__img']} alt={`Slide ${index + 1}`} />
+                </div>
+              ))}
+            </div>
+          </section>
+          {/* <h3 className={styles['scroll-down']}>Scroll down</h3> */}
+          <p className={styles['scroll-down-icon']}>
+          &rarr;
+          </p>
+        </main>
+        </ProjectTemplate>
+
+      </>
+    );
+  };

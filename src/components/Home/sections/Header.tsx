@@ -11,7 +11,7 @@ export const Header = () => {
           <p>Hadaly Villasclaras</p>
         </div>
         <div>
-          <p>Web dev</p>
+          
         </div>
         <div>
           <p>Motion Playground</p>

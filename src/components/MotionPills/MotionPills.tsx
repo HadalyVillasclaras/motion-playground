@@ -45,12 +45,12 @@ export const MotionPills = () => {
         "Pyroxene",
         "Malachite",
         "Gypsum",
-        "Rhodochrosite",
         "Augite",
-        "Mica",
         "Talc",
-        "Leucophanite",
         "Lawsonite",
+        // "Rhodochrosite",
+        // "Leucophanite",
+        // "Mica",
       ];
 
       // p.preload = () => {
@@ -104,14 +104,16 @@ export const MotionPills = () => {
           p.translate(pos.x, pos.y);
           p.rotate(angle);
           p.rectMode(p.CENTER);
-          p.fill('#2d2d30');
-          p.stroke("#b69393");
-          p.strokeWeight(3);
-          p.rect(0, 0, this.word.length * 30 + 80, 100, 60);
+          // p.fill('#c0bfcf');
+          // p.stroke("#2d2d30");
+          // p.strokeWeight(3);
+          // p.rect(0, 0, this.word.length * 30 + 80, 100, 60);
           p.noStroke();
-          // p.textFont(customFont);
-          p.fill("#b69393");
-          p.textSize(30);
+          p.noFill();
+          p.rect(0, 0, this.word.length * 55, 90, 1);
+          p.fill("#c0bfcf");
+          p.textFont("Helvetica");
+          p.textSize(80);
           p.textAlign(p.CENTER, p.CENTER);
           p.text(this.word.toUpperCase(), 0, 0);
           p.pop();
