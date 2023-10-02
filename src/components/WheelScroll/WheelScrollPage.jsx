@@ -1,42 +1,48 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import styles from "./WheelScroll.module.css";
 import * as imgs from "../../assets/images/index.ts";
 import { ProjectTemplate } from "../Projects/ProjectTemplate.tsx";
-import { ProjectHeader } from "../Projects/sections/ProjectHeader.tsx";
-import { ProjectFooter } from "../Projects/sections/ProjectFooter.tsx";
 
 gsap.registerPlugin(ScrollTrigger);
-const images = [
-  imgs.augite,
-  imgs.gem,
-  imgs.halite,
-  imgs.gemstone,
-  imgs.feldspar,
-  imgs.ferro,
-  imgs.gypsum,
-  imgs.zinc,
-  imgs.stichite,
-  imgs.labradorite,
-];
 
 const project = {
   title: "Wheel Scroll",
-  description:
-    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum nobis itaque laboriosam! Temporibus esse eius iusto voluptatum maiores at asperiores, quo quos omnis delectus cumque consequuntur provident dolores minus tenetur quisquam rem odit. Aut unde velit sint natus recusandae eos! Lorem ipsum dolor sit amet consectetur adipisicing elit.",
   category: "GSAP",
   year: "2023",
 };
 
-export const WheelScrollPage = () => {
-  const wheelRef = useRef(null);
-  
-  useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
+const stones = [
+  { name: 'Aaugite', url: imgs.augite },
+  { name: 'Gem', url: imgs.gem },
+  { name: 'Halite', url: imgs.halite },
+  { name: 'Gemstone', url: imgs.gemstone },
+  { name: 'Feldspar', url: imgs.feldspar },
+  { name: 'Ferro', url: imgs.ferro },
+  { name: 'Gypsum', url: imgs.gypsum },
+  { name: 'Zinc', url: imgs.zinc },
+  { name: 'Stichite', url: imgs.stichite },
+  { name: 'Labradorite', url: imgs.labradorite }
+];
 
+export const WheelScrollPage = () => {
+  const [currentStoneName, setCurrentStoneName] = useState('-'); 
+
+  const wheelRef = useRef(null);
+  const imgCardRefs = useRef([]);
+
+  imgCardRefs.current = [];
+
+  const addToRefs = el => {
+    if (el && !imgCardRefs.current.includes(el)) {
+        imgCardRefs.current.push(el);
+    }
+  };
+
+  useEffect(() => {
     let wheel = wheelRef.current;
-    let images = gsap.utils.toArray("#wheel-card");
+    let images = imgCardRefs.current;
 
     function setup() {
       let radius = wheel.offsetWidth / 2;
@@ -68,6 +74,10 @@ export const WheelScrollPage = () => {
         scrub: 1,
         snap: 1 / images.length,
         invalidateOnRefresh: true,
+        onUpdate: (self) => {
+          const index = Math.round(self.progress * (stones.length - 1));
+          setCurrentStoneName(stones[index].name);
+        }
       },
     });
 
@@ -82,19 +92,15 @@ export const WheelScrollPage = () => {
     return (
       <>
       <ProjectTemplate projectInfo={project}>
-
-
         <main className={styles['wheel-container']}>
           <div className={styles['header-scroll']}>
-            <h1 className={styles['h1-scroll']}>
-              Scroll down
-            </h1>
+            <h1 className={styles['h1-scroll']}> {currentStoneName} </h1>
           </div>
           <section className={styles['slider-section']}>
             <div ref={wheelRef} id="wheel" className={styles['wheel']}>
-              {images.map((imgSrc, index) => (
-                <div id="wheel-card" key={index} className={styles['wheel__card']}>
-                  <img src={imgSrc} className={styles['wheel__img']} alt={`Slide ${index + 1}`} />
+              {stones.map((stone, index) => (
+                <div ref={addToRefs} key={index} className={styles['wheel__card']}>
+                  <img src={stone.url} className={styles['wheel__img']} alt={stone.name} />
                 </div>
               ))}
             </div>
