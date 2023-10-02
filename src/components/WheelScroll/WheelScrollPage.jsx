@@ -14,7 +14,7 @@ const project = {
 };
 
 const stones = [
-  { name: 'Aaugite', url: imgs.augite },
+  { name: 'Augite', url: imgs.augite },
   { name: 'Gem', url: imgs.gem },
   { name: 'Halite', url: imgs.halite },
   { name: 'Gemstone', url: imgs.gemstone },
@@ -75,8 +75,10 @@ export const WheelScrollPage = () => {
         snap: 1 / images.length,
         invalidateOnRefresh: true,
         onUpdate: (self) => {
-          const index = Math.round(self.progress * (stones.length - 1));
-          setCurrentStoneName(stones[index].name);
+          const index = Math.round(self.progress * (stones.length));
+          if (index < stones.length) {
+            setCurrentStoneName(stones[index].name);
+          }
         }
       },
     });
@@ -96,6 +98,7 @@ export const WheelScrollPage = () => {
           <div className={styles['header-scroll']}>
             <h1 className={styles['h1-scroll']}> {currentStoneName} </h1>
           </div>
+          <p className={styles['scroll-down-icon']}>&rarr;</p>
           <section className={styles['slider-section']}>
             <div ref={wheelRef} id="wheel" className={styles['wheel']}>
               {stones.map((stone, index) => (
@@ -105,10 +108,6 @@ export const WheelScrollPage = () => {
               ))}
             </div>
           </section>
-          {/* <h3 className={styles['scroll-down']}>Scroll down</h3> */}
-          <p className={styles['scroll-down-icon']}>
-          &rarr;
-          </p>
         </main>
         </ProjectTemplate>
 

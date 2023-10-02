@@ -162,13 +162,10 @@ export const ImgInteraction = () => {
   return (
     <div className="main-wrapper">
       <ProjectHeader/>
-
     <div className="main">
       <div className="heading" ref={headingRef}>
         <h4 className="heading-text">Scroll</h4>
-        <p className="scroll-down">
-        &darr;
-        </p>
+        <p className="scroll-down">&darr;</p>
       </div>
       <section className="content" ref={contentRef}></section>
     </div>
