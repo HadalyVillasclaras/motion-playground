@@ -1,6 +1,6 @@
 :root {
-  --bg: #2d2d30;
-  --text: #c0bfcf;
+  --bg: #e1e1db;
+  --text: #191919;
   --project: #b0b0b0;
   --project-text: #191c1a;
   --pink: #b69393;
@@ -145,12 +145,10 @@ a {
     font-size: 4rem;
     line-height: 0.85;
   }
-
   h2 {
     font-size: 2rem;
   }
 }
-
 
 ul {
   list-style: none;
@@ -165,4 +163,28 @@ ul {
 
 .blinking-text {
   animation: blink 2s infinite;
+}
+
+.link {
+  text-transform: uppercase;
+  display: inline-flex;
+  line-height: 1.6;
+}
+
+.link:before {
+  content: "";
+  position: absolute;
+  bottom: 0.1em;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: var(--text);
+  transform-origin: right;
+  transition: transform  0.3s cubic-bezier(.5, 0, 0, 1);;
+  transform: scaleX(0) rotate(0.001deg);
+}
+
+.link:hover::before {
+  transform-origin: left;
+  transform: scaleX(1) rotate(0.001deg);
 }

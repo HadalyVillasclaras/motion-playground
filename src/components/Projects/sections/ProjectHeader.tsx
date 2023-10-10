@@ -5,7 +5,7 @@ import styles from "../Project.module.css";
 export const ProjectHeader = () => {
   return (
     <header>
-      <Link className={styles['backLink']} to="/">
+      <Link className={`${styles['backLink']} ${styles['link']}`} to="/">
         <motion.div
           className={styles['backButton']}
           initial={{ scale: 0 }}
@@ -26,9 +26,7 @@ export const ProjectHeader = () => {
             }
           }}
         >
-          <div className={styles['back']}>
-            <p>BACK</p>
-          </div>
+            Back to home
         </motion.div>
       </Link>
     </header>

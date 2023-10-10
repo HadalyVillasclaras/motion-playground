@@ -52,12 +52,9 @@
   justify-content: center;
   align-items: center;
 }
+
 .backLink {
 z-index: 2;
-}
-.back p:hover{
-  text-decoration: underline;
-  /* color: var(--bg); */
 }
 
 @media (max-width: 900px) {

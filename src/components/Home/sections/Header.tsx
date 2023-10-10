@@ -8,7 +8,7 @@ export const Header = () => {
       <Divider/>
       <InfoContainer>
         <div>
-          <p>Hadaly Villasclaras</p>
+          <a className="link" href="/">Hadaly Villasclaras</a>
         </div>
         <div>
           
