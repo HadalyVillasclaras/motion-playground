@@ -1,6 +1,6 @@
 :root {
-  --bg: #e1e1db;
-  --text: #191919;
+  --bg: #272726;
+  --text: #dbdbdb;
   --project: #b0b0b0;
   --project-text: #191c1a;
   --pink: #b69393;
@@ -14,6 +14,9 @@
   --c-dark: #020202;
   --c-dark-1: #593838;
   --c-dark-2: #101010;
+
+  /*Spacings*/
+  --p-s: 1rem;
 }
 
 * {
@@ -23,6 +26,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
 *,
 *::before,
 *::after {
@@ -38,62 +42,7 @@ body {
   font-weight: 300;
   text-transform: uppercase;
   background-color: var(--bg);
-}
-
-
-/* animated grains/noise overlay */
-/* .bg {
-  position: fixed;
-  top: -50%;
-  left: -50%;
-  right: -50%;
-  bottom: -50%;
-  width: 200%;
-  height: 200vh;
-  background: transparent
-    url("http://assets.iceable.com/img/noise-transparent.png") repeat 0 0;
-  background-repeat: repeat;
-  animation: bg-animation 0.2s infinite;
-  opacity: 0.15;
-  visibility: visible;
-  pointer-events: none;
-  z-index: 2;
-} */
-
-@keyframes bg-animation {
-  0% {
-    transform: translate(0, 0);
-  }
-  10% {
-    transform: translate(-5%, -5%);
-  }
-  20% {
-    transform: translate(-10%, 5%);
-  }
-  30% {
-    transform: translate(5%, -10%);
-  }
-  40% {
-    transform: translate(-5%, 15%);
-  }
-  50% {
-    transform: translate(-10%, 5%);
-  }
-  60% {
-    transform: translate(15%, 0);
-  }
-  70% {
-    transform: translate(0, 10%);
-  }
-  80% {
-    transform: translate(-15%, 0);
-  }
-  90% {
-    transform: translate(10%, 5%);
-  }
-  100% {
-    transform: translate(5%, 0);
-  }
+  color: var(--text);
 }
 
 h1,
@@ -103,7 +52,7 @@ h3 {
 }
 
 h1 {
-  font-size: 6rem;
+  font-size: 5rem;
   line-height: 0.85;
 }
 
@@ -131,6 +80,7 @@ a {
 h1,
 h2,
 h3,
+h4,
 p,
 a {
   position: relative;
@@ -152,17 +102,6 @@ a {
 
 ul {
   list-style: none;
-  color: var(--text);
-}
-
-@keyframes blink {
-  0% { opacity: 1; }
-  50% { opacity: 0; }
-  100% { opacity: 1; }
-}
-
-.blinking-text {
-  animation: blink 2s infinite;
 }
 
 .link {
@@ -187,4 +126,24 @@ ul {
 .link:hover::before {
   transform-origin: left;
   transform: scaleX(1) rotate(0.001deg);
+}
+
+// Scroll down arrow
+.scroll-down {
+  font-size: 2rem;
+  height: 35px;
+  animation: bounce ease  1.5s infinite;
+  text-align: center;
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(7px);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }

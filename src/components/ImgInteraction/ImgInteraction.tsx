@@ -2,10 +2,9 @@ import { useEffect, useRef } from 'react'
 import './style.css';
 import Scrollbar from "smooth-scrollbar";
 import { gsap } from "gsap";
-// import { ModalPlugin } from "./plugins/scroll-disable";
 import { DATA } from "./data";
-import { ProjectHeader } from '../Projects/sections/ProjectHeader';
-import { ProjectFooter } from '../Projects/sections/ProjectFooter';
+import { imgInteractionData } from '../../utils/data';
+import { ProjectTemplate } from '../Projects/ProjectTemplate';
 
 const project =  
   {
@@ -13,7 +12,7 @@ const project =
     description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum nobis itaque laboriosam! Temporibus esse eius iusto voluptatum maiores at asperiores, quo quos omnis delectus cumque consequuntur provident dolores minus tenetur quisquam rem odit. Aut unde velit sint natus recusandae eos! Lorem ipsum dolor sit amet consectetur adipisicing elit.',
     category: 'Gsap | Intersection Observer API',
     year: '2023'
-  }
+  };
 
 export const ImgInteraction = () => {
   const contentRef = useRef(null);
@@ -60,7 +59,7 @@ export const ImgInteraction = () => {
       const containerTransparent = select(".item-container-transparent");
       const scrollContent = select(".scroll-content");
 
-      const scrollContentHeight = DATA.length * (ITEM_SIZE + PADDING);
+      const scrollContentHeight = imgInteractionData.length * (ITEM_SIZE + PADDING);
       const multiplyTime = window.innerHeight / (ITEM_SIZE + PADDING) - 2;
 
       gsap.set(scrollContent, {
@@ -72,6 +71,7 @@ export const ImgInteraction = () => {
 
     const generateList = () => {
       const scrollContent = select(".scroll-content");
+      console.log(scrollContent);
       const picture = create("div");
       const containerFull = create("div");
       const containerTransparent = create("div");
@@ -83,11 +83,12 @@ export const ImgInteraction = () => {
       content.appendChild(containerFull);
       scrollContent.insertAdjacentElement("beforeend", containerTransparent);
 
-      DATA.forEach((item, i) => {
+      imgInteractionData.forEach((item, i) => {
         const image = create("img");
+
         gsap.set(image, {
           className: "img-select",
-          attr: { src: item.imgUrl, "data-id": item.id },
+          attr: { src: item.img, "data-id": item.id },
           zIndex: i + 1,
         });
 
@@ -157,20 +158,35 @@ export const ImgInteraction = () => {
     generateList();
     setPositionCalculations();
     initObserver();
+
+    return () => {
+      // Destroy the scrollbar instance
+      verticalScrollbar.destroy();
+      
+      // Kill any lingering GSAP animations
+      gsap.killTweensOf(heading);
+      gsap.killTweensOf(".item-full");
+      gsap.killTweensOf(".img-select");
+      
+      // Remove the resize event listener
+      window.removeEventListener("resize", setPositionCalculations);
+  }
   }, [])
 
   return (
-    <div className="main-wrapper">
-      <ProjectHeader/>
-    <div className="main">
-      <div className="heading" ref={headingRef}>
-        <h4 className="heading-text">Scroll</h4>
-        <p className="scroll-down">&darr;</p>
+    <>
+    <ProjectTemplate projectInfo={project}>
+      <div className="ii-wrapper">
+        <div className="ii-content">
+          <header className="heading" ref={headingRef}>
+            <h4>Scroll</h4>
+            <p className="scroll-down">&darr;</p>
+          </header>
+          <section className="content" ref={contentRef}>
+          </section>
+        </div>
       </div>
-      <section className="content" ref={contentRef}></section>
-    </div>
-    <ProjectFooter project={project}/>
-    </div>
-
+      </ProjectTemplate>
+    </>
   )
 }

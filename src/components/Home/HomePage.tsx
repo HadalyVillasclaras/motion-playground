@@ -1,5 +1,5 @@
 import styles from "./Home.module.scss";
-import '../../index.css'
+import '../../styles/index.scss'
 import { motion } from "framer-motion";
 import { Header, ProjectsNav, About, Footer } from './sections';
 import transition from "../Shared/transition";

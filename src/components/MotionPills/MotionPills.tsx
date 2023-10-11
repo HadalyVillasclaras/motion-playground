@@ -10,7 +10,6 @@ const isDesktop = () => {
   return window.innerWidth > 1024;
 }
 
-
 export const MotionPills = () => {
   const canvasRef = useRef<HTMLDivElement | null>(null);
   if (!isDesktop()) {
@@ -22,7 +21,6 @@ export const MotionPills = () => {
       </div>
     );
   }
-
 
   useEffect(() => {
     const p5 = window.p5;

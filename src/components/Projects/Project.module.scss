@@ -1,0 +1,31 @@
+.project-container {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+
+  main {
+    width: 100%;
+    height: 90%;
+  }
+
+  footer {
+    height: 10%;
+  }
+}
+
+.project-header{
+  z-index: 1;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  padding: var(--p-s);
+}
+
+.footer-project {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+}

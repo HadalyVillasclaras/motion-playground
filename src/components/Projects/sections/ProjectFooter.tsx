@@ -1,4 +1,4 @@
-import styles from "../Project.module.css";
+import styles from "../Project.module.scss";
 import Divider from "../../Shared/Divider";
 import { InfoContainer } from "../../Shared/InfoContainer";
 

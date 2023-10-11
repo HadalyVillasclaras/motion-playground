@@ -1,6 +1,6 @@
 import styles from "../Home.module.scss"; 
 import { Link } from "react-router-dom";
-import {zinc, feldspar, stichite, augite} from '../../../assets/images/index.ts';
+import {zinc, feldspar, stichite, augite} from '../../../utils/data.ts';
 
 const projectList = [
   {

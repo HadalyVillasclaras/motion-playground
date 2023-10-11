@@ -1,7 +1,5 @@
 import { ProjectTemplate } from "../Projects/ProjectTemplate";
 import { MotionBlocks } from "./MotionBlocks";
-import { MotionPills } from "./MotionPills";
-import styles from "./MotionPills.module.css";
 
 const project = {
   title: "Motion pills",
@@ -14,12 +12,8 @@ const project = {
 export const MotionPillsPage = () => {
   return (
     <ProjectTemplate projectInfo={project}>
-      <div className={styles["pills-container"]}>
-        <section className={styles["pills"]}>
-          {/* <MotionPills /> */}
-          <MotionBlocks/>
-        </section>
-      </div>
+      {/* <MotionPills /> */}
+      <MotionBlocks />
     </ProjectTemplate>
   );
 };

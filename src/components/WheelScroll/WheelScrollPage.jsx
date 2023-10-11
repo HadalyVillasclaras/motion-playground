@@ -1,12 +1,11 @@
 import React, { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
-import styles from "./WheelScroll.module.css";
-import * as imgs from "../../assets/images/index.ts";
+import styles from "./WheelScroll.module.scss";
+import {images as imgs} from "../../utils/data.ts";
 import { ProjectTemplate } from "../Projects/ProjectTemplate.tsx";
 
 gsap.registerPlugin(ScrollTrigger);
-
 const project = {
   title: "Wheel Scroll",
   category: "GSAP",
@@ -14,29 +13,27 @@ const project = {
 };
 
 const stones = [
-  { name: 'Augite', url: imgs.augite },
-  { name: 'Gem', url: imgs.gem },
-  { name: 'Halite', url: imgs.halite },
-  { name: 'Gemstone', url: imgs.gemstone },
-  { name: 'Feldspar', url: imgs.feldspar },
-  { name: 'Ferro', url: imgs.ferro },
-  { name: 'Gypsum', url: imgs.gypsum },
-  { name: 'Zinc', url: imgs.zinc },
-  { name: 'Stichite', url: imgs.stichite },
-  { name: 'Labradorite', url: imgs.labradorite }
+  { name: "Augite", url: imgs.augite },
+  { name: "Gem", url: imgs.gem },
+  { name: "Halite", url: imgs.halite },
+  { name: "Gemstone", url: imgs.gemstone },
+  { name: "Feldspar", url: imgs.feldspar },
+  { name: "Ferro", url: imgs.ferro },
+  { name: "Gypsum", url: imgs.gypsum },
+  { name: "Zinc", url: imgs.zinc },
+  { name: "Stichite", url: imgs.stichite },
+  { name: "Labradorite", url: imgs.labradorite },
 ];
 
 export const WheelScrollPage = () => {
-  const [currentStoneName, setCurrentStoneName] = useState('-'); 
-
+  const [currentStoneName, setCurrentStoneName] = useState("Scroll");
   const wheelRef = useRef(null);
   const imgCardRefs = useRef([]);
-
   imgCardRefs.current = [];
 
-  const addToRefs = el => {
+  const addToRefs = (el) => {
     if (el && !imgCardRefs.current.includes(el)) {
-        imgCardRefs.current.push(el);
+      imgCardRefs.current.push(el);
     }
   };
 
@@ -75,11 +72,11 @@ export const WheelScrollPage = () => {
         snap: 1 / images.length,
         invalidateOnRefresh: true,
         onUpdate: (self) => {
-          const index = Math.round(self.progress * (stones.length));
+          const index = Math.round(self.progress * stones.length);
           if (index < stones.length) {
             setCurrentStoneName(stones[index].name);
           }
-        }
+        },
       },
     });
 
@@ -91,26 +88,31 @@ export const WheelScrollPage = () => {
     };
   }, []);
 
-    return (
-      <>
-      <ProjectTemplate projectInfo={project}>
-        <main className={styles['wheel-container']}>
-          <div className={styles['header-scroll']}>
-            <h1 className={styles['h1-scroll']}> {currentStoneName} </h1>
+  return (
+    <ProjectTemplate projectInfo={project}>
+      <div className={styles["scroll-container"]}>
+        <header>
+          <h1> {currentStoneName} </h1>
+          <p className="scroll-down">&darr;</p>
+        </header>
+        <section className={styles["scroll-slider-section"]}>
+          <div ref={wheelRef} id="wheel" className={styles["wheel"]}>
+            {stones.map((stone, index) => (
+              <div
+                ref={addToRefs}
+                key={index}
+                className={styles["wheel__card"]}
+              >
+                <img
+                  src={stone.url}
+                  className={styles["wheel__img"]}
+                  alt={stone.name}
+                />
+              </div>
+            ))}
           </div>
-          <p className={styles['scroll-down-icon']}>&rarr;</p>
-          <section className={styles['slider-section']}>
-            <div ref={wheelRef} id="wheel" className={styles['wheel']}>
-              {stones.map((stone, index) => (
-                <div ref={addToRefs} key={index} className={styles['wheel__card']}>
-                  <img src={stone.url} className={styles['wheel__img']} alt={stone.name} />
-                </div>
-              ))}
-            </div>
-          </section>
-        </main>
-        </ProjectTemplate>
-
-      </>
-    );
-  };
+        </section>
+      </div>
+    </ProjectTemplate>
+  );
+};
