@@ -1,10 +1,12 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import styles from "../Project.module.scss";
+import { ThemeSwitcher } from "../../Shared/ThemeSwitcher";
 
 export const ProjectHeader = () => {
   return (
-    <header className={styles["project-header"]}>
+    <header className={`${styles["project-header"]} header`}>
+      <div className="grid">
       <motion.div
         initial={{ scale: 0 }}
         animate={{
@@ -28,6 +30,11 @@ export const ProjectHeader = () => {
           Back to home
         </Link>
       </motion.div>
+      <ThemeSwitcher/>
+      <div></div>
+      <div></div>
+      <div></div>
+      </div>
     </header>
   );
 };

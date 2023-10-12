@@ -1,23 +1,57 @@
+@import 'animations';
+
+@font-face {
+  font-family: 'Neue Haas Grotesk';
+  src: url('/fonts/NeueHaasGrotesk-Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Neue Haas Grotesk';
+  src: url('/fonts/NeueHaasGrotesk-Medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Neue Haas Grotesk';
+  src: url('/fonts/NeueHaasGrotesk-Bold.otf') format('opentype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+
+
 :root {
-  --bg: #272726;
-  --text: #dbdbdb;
-  --project: #b0b0b0;
-  --project-text: #191c1a;
-  --pink: #b69393;
-  --pink-dark: #733c3c;
+  --text-dark: #0C0B0A;
+  --text-light: #dbdbdb;
+  --bg-dark: #0C0B0A;
+  --bg-light: #7d7c7c;
+
+  /*Spacings*/
   --space-xs: 0.5rem;
   --space-sm: 1rem;
   --space-md: 2rem;
 
-  --c-white: #c0bfcf;
-  --c-white-1: #c0bfcf;
-  --c-dark: #020202;
-  --c-dark-1: #593838;
-  --c-dark-2: #101010;
-
-  /*Spacings*/
   --p-s: 1rem;
 }
+
+[data-theme="light"] {
+  --bg: var(--bg-light);
+  --text: var(--text-dark);
+}
+
+[data-theme="dark"] {
+  --bg: var(--bg-dark);
+  --text: var(--text-light);
+}
+
+::selection {
+  background-color: var(--text);
+  color: var(--bg);
+}
+
 
 * {
   margin: 0;
@@ -34,12 +68,13 @@
   margin: 0;
   padding: 0;
 }
+
 html,
 body {
   width: 100%;
   height: 100%;
-  font-family: Helvetica, Arial, sans-serif;
-  font-weight: 300;
+  font-family: 'Neue Haas Grotesk', 'Times New Roman';
+  font-weight: 800;
   text-transform: uppercase;
   background-color: var(--bg);
   color: var(--text);
@@ -48,7 +83,7 @@ body {
 h1,
 h2,
 h3 {
-  font-weight: 400;
+  font-weight: 500;
 }
 
 h1 {
@@ -59,11 +94,11 @@ h1 {
 h2 {
   font-size: 2rem;
   line-height: 0.85;
+
 }
 
 h3 {
   font-size: 1rem;
-  font-weight: 600;
 }
 
 p {
@@ -91,10 +126,12 @@ a {
   p {
     font-size: 0.8rem;
   }
+
   h1 {
     font-size: 4rem;
     line-height: 0.85;
   }
+
   h2 {
     font-size: 2rem;
   }
@@ -102,6 +139,12 @@ a {
 
 ul {
   list-style: none;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .link {
@@ -119,7 +162,8 @@ ul {
   height: 1px;
   background-color: var(--text);
   transform-origin: right;
-  transition: transform  0.3s cubic-bezier(.5, 0, 0, 1);;
+  transition: transform 0.3s cubic-bezier(.5, 0, 0, 1);
+  ;
   transform: scaleX(0) rotate(0.001deg);
 }
 
@@ -132,7 +176,7 @@ ul {
 .scroll-down {
   font-size: 2rem;
   height: 35px;
-  animation: bounce ease  1.5s infinite;
+  animation: bounce ease 1.5s infinite;
   text-align: center;
 }
 
@@ -140,10 +184,70 @@ ul {
   0% {
     transform: translateY(0);
   }
+
   50% {
     transform: translateY(7px);
   }
+
   100% {
     transform: translateY(0);
   }
 }
+
+
+/* Layout */
+.main {
+  padding: 0 var(--space-md);
+}
+
+.header {
+  width: 100%;
+  padding: var(--space-md);
+}
+
+.header-instr {
+  position: fixed;
+  top: var(--space-md);
+  right: var(--space-md);
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+}
+
+.footer {
+  position: relative;
+  width: 100%;
+  height: 8vh;
+}
+
+.grid {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  @media (max-width: 900px) {
+    flex-wrap: wrap;
+
+    >* {
+      width: 50%;
+      margin: 0.5rem 0;
+    }
+  }
+}
+
+/* spacing */
+.sp-side-s{
+  padding: 0 var(--space-sm);
+}
+
+.sp-side-m{
+  padding: 0 var(--space-md);
+}
+
+
+

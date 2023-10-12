@@ -7,6 +7,7 @@ import gypsum from './gypsum.png';
 import halite from './halite.png';
 import labradorite from './labradorite.png';
 import malachite from './malachite.png';
+import oxyphlogopite1 from './oxyphlogopite-1.png';
 import stichite from './stichite.png';
 import zinc from './zinc.png';
 
@@ -41,6 +42,7 @@ export {
   labradorite,
   malachite,
   stichite,
+  oxyphlogopite1,
   zinc,
   rockAugite,
   rockFeldspar,

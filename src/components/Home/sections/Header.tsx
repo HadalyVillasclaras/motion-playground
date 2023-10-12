@@ -1,25 +1,27 @@
-import styles from "../Home.module.scss";
-import Divider from "../../Shared/Divider";
-import { InfoContainer } from "../../Shared/InfoContainer";
+import { ThemeSwitcher } from "../../Shared/ThemeSwitcher";
+import { DownUpAnimate } from "../../Shared/animations/DownUpAnimate";
 
 export const Header = () => {
   return (
-    <header className={styles["header"]}>
-      <Divider/>
-      <InfoContainer>
-        <div>
-          <a className="link" href="/">Hadaly Villasclaras</a>
+    <header className="header">
+      <DownUpAnimate>
+        <div className="grid">
+          <div>
+            <a className="link" href="/">Hadaly Villasclaras</a>
+          </div>
+          <div>
+          </div>
+          <div>
+            <p></p>
+          </div>
+          <div>
+            <ThemeSwitcher/>
+          </div>
+          <div>
+            <p className="">Motion Playground</p>
+          </div>
         </div>
-        <div>
-          
-        </div>
-        <div>
-          <p>Motion Playground</p>
-        </div>
-        <div>
-          <p className="blinking-text">[ Work in progress ]</p>
-        </div>
-      </InfoContainer>
+      </DownUpAnimate>
     </header>
   );
 };

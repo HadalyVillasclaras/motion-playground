@@ -17,7 +17,6 @@ const project = {
 const ProjectPage = () => {
   const { projectId } = useParams();
 
-  console.log(projectId);
   return (
     <>
       <div className="bg"></div>

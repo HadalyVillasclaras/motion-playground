@@ -1,7 +1,3 @@
-
-
-
-
 @keyframes blink {
   0% { opacity: 1; }
   50% { opacity: 0; }
@@ -9,13 +5,28 @@
 }
 
 .blinking-text {
-  animation: blink 9s infinite;
+  // animation: blink 4s infinite;
 }
 
+.fade-in{
+  opacity: 1;
+  transition: opacity 1s;
+};
 
+.fade-out{
+  opacity: 0;
+  transition: opacity 1s;
+};
 
+.fade-in-50{
+  opacity: 1;
+  transition: opacity 1s;
+};
 
-
+.fade-out-50{
+  opacity: 0.5;
+  transition: opacity 1s;
+};
 
 
 

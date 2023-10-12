@@ -3,7 +3,6 @@ import styles from "./Project.module.scss";
 import { ProjectHeader } from './sections/ProjectHeader';
 import { ProjectFooter } from './sections/ProjectFooter';
 
-
 interface ProjectTemplateProps {
   children: ReactNode;
   projectInfo: any

@@ -1,5 +1,5 @@
 import Divider from '../../Shared/Divider';
-import { InfoContainer } from '../../Shared/InfoContainer';
+import { DownUpAnimate } from '../../Shared/animations/DownUpAnimate';
 import styles from '../Home.module.scss';
 import { motion } from "framer-motion";
 
@@ -128,7 +128,7 @@ export const Hero = () => {
       </div>
       <div className={styles.footer}>
      <Divider/>
-        <InfoContainer
+        <DownUpAnimate
         >
           <div>
             <div className={styles.arrow}>
@@ -153,7 +153,7 @@ export const Hero = () => {
               ---
             </p>
           </div>
-        </InfoContainer>
+        </DownUpAnimate>
       </div>
     </section>
   )

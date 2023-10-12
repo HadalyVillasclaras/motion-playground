@@ -12,6 +12,10 @@ const project = {
 export const MotionPillsPage = () => {
   return (
     <ProjectTemplate projectInfo={project}>
+              <div className="header-instr">
+          {/* <p className="scroll-down">&darr;</p> */}
+          <p>[Drag & throw]</p>
+        </div>
       {/* <MotionPills /> */}
       <MotionBlocks />
     </ProjectTemplate>

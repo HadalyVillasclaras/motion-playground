@@ -6,20 +6,21 @@ import { DATA } from "./data";
 import { imgInteractionData } from '../../utils/data';
 import { ProjectTemplate } from '../Projects/ProjectTemplate';
 
-const project =  
-  {
-    title: 'Image interaction',
-    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum nobis itaque laboriosam! Temporibus esse eius iusto voluptatum maiores at asperiores, quo quos omnis delectus cumque consequuntur provident dolores minus tenetur quisquam rem odit. Aut unde velit sint natus recusandae eos! Lorem ipsum dolor sit amet consectetur adipisicing elit.',
-    category: 'Gsap | Intersection Observer API',
-    year: '2023'
-  };
+const project =
+{
+  title: 'Image interaction',
+  description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum nobis itaque laboriosam! Temporibus esse eius iusto voluptatum maiores at asperiores, quo quos omnis delectus cumque consequuntur provident dolores minus tenetur quisquam rem odit. Aut unde velit sint natus recusandae eos! Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+  category: 'Gsap | Intersection Observer API',
+  year: '2023'
+};
 
 export const ImgInteraction = () => {
+  
   const contentRef = useRef(null);
   const headingRef = useRef(null);
 
   //fix top position on resize!!
-
+  // fix: images dont fit!
   useEffect(() => {
     const PADDING = 8;
     const ITEM_SIZE = 182.4 - PADDING;
@@ -36,13 +37,15 @@ export const ImgInteraction = () => {
       damping: 0.03,
       delegateTo: document,
     });
-    
+
     verticalScrollbar.setPosition(0, 0);
     verticalScrollbar.track.yAxis.element.remove();
     verticalScrollbar.track.xAxis.element.remove();
+
     verticalScrollbar.addListener(({ offset }) => {
       const itemFull = selectAll(".item-full");
 
+      // heading-instruction
       if (offset.y > 50) {
         gsap.to(heading, { opacity: 0 });
       } else {
@@ -71,7 +74,6 @@ export const ImgInteraction = () => {
 
     const generateList = () => {
       const scrollContent = select(".scroll-content");
-      console.log(scrollContent);
       const picture = create("div");
       const containerFull = create("div");
       const containerTransparent = create("div");
@@ -160,32 +162,25 @@ export const ImgInteraction = () => {
     initObserver();
 
     return () => {
-      // Destroy the scrollbar instance
       verticalScrollbar.destroy();
-      
-      // Kill any lingering GSAP animations
+
       gsap.killTweensOf(heading);
       gsap.killTweensOf(".item-full");
       gsap.killTweensOf(".img-select");
-      
-      // Remove the resize event listener
+
       window.removeEventListener("resize", setPositionCalculations);
-  }
+    }
   }, [])
 
   return (
     <>
-    <ProjectTemplate projectInfo={project}>
-      <div className="ii-wrapper">
-        <div className="ii-content">
-          <header className="heading" ref={headingRef}>
-            <h4>Scroll</h4>
-            <p className="scroll-down">&darr;</p>
-          </header>
+      <ProjectTemplate projectInfo={project}>
+        <div className="header-instr" ref={headingRef}>
+          {/* <p className="scroll-down">&darr;</p> */}
+          <p>[Scroll]</p>
+        </div>
           <section className="content" ref={contentRef}>
           </section>
-        </div>
-      </div>
       </ProjectTemplate>
     </>
   )

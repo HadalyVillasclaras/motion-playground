@@ -2,8 +2,9 @@ import React, { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import styles from "./WheelScroll.module.scss";
-import {images as imgs} from "../../utils/data.ts";
+import { images as imgs } from "../../utils/data.ts";
 import { ProjectTemplate } from "../Projects/ProjectTemplate.tsx";
+import { useScrollDetect } from "../../hooks/useScrollDetect.tsx";
 
 gsap.registerPlugin(ScrollTrigger);
 const project = {
@@ -13,23 +14,41 @@ const project = {
 };
 
 const stones = [
-  { name: "Augite", url: imgs.augite },
-  { name: "Gem", url: imgs.gem },
-  { name: "Halite", url: imgs.halite },
+  { name: "Biotite", url: imgs.biotite },
+  // { name: "Cobaltaustinite", url: imgs.cobaltaustinite },
+
   { name: "Gemstone", url: imgs.gemstone },
+  { name: "Quartz2", url: imgs.quartz2 },
+
+  // { name: "Oxyphlogopite1", url: imgs.oxyphlogopite1 },
   { name: "Feldspar", url: imgs.feldspar },
-  { name: "Ferro", url: imgs.ferro },
-  { name: "Gypsum", url: imgs.gypsum },
+  // { name: "Lawsonite", url: imgs.lawsonite },
+  // { name: "Mica", url: imgs.mica },
+  // { name: "Fluorapatite", url: imgs.fluorapatite },
+
+
   { name: "Zinc", url: imgs.zinc },
-  { name: "Stichite", url: imgs.stichite },
-  { name: "Labradorite", url: imgs.labradorite },
+  // { name: "Mica", url: imgs.mica2 },
+  { name: "Oxyphlogopite2", url: imgs.oxyphlogopite2 },
+
+  { name: "Potosiite", url: imgs.potosiite },
+
+  // { name: "Benitoite", url: imgs.benitoite },
+
+  { name: "Oxyphlogopite4", url: imgs.oxyphlogopite4 },
+
+  // { name: "Oxyphlogopite3", url: imgs.oxyphlogopite3 },
+  { name: "Halite", url: imgs.halite },
 ];
 
 export const WheelScrollPage = () => {
-  const [currentStoneName, setCurrentStoneName] = useState("Scroll");
+  const [currentStoneName, setCurrentStoneName] = useState("[Scroll]");
   const wheelRef = useRef(null);
   const imgCardRefs = useRef([]);
   imgCardRefs.current = [];
+
+  //la última se repite
+  const isScrolling = useScrollDetect();
 
   const addToRefs = (el) => {
     if (el && !imgCardRefs.current.includes(el)) {
@@ -90,11 +109,11 @@ export const WheelScrollPage = () => {
 
   return (
     <ProjectTemplate projectInfo={project}>
+      <div className={`header-instr ${isScrolling ? 'fade-out-50' : 'fade-in-50'}`}> 
+        {/* <p>[Scroll]</p>  */}
+        <p>{currentStoneName}</p>
+      </div>
       <div className={styles["scroll-container"]}>
-        <header>
-          <h1> {currentStoneName} </h1>
-          <p className="scroll-down">&darr;</p>
-        </header>
         <section className={styles["scroll-slider-section"]}>
           <div ref={wheelRef} id="wheel" className={styles["wheel"]}>
             {stones.map((stone, index) => (
@@ -105,7 +124,6 @@ export const WheelScrollPage = () => {
               >
                 <img
                   src={stone.url}
-                  className={styles["wheel__img"]}
                   alt={stone.name}
                 />
               </div>
