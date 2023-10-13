@@ -1,7 +1,6 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Engine, Render, World, Runner, Body, Bodies, Composite, Mouse, MouseConstraint, Events, IChamferableBodyDefinition } from 'matter-js';
-import { motionBodies } from './motionBodies';
-import { motion } from 'framer-motion';
+import { getMotionBodies } from './motionBodies';
 
 function debounce(func, wait) {
   let timeout;
@@ -15,8 +14,9 @@ function debounce(func, wait) {
 
 export const MotionBlocks = () => {
   const canvasDivRef = useRef<HTMLDivElement | null>(null);
-  const engineRef = useRef(null);  // To store our engine instance for the resize function
+  const engineRef = useRef(null);  
   const renderRef = useRef(null);
+  const [motionBodies, setMotionBodies] = useState(getMotionBodies());
 
   useEffect(() => {
     if (!canvasDivRef.current) return;
@@ -25,7 +25,10 @@ export const MotionBlocks = () => {
     const canvasHeight = canvasDiv.clientHeight;
     const canvasWidth = canvasDiv.clientWidth;
 
-    const engine = Engine.create({ gravity: { x: 0, y: 1 } });
+    const engine = Engine.create({ 
+      positionIterations: 8,
+      velocityIterations: 8
+    });
     const runner = Runner.create();
 
     const render = Render.create({
@@ -44,25 +47,24 @@ export const MotionBlocks = () => {
 
     // Bodies
     const bodyProperties = {
-      restitution: 0.001,   // 0-1 Very little bounciness
+      restitution: 0,   // 0-1 Very little bounciness
       friction: 1,        //  0 means no friction (like ice), and a value of 1 means high frictio
       frictionStatic: 1, // Higher static friction
-      density: 0.101,
-      frictionAir: 0.05
+      density: 10,
+      frictionAir: 0.05,
+      slop: 0.05,
     };
 
-    /*props to behave like rocks based on ia:
-    const bodyProperties = {
-      restitution: 0.05,      // Very low bounce for rocks
-      friction: 0.8,         // High friction because rocks have a rough surface
-      frictionStatic: 0.9,   // Even higher static friction to resist initial movement
-      density: 0.01,         // Increase the density to make it feel heavier
+    const bodyPropertiess = {
+      restitution: 0.2,      // Very low bounce for rocks
+      friction: 0.05,         // High friction because rocks have a rough surface
+      frictionStatic: 0.05,   // Even higher static friction to resist initial movement
+      density: 0.001,         // Increase the density to make it feel heavier
       frictionAir: 0.02,     // Small air resistance; rocks aren't affected by air much
-      slop: 0.05,            // Tolerance for penetration, making collisions more stable
-      inertia: Infinity,     // Prevents rocks from spinning easily
-      timeScale: 1           // Speed multiplier; you can adjust if you want to slow down or speed up the physics
+      slop: 0.2,            // Tolerance for penetration, making collisions more stable
+      //inertia: 0,     // Prevents rocks from spinning easily
+      //timeScale: 1           // Speed multiplier; you can adjust if you want to slow down or speed up the physics
     };
-    */
 
     const bodies = motionBodies.map(config => {
       const mergedProperties = {
@@ -78,7 +80,7 @@ export const MotionBlocks = () => {
 
     // Boundaries
     // const top = Bodies.rectangle(canvasWidth / 2, -10, canvasWidth, 10, { isStatic: true });
-    const ground = Bodies.rectangle(canvasWidth / 2, canvasHeight, canvasWidth, 0.01, { isStatic: true });
+    const ground = Bodies.rectangle(canvasWidth / 2, canvasHeight + 10, canvasWidth, 20, { isStatic: true });
     const leftWall = Bodies.rectangle(-10, canvasHeight / 2, 10, canvasHeight, { isStatic: true });
     const rightWall = Bodies.rectangle(canvasWidth + 10, canvasHeight / 2, 10, canvasHeight, { isStatic: true });
 
@@ -105,6 +107,8 @@ export const MotionBlocks = () => {
     Runner.run(runner, engine);
 
     const handleResize = debounce(() => {
+      setMotionBodies(getMotionBodies());
+
       if (canvasDivRef.current && renderRef.current) {
         const updatedWidth = canvasDivRef.current.clientWidth;
         const updatedHeight = canvasDivRef.current.clientHeight;
@@ -133,10 +137,10 @@ export const MotionBlocks = () => {
       render.canvas = null
       render.context = null
       render.textures = {}
+      window.removeEventListener('resize', handleResize);
     }
 
-  }, [])
-
+  }, [motionBodies])
   return (
     <div style={{ width: '100%', height: '100%' }} ref={canvasDivRef} id="matterCanvas" />
   )

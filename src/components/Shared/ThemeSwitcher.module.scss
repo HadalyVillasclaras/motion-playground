@@ -8,25 +8,29 @@
 
 .ts-box {
   position: relative;
-  // border: 1px solid rgb(188, 174, 174);
-  padding: 0.2rem;
-  width: 300px;
-  height: 100px;
+  // border: 1px solid rgb(0, 255, 81);
+  width: 80px;
+  height: 12px;
+  cursor: pointer;
 }
 
 .ts-bg {
   background-color: var(--text);
   width: 100%;
   height: 100%;
+  
 }
 
 .ts-pill {
   position: absolute;
-  top: 0;
-  right: -30%;
-  border-radius: 80px;
+  top: 50%;
+  // right: -50%;
+  border-radius: 50px;
   background-color: var(--bg);
   width: 100%;
-  height: 100%;
+  height: 150%;
   border: none;
+  cursor: pointer;
+
+  transform: translateY(-50%); 
 }

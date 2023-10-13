@@ -67,3 +67,19 @@
     }
   }
 }
+
+.wheel-data {
+  display: flex;
+  gap: 2rem;
+
+  &__row {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+
+    svg {
+      fill: var(--text);
+    }
+  }
+
+}

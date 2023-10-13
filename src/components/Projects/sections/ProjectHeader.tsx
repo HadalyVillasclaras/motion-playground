@@ -30,7 +30,6 @@ export const ProjectHeader = () => {
           Back to home
         </Link>
       </motion.div>
-      <ThemeSwitcher/>
       <div></div>
       <div></div>
       <div></div>

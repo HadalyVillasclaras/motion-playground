@@ -1,8 +1,9 @@
 :root {
   --font-dk: 7.5rem;
+  --font-mb: 3.25rem;
+
   --mask-bg-dk: 8rem;
-  --font-mb: 3rem;
-  --mask-bg-mb: 2.5rem;
+  --mask-bg-mb: 3rem;
 }
 
 .content {
@@ -43,8 +44,9 @@
 .item-container-full {
   position: absolute;
   right: 0;
-  height: var(--mask-bg-mb);
   overflow: hidden;
+  height: var(--mask-bg-dk);
+
 }
 
 .item {
@@ -57,43 +59,33 @@
 }
 
 .title {
-  font-size: var(--font-mb);
+  font-size: var(--font-dk);
+
   text-transform: uppercase;
   text-align: right;
   font-weight: 800;
 
 }
 
-@media (min-width: 900px) {
+@media (max-width: 768px) {
   .title {
-    font-size: var(--font-dk);
+  font-size: var(--font-mb);
   }
 
   .item-container-full {
-    height: var(--mask-bg-dk);
+  height: var(--mask-bg-mb);
   }
-}
-
-@media (max-width: 900px) {
 
   .picture {
-    top: 4rem;
+    top: 6rem;
     block-size: 290px;
     inline-size:250px;
-    left: 0;
-  }
-  .scroll-content {
-    /* top: -132px; */
-  }
-
-  .item-container-full {
-    /* top: 326px !important; */
+    left: var(--space-md);
   }
 }
 
 .title-transparent {
   -webkit-text-stroke: 1px var(--text-light);
   color: transparent;
-
 }
 

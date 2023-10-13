@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import styles from "./WheelScroll.module.scss";
@@ -38,10 +38,9 @@ export const WheelScrollPage = () => {
   const wheelRef = useRef(null);
   const imgCardRefs = useRef([]);
   imgCardRefs.current = [];
-  
+
   //la última se repite
   const isScrolling = useScrollDetect();
-console.log(isScrolling);
   const addToRefs = (element) => {
     if (element && !imgCardRefs.current.includes(element)) {
       imgCardRefs.current.push(element);
@@ -84,11 +83,12 @@ console.log(isScrolling);
       scrollTrigger: {
         start: 0,
         end: "max",
-        scrub: 1 ,
+        scrub: 1,
         snap: snapPositions,
         invalidateOnRefresh: true,
         onUpdate: (self) => {
-          const index = Math.round(self.progress * stones.length);
+          const effectiveProgress = self.progress * (stones.length - 1);
+          const index = Math.round(effectiveProgress);
           if (index < stones.length) {
             setCurrentStoneName(stones[index].name);
           }
@@ -104,11 +104,51 @@ console.log(isScrolling);
     };
   }, []);
 
+  const scrollRef = useRef(null);
+  const currentStoneRef = useRef(null);
+  const tlRef = useRef(null);
+
+
+  useLayoutEffect(() => {
+    tlRef.current = gsap.timeline({
+      scrollTrigger: {
+        start: '50px top',
+        end: '+=500 bottom',
+        toggleActions: 'play none reverse none',
+        // markers: true,
+      },
+    });
+
+    const ctx = gsap.context(() => {
+      tlRef.current.to(scrollRef.current, {
+        y: -10,
+        opacity: 0
+      }, 0);
+      tlRef.current.fromTo(currentStoneRef.current, {
+        y: 0,
+        opacity: 0
+      },{
+        y: 50,
+        opacity: 1
+      }, 0);
+
+    }, scrollRef.current);
+
+    return () => { ctx.revert(); };
+  }, []);
+
+
   return (
     <ProjectTemplate projectInfo={project}>
-      <div className={`header-instr ${isScrolling ? "fade-out-50" : "fade-in-50"}`}>
-        {!isScrolling && <p>[Scroll]</p>}
-        {isScrolling && <p>{currentStoneName}</p>}
+      <div className={`header-instr ${styles['wheel-data']}`}>
+        <div ref={currentStoneRef} className={`${styles['wheel-data__row']}`}>
+            {/* <svg width="12" height="12" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="6" cy="6" r="3"/>
+            </svg> */}
+          <h3 >{currentStoneName}</h3>
+        </div>
+        <p ref={scrollRef}>[Scroll]</p>
+        {/* <p className={`${isScrolling ? "fade-out-50" : "fade-in-50"}`}>{currentStoneName}</p> */}
       </div>
       <div className={styles["scroll-container"]}>
         <section className={styles["scroll-slider-section"]}>

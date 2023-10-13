@@ -15,15 +15,14 @@ const project =
 };
 
 export const ImgInteraction = () => {
-  
   const contentRef = useRef(null);
   const headingRef = useRef(null);
 
   //fix top position on resize!!
   // fix: images dont fit!
   useEffect(() => {
-    const PADDING = 8;
-    const ITEM_SIZE = 182.4 - PADDING;
+
+
 
     const select = (elem) => document.querySelector(elem);
     const selectAll = (elem) => Array.from(document.querySelectorAll(elem));
@@ -55,9 +54,17 @@ export const ImgInteraction = () => {
       gsap.to(itemFull, { y: -offset.y, duration: 0 });
     });
 
-    window.addEventListener("resize", () => setPositionCalculations());
 
     const setPositionCalculations = () => {
+      let PADDING, ITEM_SIZE;
+
+      if (window.innerWidth <= 768) {  
+          PADDING = 8 / 2;
+          ITEM_SIZE = (182.4 - PADDING) / 2;
+      } else {
+          PADDING = 8;
+          ITEM_SIZE = 182.4 - PADDING;
+      }
       const continerFull = select(".item-container-full");
       const containerTransparent = select(".item-container-transparent");
       const scrollContent = select(".scroll-content");
@@ -124,6 +131,15 @@ export const ImgInteraction = () => {
     };
 
     const initObserver = () => {
+      let PADDING, ITEM_SIZE;
+
+      if (window.innerWidth <= 768) {  
+          PADDING = 8 / 2;
+          ITEM_SIZE = (182.4 - PADDING) / 2;
+      } else {
+          PADDING = 8;
+          ITEM_SIZE = 182.4 - PADDING;
+      }
       const pictureList = selectAll(".img-select");
 
       const options = {
@@ -160,6 +176,7 @@ export const ImgInteraction = () => {
     generateList();
     setPositionCalculations();
     initObserver();
+    window.addEventListener("resize", () => {setPositionCalculations(); initObserver();});
 
     return () => {
       verticalScrollbar.destroy();
