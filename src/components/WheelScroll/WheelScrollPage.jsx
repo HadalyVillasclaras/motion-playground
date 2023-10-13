@@ -16,43 +16,35 @@ const project = {
 const stones = [
   { name: "Biotite", url: imgs.biotite },
   // { name: "Cobaltaustinite", url: imgs.cobaltaustinite },
-
   { name: "Gemstone", url: imgs.gemstone },
   { name: "Quartz2", url: imgs.quartz2 },
-
   // { name: "Oxyphlogopite1", url: imgs.oxyphlogopite1 },
   { name: "Feldspar", url: imgs.feldspar },
   // { name: "Lawsonite", url: imgs.lawsonite },
   // { name: "Mica", url: imgs.mica },
   // { name: "Fluorapatite", url: imgs.fluorapatite },
-
-
   { name: "Zinc", url: imgs.zinc },
   // { name: "Mica", url: imgs.mica2 },
   { name: "Oxyphlogopite2", url: imgs.oxyphlogopite2 },
-
   { name: "Potosiite", url: imgs.potosiite },
-
   // { name: "Benitoite", url: imgs.benitoite },
-
   { name: "Oxyphlogopite4", url: imgs.oxyphlogopite4 },
-
   // { name: "Oxyphlogopite3", url: imgs.oxyphlogopite3 },
   { name: "Halite", url: imgs.halite },
 ];
 
 export const WheelScrollPage = () => {
-  const [currentStoneName, setCurrentStoneName] = useState("[Scroll]");
+  const [currentStoneName, setCurrentStoneName] = useState();
   const wheelRef = useRef(null);
   const imgCardRefs = useRef([]);
   imgCardRefs.current = [];
-
+  
   //la última se repite
   const isScrolling = useScrollDetect();
-
-  const addToRefs = (el) => {
-    if (el && !imgCardRefs.current.includes(el)) {
-      imgCardRefs.current.push(el);
+console.log(isScrolling);
+  const addToRefs = (element) => {
+    if (element && !imgCardRefs.current.includes(element)) {
+      imgCardRefs.current.push(element);
     }
   };
 
@@ -60,11 +52,13 @@ export const WheelScrollPage = () => {
     let wheel = wheelRef.current;
     let images = imgCardRefs.current;
 
+    let rotationPerImage = 360 / images.length;
+    let totalRotation = rotationPerImage * (images.length - 1);
+    let slice = (2 * Math.PI) / images.length;
+
     function setup() {
       let radius = wheel.offsetWidth / 2;
       let center = wheel.offsetWidth / 2;
-      let total = images.length;
-      let slice = (2 * Math.PI) / total;
 
       images.forEach((item, i) => {
         let angle = i * slice;
@@ -79,16 +73,19 @@ export const WheelScrollPage = () => {
         });
       });
     }
-
+    let snapPositions = [];
+    for (let i = 0; i < images.length; i++) {
+      snapPositions.push(i / (images.length - 1));
+    }
     gsap.to(wheel, {
-      rotate: () => -360,
+      rotate: () => -totalRotation,
       ease: "none",
       duration: images.length,
       scrollTrigger: {
         start: 0,
         end: "max",
-        scrub: 1,
-        snap: 1 / images.length,
+        scrub: 1 ,
+        snap: snapPositions,
         invalidateOnRefresh: true,
         onUpdate: (self) => {
           const index = Math.round(self.progress * stones.length);
@@ -109,25 +106,24 @@ export const WheelScrollPage = () => {
 
   return (
     <ProjectTemplate projectInfo={project}>
-      <div className={`header-instr ${isScrolling ? 'fade-out-50' : 'fade-in-50'}`}> 
-        {/* <p>[Scroll]</p>  */}
-        <p>{currentStoneName}</p>
+      <div className={`header-instr ${isScrolling ? "fade-out-50" : "fade-in-50"}`}>
+        {!isScrolling && <p>[Scroll]</p>}
+        {isScrolling && <p>{currentStoneName}</p>}
       </div>
       <div className={styles["scroll-container"]}>
         <section className={styles["scroll-slider-section"]}>
           <div ref={wheelRef} id="wheel" className={styles["wheel"]}>
-            {stones.map((stone, index) => (
-              <div
-                ref={addToRefs}
-                key={index}
-                className={styles["wheel__card"]}
-              >
-                <img
-                  src={stone.url}
-                  alt={stone.name}
-                />
-              </div>
-            ))}
+            {stones.map((stone, index) => {
+              return (
+                <div
+                  ref={addToRefs}
+                  key={index}
+                  className={styles["wheel__card"]}
+                >
+                  <img src={stone.url} alt={stone.name} />
+                </div>
+              );
+            })}
           </div>
         </section>
       </div>

@@ -44,12 +44,25 @@ export const MotionBlocks = () => {
 
     // Bodies
     const bodyProperties = {
-      restitution: 0.01,   // Very little bounciness
-      friction: 1,        // Higher friction
-      frictionStatic: 0.1, // Higher static friction
-      density: 0.001,
+      restitution: 0.001,   // 0-1 Very little bounciness
+      friction: 1,        //  0 means no friction (like ice), and a value of 1 means high frictio
+      frictionStatic: 1, // Higher static friction
+      density: 0.101,
       frictionAir: 0.05
     };
+
+    /*props to behave like rocks based on ia:
+    const bodyProperties = {
+      restitution: 0.05,      // Very low bounce for rocks
+      friction: 0.8,         // High friction because rocks have a rough surface
+      frictionStatic: 0.9,   // Even higher static friction to resist initial movement
+      density: 0.01,         // Increase the density to make it feel heavier
+      frictionAir: 0.02,     // Small air resistance; rocks aren't affected by air much
+      slop: 0.05,            // Tolerance for penetration, making collisions more stable
+      inertia: Infinity,     // Prevents rocks from spinning easily
+      timeScale: 1           // Speed multiplier; you can adjust if you want to slow down or speed up the physics
+    };
+    */
 
     const bodies = motionBodies.map(config => {
       const mergedProperties = {
@@ -64,8 +77,8 @@ export const MotionBlocks = () => {
 
 
     // Boundaries
-    const top = Bodies.rectangle(canvasWidth / 2, -10, canvasWidth, 10, { isStatic: true });
-    const ground = Bodies.rectangle(canvasWidth / 2, canvasHeight, canvasWidth, 10, { isStatic: true });
+    // const top = Bodies.rectangle(canvasWidth / 2, -10, canvasWidth, 10, { isStatic: true });
+    const ground = Bodies.rectangle(canvasWidth / 2, canvasHeight, canvasWidth, 0.01, { isStatic: true });
     const leftWall = Bodies.rectangle(-10, canvasHeight / 2, 10, canvasHeight, { isStatic: true });
     const rightWall = Bodies.rectangle(canvasWidth + 10, canvasHeight / 2, 10, canvasHeight, { isStatic: true });
 
@@ -84,6 +97,7 @@ export const MotionBlocks = () => {
       }
     });
     render.mouse = mouse;
+
     Composite.add(engine.world, mouseConstraint);
 
     // Run the engine

@@ -3,6 +3,10 @@ import zinc from '../../assets/images/rock-zinc.png';
 import { rocksData } from '../../utils/data';
 import { wordsData } from '../../utils/data';
 
+const BASE_WIDTH = 1520;
+const scaleFactor = window.innerWidth / BASE_WIDTH;
+
+
 // mix rocks and words in the array.
 function shuffleArray(array) {
   for (let i = array.length - 1; i > 0; i--) {
@@ -15,7 +19,28 @@ const combinedData = [...rocksData, ...wordsData];
 
 shuffleArray(combinedData);
 
-export const motionBodies = combinedData.map((item, i) => ({
+export const motionBodiesScaled = combinedData.map((item) => {
+  const responsiveWidth = item.width * scaleFactor;
+  const responsiveHeight = item.height * scaleFactor;
+
+  const xScale = responsiveWidth / item.width;
+  const yScale = responsiveHeight / item.height;
+  return {
+  x: Math.floor(Math.random() * window.innerWidth),
+  y: 0, 
+  width: responsiveWidth / 1.5,
+  height: responsiveHeight / 1.5,
+  render: {
+    sprite: {
+      texture: item.img,
+      xScale: xScale,
+      yScale: yScale
+    }
+  }
+  };
+});
+
+export const motionBodies = combinedData.map((item, ) => ({
   x: Math.floor(Math.random() * window.innerWidth),
   y: 0, 
   width: item.width / 1.5,
