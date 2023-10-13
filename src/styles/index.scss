@@ -29,12 +29,18 @@
   --bg-dark: #0C0B0A;
   --bg-light: #7d7c7c;
 
+  /*Default colors */
+  // --bg: var(--bg-dark);
+  // --text: var(--text-light);
+
   /*Spacings*/
   --space-xs: 0.5rem;
   --space-sm: 1rem;
   --space-md: 2rem;
 
   --p-s: 1rem;
+
+
 }
 
 [data-theme="light"] {
@@ -52,13 +58,13 @@
   color: var(--bg);
 }
 
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.8s ease, color 0.5s ease;
 }
 
 *,
@@ -78,6 +84,7 @@ body {
   text-transform: uppercase;
   background-color: var(--bg);
   color: var(--text);
+  transition: background-color 0.8s ease;
 }
 
 h1,
