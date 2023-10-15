@@ -1,3 +1,7 @@
+@import "../../styles/breakpoints";
+@import "../../styles/animations";
+
+
 .scroll-container {
   height: 600vh;
   position: relative;
@@ -29,7 +33,7 @@
   width: 100%;
   height: 15vh;
 
-  @media (min-width: 900px) {
+  @include desktop() {
     height: 32vh;
   }
 }
@@ -59,8 +63,7 @@
       background-position: top;
     }
   }
-  
-  @media (min-width: 900px) {
+  @include desktop() {
     &__card {
       height: 55vh;
       width: 22vw;
@@ -69,17 +72,88 @@
 }
 
 .wheel-data {
-  display: flex;
-  gap: 2rem;
+  @include tablet() {
+  gap: 6rem;
+  }
 
   &__row {
-    display: flex;
-    gap: 0.5rem;
-    align-items: center;
-
+    position: relative;
+    width: 100%;
+    
     svg {
       fill: var(--text);
     }
+
+    hr {
+      position: relative;
+      top: 2rem;
+      color: var(--text);
+      border-color: var(--text);
+
+    }
   }
 
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  
+    th {
+      font-size: 0.7rem;
+      font-weight: 500;
+      text-transform: none;
+    }
+
+    td {
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+    th, td {
+        text-align: left;
+        padding: 8px;
+    }
+
+    tr {
+      position: relative;
+      width: 100%;
+
+
+
+    }
+    
+    thead {
+      // border-bottom: 1px solid white;
+    }
+
+    th:nth-child(1), td:nth-child(1) { width: 300px; }
+    th:nth-child(2), td:nth-child(2) { width: 100px; }
+    th:nth-child(3), td:nth-child(3) { width: 120px; }
+    th:nth-child(4), td:nth-child(4) { width: 190px; }
+    th:nth-child(5), td:nth-child(5) { width: 190px; }
+}
+
+h3 {
+  position: absolute;
+  top: 0;
+  left: 70%;
+  width: 100%;
+
+  @include tablet() {
+    left: 90%;
+    top: 10px;
+  }
+}
+}
+
+.wheel-data__row-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+
+  span {
+    margin-bottom: 0.4rem;
+    display: inline-block;
+    font-size: var(--size-text-s);
+    text-transform: none;
+    font-weight: var(--font-regular);
+  }
 }

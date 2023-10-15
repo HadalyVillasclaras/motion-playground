@@ -1,0 +1,15 @@
+@import "./breakpoints";
+
+:root {
+  --space-xs: 0.5rem;
+  --space-sm: 0.8rem;
+  --space-md: 1.5rem;
+}
+
+@include desktop() {
+  :root {
+    --space-xs: 0.5rem;
+    --space-sm: 1rem;
+    --space-md: 2rem;
+  }
+}

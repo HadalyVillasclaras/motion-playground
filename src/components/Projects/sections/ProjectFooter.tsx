@@ -9,7 +9,8 @@ export const ProjectFooter = ({ project }: any) => {
       <footer className={`${styles['footer-project']} footer`}>
       <Divider />
         <DownUpAnimate>
-          <div className="grid sp-side-m">
+          <div className={`${styles['footer-project__data']} `}>
+          <div className="grid">
             <div>
               <p>{project.title}</p>
             </div>
@@ -17,15 +18,11 @@ export const ProjectFooter = ({ project }: any) => {
               <p>{project.year}</p>
             </div>
             <div>
-            </div>
-            <div>
-            </div>
-            <div>
-            </div>
-            <div>
               <p>{project.category}</p>
             </div>
           </div>
+          </div>
+
         </DownUpAnimate>
       </footer>
     </>

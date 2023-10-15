@@ -13,7 +13,7 @@ const project = {
   year: "2023",
 };
 
-const stones = [
+const stones1 = [
   { name: "Biotite", url: imgs.biotite },
   // { name: "Cobaltaustinite", url: imgs.cobaltaustinite },
   { name: "Gemstone", url: imgs.gemstone },
@@ -33,14 +33,92 @@ const stones = [
   { name: "Halite", url: imgs.halite },
 ];
 
+const stones = [
+  {
+    name: "Biotite",
+    url: imgs.biotite,
+    symbol: "Bio",
+    source: "IMA–CNMNC",
+    formulae: "K(Mg,Fe)<sub>3</sub>AlSi<sub>3</sub>>",
+    group: "Phyllosilicate"
+  },
+  {
+    name: "Gemstone",
+    url: imgs.gemstone,
+    symbol: "Gst",
+    source: "Gemological",
+    formulae: "Varies",
+    group: "Various"
+  },
+  {
+    name: "Quartz2",
+    url: imgs.quartz2,
+    symbol: "Qtz",
+    source: "IMA–CNMNC",
+    formulae: "SiO<sub>2</sub>",
+    group: "Tectosilicate"
+  },
+  {
+    name: "Feldspar",
+    url: imgs.feldspar,
+    symbol: "Fsp",
+    source: "IMA–CNMNC",
+    formulae: "CaAl<sub>2</sub>Si<sub>2</sub>O<sub>8</sub>",
+    group: "Tectosilicate"
+  },
+  {
+    name: "Zinc",
+    url: imgs.zinc,
+    symbol: "Zn",
+    source: "Metal",
+    formulae: "Zn",
+    group: "Metal"
+  },
+  {
+    name: "Oxyphlogopite2",
+    url: imgs.oxyphlogopite2,
+    symbol: "Oxy",
+    source: "IMA–CNMNC",
+    formulae: "K(Mg,Fe)<sub>3</sub>AlSi<sub>3</sub>O<sub>10</sub>",
+    group: "Phyllosilicate"
+  },
+  {
+    name: "Potosiite",
+    url: imgs.potosiite,
+    symbol: "Pts",
+    source: "IMA–CNMNC",
+    formulae: "Ba(Cu<sub>4</sub>(OH)<sub>6</sub>Cl<sub>2</sub>)",
+    group: "Halide"
+  },
+  {
+    name: "Oxyphlogopite4",
+    url: imgs.oxyphlogopite4,
+    symbol: "Oxy",
+    source: "IMA–CNMNC",
+    formulae: "K(Mg,Fe)<sub>3</sub>AlSi<sub>3</sub>O<sub>10</sub>",
+    group: "Phyllosilicate"
+  },
+  {
+    name: "Halite",
+    url: imgs.halite,
+    symbol: "Hlt",
+    source: "Evaporite",
+    formulae: "NaCl",
+    group: "Halide"
+  }
+];
+
 export const WheelScrollPage = () => {
+  const [isRowOpen, setIsRowOpen] = useState(false);
   const [currentStoneName, setCurrentStoneName] = useState();
+  const [currentStone, setCurrentStone] = useState(null);
+
   const wheelRef = useRef(null);
   const imgCardRefs = useRef([]);
   imgCardRefs.current = [];
 
   //la última se repite
-  const isScrolling = useScrollDetect();
+  const { isScrolling, hasStoppedScrolling } = useScrollDetect();
   const addToRefs = (element) => {
     if (element && !imgCardRefs.current.includes(element)) {
       imgCardRefs.current.push(element);
@@ -90,7 +168,8 @@ export const WheelScrollPage = () => {
           const effectiveProgress = self.progress * (stones.length - 1);
           const index = Math.round(effectiveProgress);
           if (index < stones.length) {
-            setCurrentStoneName(stones[index].name);
+            // setCurrentStoneName(stones[index].name);
+            setCurrentStone(stones[index]);
           }
         },
       },
@@ -105,12 +184,16 @@ export const WheelScrollPage = () => {
   }, []);
 
   const scrollRef = useRef(null);
+  const rowRef = useRef(null);
   const currentStoneRef = useRef(null);
-  const tlRef = useRef(null);
+  const tl1Ref = useRef(null);
+  const tl2Ref = useRef(null);
 
+  const hrRef = useRef(null);
+  const toggleRowIconRef = useRef(null);
 
   useLayoutEffect(() => {
-    tlRef.current = gsap.timeline({
+    tl1Ref.current = gsap.timeline({
       scrollTrigger: {
         start: '50px top',
         end: '+=500 bottom',
@@ -119,18 +202,29 @@ export const WheelScrollPage = () => {
       },
     });
 
+    gsap.set(hrRef.current, { opacity: 0 });
+    gsap.set(rowRef.current, { color: "rgba(255, 255, 255, 0)", });
+    gsap.set(currentStoneRef.current, { opacity: 0 });
+    gsap.set(toggleRowIconRef.current, { opacity: 0 }
+    );
     const ctx = gsap.context(() => {
-      tlRef.current.to(scrollRef.current, {
-        y: -10,
-        opacity: 0
-      }, 0);
-      tlRef.current.fromTo(currentStoneRef.current, {
-        y: 0,
-        opacity: 0
-      },{
-        y: 50,
-        opacity: 1
-      }, 0);
+      // [SCROLL] and row goes down on scroll. Scroll desappear, name appears
+      tl1Ref.current
+        .to(scrollRef.current, {
+          y: -10,
+          opacity: 0
+        }, 0)
+        .fromTo(rowRef.current, {
+          y: -50,
+          opacity: 0
+        }, {
+          y: 50,
+          opacity: 1
+
+        }, 0)
+        .to(currentStoneRef.current, {
+          opacity: 1,
+        }, 0);
 
     }, scrollRef.current);
 
@@ -138,19 +232,162 @@ export const WheelScrollPage = () => {
   }, []);
 
 
+  useEffect(() => {
+    // If has stopped the plus icon appears
+    showOpenRowBtn();
+  }, [hasStoppedScrolling])
+
+  useLayoutEffect(() => {
+    const themeElement = document.body;
+
+    const tableColor = getComputedStyle(themeElement).getPropertyValue('--table-color').trim();
+    const tableColorVisible = `rgba(${tableColor}, 1)`;
+    const tableColorHidden = `rgba(${tableColor}, 0)`;
+
+    console.log(tableColorVisible);
+    console.log(tableColorHidden);
+
+
+    tl2Ref.current = gsap.timeline({ paused: true, defaults: { duration: 1.7 } });
+
+    tl2Ref.current
+      .fromTo(currentStoneRef.current, {
+        y: 0,
+        x: "0%",
+      }, {
+        y: 0,
+        x: "-70%", //-90% desktop
+      }, 0)
+      .fromTo(hrRef.current, {
+        opacity: 0,
+        scaleX: 0,
+        transformOrigin: "100%",
+      }, {
+        opacity: 1,
+        scaleX: 1,
+      }, 1)
+      .fromTo(rowRef.current, {
+        color: `rgba(${tableColor}, 0)`,
+      }, {
+        color: `rgba(${tableColor}, 1)`,
+      }, 1)
+      .fromTo(".dw", {
+        y: -10,
+        duration: 1
+      }, {
+        y: 0,
+        duration: 1
+      }, 1)
+      ;
+  }, [])
+
+  function handleToggleRow() {
+    if (isRowOpen) {
+      tl2Ref.current.reverse();
+
+      setTimeout(() => {
+        setIsRowOpen(false);
+      }, 2000);
+    } else {
+      tl2Ref.current.play();
+      setTimeout(() => {
+        setIsRowOpen(true);
+      }, 2000);
+    }
+
+    gsap.to(toggleRowIconRef.current, {
+      opacity: 0,
+      duration: 2,
+      onComplete: () => {
+        gsap.to(toggleRowIconRef.current, {
+          opacity: 1,
+          duration: 2
+        });
+      }
+    });
+  }
+
+  function showOpenRowBtn() {
+    if (hasStoppedScrolling) {
+      gsap.to(toggleRowIconRef.current, {
+        opacity: 1,
+        duration: 1,
+        ease: 'slow'
+      });
+    } else {
+      gsap.to(toggleRowIconRef.current, {
+        opacity: 0,
+        duration: 1,
+        ease: 'slow'
+      });
+    }
+  }
   return (
     <ProjectTemplate projectInfo={project}>
-      <div className={`header-instr ${styles['wheel-data']}`}>
-        <div ref={currentStoneRef} className={`${styles['wheel-data__row']}`}>
-            {/* <svg width="12" height="12" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="6" cy="6" r="3"/>
-            </svg> */}
-          <h3 >{currentStoneName}</h3>
-        </div>
-        <p ref={scrollRef}>[Scroll]</p>
-        {/* <p className={`${isScrolling ? "fade-out-50" : "fade-in-50"}`}>{currentStoneName}</p> */}
-      </div>
       <div className={styles["scroll-container"]}>
+
+        <div className={`header-instr ${styles['wheel-data']}`}>
+          {/* <div ref={rowRef} className={`${styles['wheel-data__row']}`}>
+            <hr className="dw" ref={hrRef} />
+            <table>
+              <thead >
+                <tr>
+                  <th className="dw"></th>
+                  <th className="dw">Symbol</th>
+                  <th className="dw">Source</th>
+                  <th className="dw">Formulae</th>
+                  <th className="dw">Group</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><h3 ref={currentStoneRef}>
+                    <button className="btn blink" onClick={handleToggleRow} ref={toggleRowIconRef}>{isRowOpen ? '-' : '+'}</button>
+                    {` ${currentStone?.name}`}
+                  </h3></td>
+                  <td className="dw">{currentStone?.symbol}</td>
+                  <td className="dw">{currentStone?.source}</td>
+                  <td className="dw" dangerouslySetInnerHTML={{ __html: currentStone?.formulae }}></td>
+                  <td className="dw">{currentStone?.group}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div> */}
+          <div ref={rowRef} className={`${styles['wheel-data__row']}`}>
+          <ul className={`${styles['wheel-data__row-list']}`}>
+            <li>
+              <span></span>
+              <h3 ref={currentStoneRef}>
+                <button className="btn blink" onClick={handleToggleRow} ref={toggleRowIconRef}>
+                  {isRowOpen ? '-' : '+'}
+                </button>
+                {` ${currentStone?.name}`}
+              </h3>
+            </li>
+            <li>
+              <span>Symbol</span> <h4 className="dw">{currentStone?.symbol}</h4>
+            </li>
+            <li>
+              <span>Source</span> <h4 className="dw">{currentStone?.source}</h4>
+            </li>
+            <li>
+              <span>Formulae</span>
+              <h4 className="dw" dangerouslySetInnerHTML={{ __html: currentStone?.formulae }}></h4>
+            </li>
+            <li>
+              <span>Group</span> <h4 className="dw">{currentStone?.group}</h4>
+            </li>
+          </ul>
+          </div>
+          <div>
+
+          </div>
+          <p ref={scrollRef}>[Scroll]</p>
+          {/* <p className={`${isScrolling ? "fade-out-50" : "fade-in-50"}`}>{currentStoneName}</p> */}
+        </div>
+
+
+
         <section className={styles["scroll-slider-section"]}>
           <div ref={wheelRef} id="wheel" className={styles["wheel"]}>
             {stones.map((stone, index) => {

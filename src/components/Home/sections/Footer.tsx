@@ -1,27 +1,18 @@
 import { DownUpAnimate } from "../../Shared/animations/DownUpAnimate";
 import { Clock } from "../../Shared/Clock";
 import Divider from "../../Shared/Divider";
+import styles from "./../Home.module.scss";
 
 export const Footer = () => {
   return (
     <>
       <Divider />
-      <footer className='footer'>
+      <footer className={`footer ${styles['home-footer']}`}>
         <DownUpAnimate>
-          <div className="grid sp-side-m">
-            <div>
+          <div className={`${styles['home-footer__data']}`}>
+            <div className="grid">
               <p>© 2023</p>
-            </div>
-            <div>
-              <Clock/>
-            </div>
-            <div>
-            </div>
-            <div>
-            </div>
-            <div>
-            </div>
-            <div>
+              <Clock />
               <p className="blinking-text">[Work in progress]</p>
             </div>
           </div>

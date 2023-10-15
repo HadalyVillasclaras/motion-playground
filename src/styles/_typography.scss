@@ -1,0 +1,64 @@
+@import "./breakpoints";
+
+@font-face {
+  font-family: 'Neue Haas Grotesk';
+  src: url('/fonts/NeueHaasGrotesk-Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Neue Haas Grotesk';
+  src: url('/fonts/NeueHaasGrotesk-Medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Neue Haas Grotesk';
+  src: url('/fonts/NeueHaasGrotesk-Bold.otf') format('opentype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+:root {
+  --font-family: 'Neue Haas Grotesk', 'Helvetica', 'Arial';
+  --font-regular: normal;
+  --font-medium: 500;
+  --font-bold: bold;
+  
+  --size-text: 0.9rem;
+  --size-text-xl: 1.5rem;
+  --size-text-s: 0.8rem;
+
+  --size-link: 0.9rem;
+
+  --h1: 4rem;
+  --h2: 1.7rem;
+  --h3: 1.2rem;
+  --h4: 1.3rem;
+  
+  --h1-lh: 0.85;
+  --h2-lh: 2.3rem;
+  --h3-lh: 1.2rem;
+  --h4-lh: 1.3rem;
+
+  
+}
+
+@include desktop() {
+  :root {
+    --size-text-xl: 1.7rem;
+
+    --h1: 5rem;
+    --h2: 2rem;
+    --h3: 1.5rem;
+    --h4: 1.2rem;
+    
+    --h1-lh: 0.85;
+    --h2-lh: 2.3rem;
+    --h3-lh: 1.2rem;
+    --h4-lh: 1.1rem;
+  }
+}
+

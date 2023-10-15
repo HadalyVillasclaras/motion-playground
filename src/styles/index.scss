@@ -1,27 +1,8 @@
-@import 'animations';
-
-@font-face {
-  font-family: 'Neue Haas Grotesk';
-  src: url('/fonts/NeueHaasGrotesk-Regular.otf') format('opentype');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Neue Haas Grotesk';
-  src: url('/fonts/NeueHaasGrotesk-Medium.otf') format('opentype');
-  font-weight: 500;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Neue Haas Grotesk';
-  src: url('/fonts/NeueHaasGrotesk-Bold.otf') format('opentype');
-  font-weight: bold;
-  font-style: normal;
-}
-
-
+@use './animations';
+@use './typography';
+@use './spacing';
+@use './breakpoints';
+@import './breakpoints';
 
 :root {
   --text-dark: #0C0B0A;
@@ -33,22 +14,18 @@
   // --bg: var(--bg-dark);
   // --text: var(--text-light);
 
-  /*Spacings*/
-  --space-xs: 0.5rem;
-  --space-sm: 1rem;
-  --space-md: 2rem;
 
   --p-s: 1rem;
-
-
 }
 
 [data-theme="light"] {
+  --table-color: 12, 11, 10;  
   --bg: var(--bg-light);
   --text: var(--text-dark);
 }
 
 [data-theme="dark"] {
+  --table-color: 219, 219, 219;  
   --bg: var(--bg-dark);
   --text: var(--text-light);
 }
@@ -64,7 +41,7 @@
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  transition: background-color 0.8s ease, color 0.5s ease;
+  transition: background-color 0.8s ease;
 }
 
 *,
@@ -80,7 +57,7 @@ body {
   width: 100%;
   height: 100%;
   font-family: 'Neue Haas Grotesk', 'Times New Roman';
-  font-weight: 800;
+  font-weight: var(--font-medium);
   text-transform: uppercase;
   background-color: var(--bg);
   color: var(--text);
@@ -88,40 +65,42 @@ body {
 }
 
 h1,
-h2,
 h3,
 h4 {
-  font-weight: 500;
+  font-weight: var(--font-medium);
 }
 
 h1 {
-  font-size: 5rem;
-  line-height: 0.85;
+  font-size: var(--h1);
+  line-height: var(--h1-lh);
 }
 
 h2 {
-  font-size: 2rem;
-  line-height: 0.85;
+  font-size: var(--h2);
+  line-height: var(--h2-lh);
+  font-weight: var(--font-regular);
 
 }
 
 h3 {
-  font-size: 1.5rem;
+  font-size: var(--h3);
+  line-height: var(--h3-lh);
 }
 
 h4 {
-  font-size: 1rem;
+  font-size: var(--h4);
+  line-height: var(--h4-lh);
 }
 
 p {
-  font-size: 0.9rem;
-  font-weight: 500;
+  font-size: var(--size-text);
+  font-weight: var(--font-medium);
 }
 
 a {
   text-decoration: none;
-  font-weight: 500;
-  font-size: 0.9rem;
+  font-weight: var(--font-medium);
+  font-size: var(--size-link);
 }
 
 h1,
@@ -134,23 +113,13 @@ a {
   color: var(--text);
 }
 
-@media (max-width: 900px) {
-  p {
-    font-size: 0.8rem;
-  }
-
-  h1 {
-    font-size: 4rem;
-    line-height: 0.85;
-  }
-
-  h2 {
-    font-size: 2rem;
-  }
-}
-
 ul {
   list-style: none;
+}
+
+li {
+  font-size: var(--size-text);
+
 }
 
 img {
@@ -175,7 +144,6 @@ img {
   background-color: var(--text);
   transform-origin: right;
   transition: transform 0.3s cubic-bezier(.5, 0, 0, 1);
-  ;
   transform: scaleX(0) rotate(0.001deg);
 }
 
@@ -219,12 +187,20 @@ img {
 
 .header-instr {
   position: fixed;
-  top: var(--space-md);
-  right: var(--space-md);
+  top: 0;
+  right: 0;
+  padding: var(--space-md);
   width: 100%;
   display: flex;
-  align-items: flex-start;
+  flex-direction: column-reverse;
+  align-items: end;
   justify-content: flex-end;
+
+
+  @include tablet() {
+    flex-direction: row;
+    align-items: flex-start;
+  }
 }
 
 .footer {
@@ -235,31 +211,57 @@ img {
 
 .grid {
   position: relative;
-  display: flex;
+  display: grid;
+  z-index: 999;
   width: 100%;
-  height: 100%;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-
-  @media (max-width: 900px) {
-    flex-wrap: wrap;
-
-    >* {
-      width: 50%;
-      margin: 0.5rem 0;
-    }
+  grid-template-columns: 1fr;
+  
+  & > :nth-child(1) {
+    grid-column: 1;
+    grid-row: 1;
   }
+
+  & > :nth-child(2) {
+    grid-column: 1;
+    grid-row: 1;
+    justify-self: end; 
+  }
+
+  & > :nth-child(3) {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  @include tablet() {
+    grid-template-columns: repeat(9, 1fr);
+  }
+
+  > * {
+    // border: 1px solid red
+  }
+  // background: repeating-linear-gradient(to right,
+  //     #43b7c2, #43b7c2 1px,
+  //     transparent 1px, transparent calc(100%/9 - 1px));
 }
 
 /* spacing */
-.sp-side-s{
+.sp-side-s {
   padding: 0 var(--space-sm);
 }
 
-.sp-side-m{
+.sp-side-m {
   padding: 0 var(--space-md);
 }
 
-
-
+.btn {
+  margin: 0;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  font-size: inherit;
+  cursor: pointer;
+  z-index: 999;
+  position: relative;
+  color: var(--text);
+  min-width: 1rem;
+}
