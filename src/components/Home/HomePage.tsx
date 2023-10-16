@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import { Header, ProjectsNav, About, Footer } from './sections';
 import transition from "../Shared/transition";
 
-
 const HomePage = () => {
   return (
     <motion.div className={styles.home}>

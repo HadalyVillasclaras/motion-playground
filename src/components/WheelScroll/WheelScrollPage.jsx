@@ -5,6 +5,7 @@ import styles from "./WheelScroll.module.scss";
 import { images as imgs } from "../../utils/data.ts";
 import { ProjectTemplate } from "../Projects/ProjectTemplate.tsx";
 import { useScrollDetect } from "../../hooks/useScrollDetect.tsx";
+import { Cursor } from "../Shared/Cursor.tsx";
 
 gsap.registerPlugin(ScrollTrigger);
 const project = {
@@ -325,7 +326,6 @@ export const WheelScrollPage = () => {
   return (
     <ProjectTemplate projectInfo={project}>
       <div className={styles["scroll-container"]}>
-
         <div className={`header-instr ${styles['wheel-data']}`}>
           {/* <div ref={rowRef} className={`${styles['wheel-data__row']}`}>
             <hr className="dw" ref={hrRef} />

@@ -9,7 +9,7 @@ export const ThemeSwitcher = () => {
   const [isDark, switchTheme] = useSwitchTheme();
   
   useLayoutEffect(() => {
-    let ctx = gsap.context(() => {
+    const ctx = gsap.context(() => {
       if (isDark) {
         gsap.set(pillRef.current, { x: '30%' });
       } else {
@@ -36,7 +36,7 @@ export const ThemeSwitcher = () => {
 
   return (
     <>
-      <div ref={toggleBoxRef} onClick={() => { handleAnimation(); setTimeout(() => { switchTheme(); }, 150); }} className={styles["ts-box"]}>
+      <div  ref={toggleBoxRef} onClick={() => { handleAnimation(); setTimeout(() => { switchTheme(); }, 150); }} className={`${styles["ts-box"]} expnd-crs`}>
         <div className={styles["ts-bg"]}></div>
         <button ref={pillRef} className={styles["ts-pill"]}></button>
       </div>

@@ -8,7 +8,7 @@
   --text-dark: #0C0B0A;
   --text-light: #dbdbdb;
   --bg-dark: #0C0B0A;
-  --bg-light: #7d7c7c;
+  --bg-light: #b9b6b6;
 
   /*Default colors */
   // --bg: var(--bg-dark);
@@ -50,6 +50,8 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  cursor: none !important;
+
 }
 
 html,
@@ -63,6 +65,7 @@ body {
   color: var(--text);
   transition: background-color 0.8s ease;
 }
+
 
 h1,
 h3,
@@ -119,13 +122,13 @@ ul {
 
 li {
   font-size: var(--size-text);
-
 }
 
 img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  isolation: isolate !important;
 }
 
 .link {
@@ -259,7 +262,7 @@ img {
   border: none;
   background-color: transparent;
   font-size: inherit;
-  cursor: pointer;
+  cursor: none;
   z-index: 999;
   position: relative;
   color: var(--text);

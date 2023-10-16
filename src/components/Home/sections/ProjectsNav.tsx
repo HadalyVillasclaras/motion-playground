@@ -38,7 +38,7 @@ export const ProjectsNav = () => {
     <nav className={styles["projects-nav"]}>
       <ul className={styles["projects-nav-container"]}>
         {projectList.map((project, index) => (
-          <li key={index}>
+          <li key={index} className="expnd-crs">
             <Divider />
             <Link className={styles["project"]} to={project.to}>
               <div className={styles["project__l"]}>
