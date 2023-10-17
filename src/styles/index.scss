@@ -50,7 +50,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  cursor: none !important;
+  // cursor: none !important;
 
 }
 
@@ -262,7 +262,7 @@ img {
   border: none;
   background-color: transparent;
   font-size: inherit;
-  cursor: none;
+  // cursor: none;
   z-index: 999;
   position: relative;
   color: var(--text);

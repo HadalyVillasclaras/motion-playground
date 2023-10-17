@@ -2,6 +2,7 @@ import { ReactNode } from 'react'
 import styles from "./Project.module.scss";
 import { ProjectHeader } from './sections/ProjectHeader';
 import { ProjectFooter } from './sections/ProjectFooter';
+import { useSwitchTheme } from '../../hooks/useSwitchTheme';
 
 interface ProjectTemplateProps {
   children: ReactNode;
@@ -9,6 +10,8 @@ interface ProjectTemplateProps {
 }
 
 export const ProjectTemplate = ({ children, projectInfo }: ProjectTemplateProps) => {
+  useSwitchTheme();
+
   return (
     <>
       <div className={styles["project-container"]}>

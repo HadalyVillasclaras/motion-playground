@@ -39,6 +39,7 @@
 }
 
 .wheel {
+  padding-bottom: 3rem;
   position: absolute;
   top: 0;
   left: 50%;
@@ -51,24 +52,29 @@
   max-width: 2000px;
   max-height: 2000px;
   
+
+
   &__card {
     position: absolute;
+    padding-bottom: 150px;
     top: 0;
     left: 0;
-    width: 200px;
-    height: 230px;
+    width: 250px;
+    height: 500px;
     aspect-ratio: 1 / 1;
 
     img {
       background-position: top;
     }
-  }
-  @include desktop() {
-    &__card {
+
+    @include desktop() {
       height: 55vh;
       width: 22vw;
+      padding-bottom: unset;
     }
   }
+
+  
 }
 
 .wheel-data {
@@ -76,10 +82,11 @@
   gap: 6rem;
   }
 
-  &__row {
+  &__wrapper {
     position: relative;
     width: 100%;
-    
+    font-size: 0.9rem;
+    font-weight: 500;
     svg {
       fill: var(--text);
     }
@@ -91,65 +98,86 @@
       border-color: var(--text);
 
     }
+
+    h3 {
+      position: absolute;
+      top: 0;
+      left: 0%;
+      width: 100%;
+      z-index: 5;
+  
+      @include tablet() {
+        left: 90%;
+        top: 4px;
+      }
+    }
   }
 
-  table {
-    border-collapse: collapse;
+  &__toggle {
+    z-index: 5;
+  }
+
+  &__table {
     width: 100%;
-  
-    th {
-      font-size: 0.7rem;
-      font-weight: 500;
-      text-transform: none;
+    display: none;
+    
+    @include tablet() {
+      display: block;
     }
 
-    td {
-      font-size: 0.9rem;
-      font-weight: 500;
-    }
-    th, td {
-        text-align: left;
-        padding: 8px;
-    }
-
-    tr {
-      position: relative;
+    table {
+      border-collapse: collapse;
       width: 100%;
+    
+      th {
+        font-size: 0.7rem;
+        font-weight: 500;
+        text-transform: none;
+      }
 
+      td {
+        font-size: 0.9rem;
+        font-weight: 500;
+      }
+      th, td {
+          text-align: left;
+          padding: 8px;
+      }
 
+      tr {
+        position: relative;
+        width: 100%;
+      }
+      
+      thead {
+        // border-bottom: 1px solid white;
+      }
 
+      th:nth-child(1), td:nth-child(1) { width: 300px; }
+      th:nth-child(2), td:nth-child(2) { width: 100px; }
+      th:nth-child(3), td:nth-child(3) { width: 120px; }
+      th:nth-child(4), td:nth-child(4) { width: 190px; }
+      th:nth-child(5), td:nth-child(5) { width: 190px; }
     }
     
-    thead {
-      // border-bottom: 1px solid white;
-    }
-
-    th:nth-child(1), td:nth-child(1) { width: 300px; }
-    th:nth-child(2), td:nth-child(2) { width: 100px; }
-    th:nth-child(3), td:nth-child(3) { width: 120px; }
-    th:nth-child(4), td:nth-child(4) { width: 190px; }
-    th:nth-child(5), td:nth-child(5) { width: 190px; }
-}
-
-h3 {
-  position: absolute;
-  top: 0;
-  left: 70%;
-  width: 100%;
-
-  @include tablet() {
-    left: 90%;
-    top: 10px;
   }
 }
-}
 
-.wheel-data__row-list {
+.wheel-data__list {
   display: flex;
   flex-direction: column;
   gap: 1.6rem;
 
-  span {
+  h4 {
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+
+  @include tablet() {
+    display: none;
+  }
+
+  p {
     margin-bottom: 0.4rem;
     display: inline-block;
     font-size: var(--size-text-s);
@@ -157,3 +185,4 @@ h3 {
     font-weight: var(--font-regular);
   }
 }
+

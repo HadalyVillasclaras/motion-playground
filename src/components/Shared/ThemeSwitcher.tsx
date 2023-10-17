@@ -1,4 +1,4 @@
-import React, { useEffect, useLayoutEffect, useRef } from 'react'
+import { useLayoutEffect, useRef } from 'react'
 import styles from "./ThemeSwitcher.module.scss";
 import gsap from 'gsap';
 import { useSwitchTheme } from '../../hooks/useSwitchTheme';
