@@ -3,7 +3,6 @@ import styles from './Cursor.module.scss';
 import { useEffect, useRef, useState } from 'react';
 // import gsap from "gsap";
 
-// https://codepen.io/martinboykov/pen/wvzNJex
 export const Cursor = () => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const cursorRef = useRef(null);
@@ -31,6 +30,7 @@ export const Cursor = () => {
         left: `${position.x}px`,
         top: `${position.y}px`,
         mixBlendMode: blendModeActive ? 'difference' : 'normal'
+        //if 
       }}
     ></div>
   );

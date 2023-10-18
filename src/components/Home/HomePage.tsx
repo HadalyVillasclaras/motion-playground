@@ -3,9 +3,12 @@ import '../../styles/index.scss'
 import { motion } from "framer-motion";
 import { Header, ProjectsNav, About, Footer } from './sections';
 import transition from "../Shared/transition";
+import { Fader } from "../Shared/Fader";
 
 const HomePage = () => {
   return (
+    <>
+      <Fader/> 
     <motion.div className={styles.home}>
       <Header/>
       <main className="main">
@@ -14,6 +17,7 @@ const HomePage = () => {
       </main>
       <Footer/>
     </motion.div>
+    </>
   );
 };
 

@@ -33,7 +33,7 @@ export const WheelDataTable = forwardRef(({ setIsRowOpen, isRowOpen, currentSton
   useLayoutEffect(() => {
     tl2Ref.current = gsap.timeline({
       paused: true,
-      defaults: { duration: 1.2 },
+      defaults: { duration: 1.2, ease: "none"},
     });
 
     tl2Ref.current
@@ -62,23 +62,23 @@ export const WheelDataTable = forwardRef(({ setIsRowOpen, isRowOpen, currentSton
           scaleX: 1,
           duration: 1
         },
-        0.8
+        0.4
       )
       .fromTo(
         ".dw",
         {
-          y: -10,
+          y: -20,
           opacity: 0,
-          duration: 0.5,
+          duration: 0.8,
           visibility: "hidden"
         },
         {
           opacity: 1,
           y: 10,
           visibility: "visible",
-          duration: 0.5,
+          duration: 0.8,
         },
-        1
+        0.3
       );
   }, []);
 
