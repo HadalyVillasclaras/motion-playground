@@ -2,16 +2,22 @@
 
 @font-face {
   font-family: 'Neue Haas Grotesk';
-  src: url('/fonts/NeueHaasGrotesk-Regular.otf') format('opentype');
+  src: url('/fonts/NeueHaasText-Regular.woff2') format('woff2'),
+  url('/fonts/NeueHaasText-Regular.woff') format('woff'),
+  url('/fonts/NeueHaasGrotesk-Regular.otf') format('opentype');
   font-weight: normal;
   font-style: normal;
+  font-display: swap; // show the fallback font until the custom font is loaded
 }
 
 @font-face {
   font-family: 'Neue Haas Grotesk';
-  src: url('/fonts/NeueHaasGrotesk-Medium.otf') format('opentype');
+  src: url('/fonts/NeueHaasText-Medium.woff2') format('woff2'),
+  url('/fonts/NeueHaasText-Medium.woff') format('woff'),
+  url('/fonts/NeueHaasGrotesk-Medium.otf') format('opentype');
   font-weight: 500;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -19,6 +25,7 @@
   src: url('/fonts/NeueHaasGrotesk-Bold.otf') format('opentype');
   font-weight: bold;
   font-style: normal;
+  font-display: swap;
 }
 
 :root {

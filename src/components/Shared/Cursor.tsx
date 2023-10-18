@@ -1,7 +1,7 @@
 import { useCursorEvents } from '../../hooks/useCursorEvents ';
 import styles from './Cursor.module.scss';
 import { useEffect, useRef, useState } from 'react';
-import gsap from "gsap";
+// import gsap from "gsap";
 
 // https://codepen.io/martinboykov/pen/wvzNJex
 export const Cursor = () => {

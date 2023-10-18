@@ -232,7 +232,7 @@ export const imgInteractionData = [
   },
   {
     id: 10,
-    title: "Fluorapatite",
+    title: "Fluoratite",
     img: images.fluorapatite
   },
   {
@@ -247,7 +247,7 @@ export const imgInteractionData = [
   },
   {
     id: 13,
-    title: "Labradorite",
+    title: "Ladorite",
     img: images.labradorite
   },
   {
@@ -262,12 +262,10 @@ export const imgInteractionData = [
   },
   {
     id: 16,
-    title: "Oxyphlogopite",
+    title: "Oxyphlopite",
     img: images.oxyphlogopite1
   }
 ];
-
-
 
 export const rocksData = [
   {

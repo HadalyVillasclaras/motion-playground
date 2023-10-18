@@ -34,6 +34,9 @@ const projectList = [
   },
 ];
 export const ProjectsNav = () => {
+  
+
+  
   return (
     <nav className={styles["projects-nav"]}>
       <ul className={styles["projects-nav-container"]}>
@@ -43,9 +46,9 @@ export const ProjectsNav = () => {
             <Link className={styles["project"]} to={project.to}>
               <div className={styles["project__l"]}>
                 <div className={styles["project__l-img"]}>
-                  <img src={project.imgSrc} alt="" />
+                  <img loading="lazy" src={project.imgSrc} alt="" />
                 </div>
-                <div className={styles["project__l-name"]}>
+                <div className={`${project.name === 'Webflow' ? styles['project__l-name-soon'] : ''} ${styles["project__l-name"]}`}>
                   <h2>{project.name}</h2>
                   {
                     project.name === 'Webflow' &&

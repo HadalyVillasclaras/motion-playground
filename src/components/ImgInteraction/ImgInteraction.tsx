@@ -2,7 +2,6 @@ import { useEffect, useRef } from 'react'
 import './style.css';
 import Scrollbar from "smooth-scrollbar";
 import { gsap } from "gsap";
-import { DATA } from "./data";
 import { imgInteractionData } from '../../utils/data';
 import { ProjectTemplate } from '../Projects/ProjectTemplate';
 
@@ -21,9 +20,6 @@ export const ImgInteraction = () => {
   //fix top position on resize!!
   // fix: images dont fit!
   useEffect(() => {
-
-
-
     const select = (elem) => document.querySelector(elem);
     const selectAll = (elem) => Array.from(document.querySelectorAll(elem));
     const create = (elem) => document.createElement(elem);
@@ -97,7 +93,7 @@ export const ImgInteraction = () => {
 
         gsap.set(image, {
           className: "img-select",
-          attr: { src: item.img, "data-id": item.id },
+          attr: { src: item.img, "data-id": item.id, loading: "lazy"  },
           zIndex: i + 1,
         });
 

@@ -9,6 +9,7 @@
   --text-light: #dbdbdb;
   --bg-dark: #0C0B0A;
   --bg-light: #e5e2e2;
+  --bg: var(--bg-dark);
 
   /*Default colors */
   // --bg: var(--bg-dark);
@@ -45,6 +46,10 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   transition: background-color 0.8s ease;
+
+  @include tablet() {
+    cursor: none !important;
+  }
 }
 
 *,
@@ -53,15 +58,13 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  // cursor: none !important;
-
 }
 
 html,
 body {
   width: 100%;
   height: 100%;
-  font-family: 'Neue Haas Grotesk', 'Times New Roman';
+  font-family: 'Neue Haas Grotesk', 'Helvetica', 'Arial', sans-serif;
   font-weight: var(--font-medium);
   text-transform: uppercase;
   background-color: var(--bg);

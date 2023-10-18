@@ -5,4 +5,21 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   base: '/motion-playground/',
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          'vendor': [
+            'framer-motion', 
+            'gsap', 
+            'matter-js', 
+            'p5', 
+            'react', 
+            'react-dom', 
+            'react-router-dom'
+          ]
+        }
+      }
+    }
+  }
 })

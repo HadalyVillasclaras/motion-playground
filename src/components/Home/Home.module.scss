@@ -218,8 +218,28 @@ section.about {
 
     &-name {
       position: relative;
+
+      &-soon {
+        display: flex;
+        flex-wrap: wrap;
+
+        h2 {
+          margin-right: 0.4rem;
+        }
+
+        .project-soon {
+          position: relative;
+          top: 5px;
+          text-wrap: nowrap;
+          font-size: 0.7rem;
+          height: 14px;
+        }
+
+      }
     }
   }
+
+
 
   &__date {
     flex: 2;
@@ -268,13 +288,7 @@ section.about {
   }
 }
 
-.project-soon {
-  position: absolute;
-  top: 1px;
-  left: 110%;
-  text-wrap: nowrap;
-  font-size: 0.7rem;
-}
+
 
 /*Hero*/
 .hero {

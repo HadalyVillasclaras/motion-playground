@@ -1,3 +1,4 @@
+import { Theme } from '../../context/theme/ThemeContext';
 import { rocksData } from '../../utils/data';
 import { wordsData, wordsDataDark } from '../../utils/data';
 
@@ -8,10 +9,11 @@ function shuffleArray(array) {
   }
 }
 
-const combinedData = [...rocksData, ...wordsData];
-shuffleArray(combinedData);
+export function getMotionBodies(theme: Theme) {
+  const dataToUse = theme === 'light' ? wordsDataDark : wordsData;
+  const combinedData = [...rocksData, ...dataToUse];
+  shuffleArray(combinedData);
 
-export function getMotionBodies() {
   const isLargeDevice = window.innerWidth > 768;
 
   const scale = isLargeDevice ? 0.75 : 0.5;

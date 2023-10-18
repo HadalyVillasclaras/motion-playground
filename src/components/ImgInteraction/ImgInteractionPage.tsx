@@ -1,4 +1,3 @@
-import React from 'react'
 import { ProjectTemplate } from '../Projects/ProjectTemplate'
 
 const project = {
@@ -11,7 +10,6 @@ const project = {
 export const ImgInteractionPage = () => {
   return (
     <ProjectTemplate projectInfo={project}>
-
     </ProjectTemplate>
   )
 }

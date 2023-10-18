@@ -1,6 +1,7 @@
-import { useEffect, useRef, useState } from 'react'
-import { Engine, Render, World, Runner, Body, Bodies, Composite, Mouse, MouseConstraint, Events, IChamferableBodyDefinition } from 'matter-js';
+import { useContext, useEffect, useRef, useState } from 'react'
+import { Engine, Render, World, Runner, Body, Bodies, Composite, Mouse, MouseConstraint } from 'matter-js';
 import { getMotionBodies } from './motionBodies';
+import { ThemeContext } from '../../context/theme/ThemeContext';
 
 function debounce(func, wait) {
   let timeout;
@@ -16,7 +17,8 @@ export const MotionBlocks = () => {
   const canvasDivRef = useRef<HTMLDivElement | null>(null);
   const engineRef = useRef(null);  
   const renderRef = useRef(null);
-  const [motionBodies, setMotionBodies] = useState(getMotionBodies());
+  const { theme } = useContext(ThemeContext); 
+  const [motionBodies, setMotionBodies] = useState(getMotionBodies(theme));
 
   useEffect(() => {
     if (!canvasDivRef.current) return;
@@ -53,17 +55,6 @@ export const MotionBlocks = () => {
       density: 10,
       frictionAir: 0.05,
       slop: 0.05,
-    };
-
-    const bodyPropertiess = {
-      restitution: 0.2,      // Very low bounce for rocks
-      friction: 0.05,         // High friction because rocks have a rough surface
-      frictionStatic: 0.05,   // Even higher static friction to resist initial movement
-      density: 0.001,         // Increase the density to make it feel heavier
-      frictionAir: 0.02,     // Small air resistance; rocks aren't affected by air much
-      slop: 0.2,            // Tolerance for penetration, making collisions more stable
-      //inertia: 0,     // Prevents rocks from spinning easily
-      //timeScale: 1           // Speed multiplier; you can adjust if you want to slow down or speed up the physics
     };
 
     const bodies = motionBodies.map(config => {
@@ -107,7 +98,7 @@ export const MotionBlocks = () => {
     Runner.run(runner, engine);
 
     const handleResize = debounce(() => {
-      setMotionBodies(getMotionBodies());
+      setMotionBodies(getMotionBodies(theme));
 
       if (canvasDivRef.current && renderRef.current) {
         const updatedWidth = canvasDivRef.current.clientWidth;

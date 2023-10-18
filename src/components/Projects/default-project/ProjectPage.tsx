@@ -1,4 +1,3 @@
-import { useParams } from "react-router-dom";
 import transition from "../../Shared/transition";
 import { motion } from "framer-motion";
 import styles from "./ProjectDefault.module.scss";
@@ -15,8 +14,6 @@ const project = {
 };
 
 const ProjectPage = () => {
-  const { projectId } = useParams();
-
   return (
     <>
       <div className="bg"></div>
@@ -38,7 +35,7 @@ const ProjectPage = () => {
             }}
           >
             <motion.img
-              src={project.img}
+              // src={project.title}
               alt=""
               initial={{
                 scale: 1.5,

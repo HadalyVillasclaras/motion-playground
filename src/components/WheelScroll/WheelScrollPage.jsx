@@ -9,10 +9,8 @@ import { useWheelRotation } from "./hooks/useWheelRotation.tsx";
 import { WheelDataTable } from "./WheelDataTable.tsx";
 import { WheelDataList } from "./WheelDataList.tsx";
 import { useDeviceType, DeviceType } from "../../hooks/useDeviceType.tsx";
-import { Cursor } from "../Shared/Cursor.tsx";
 
 gsap.registerPlugin(ScrollTrigger);
-
 const project = {
   title: "Wheel Scroll",
   category: "GSAP",
@@ -64,8 +62,9 @@ export const WheelScrollPage = () => {
     });
 
     gsap.set(contentWrapperRef.current, { color: "rgba(255, 255, 255, 0)" });
-    gsap.set(currentStoneRef.current, { opacity: 0 });
-    gsap.set(toggleRowIconRef.current, { opacity: 0 });
+    
+    currentStoneRef.current && gsap.set(currentStoneRef?.current, { opacity: 0 });
+    toggleRowIconRef.current && gsap.set(toggleRowIconRef?.current, { opacity: 0 });
 
     const ctx = gsap.context(() => {
       // [SCROLL] and row goes down on scroll. Scroll desappear, name appears
@@ -158,8 +157,6 @@ export const WheelScrollPage = () => {
     }
   }
 
-
-
   return (
     <ProjectTemplate projectInfo={project}>
       <div className={styles["scroll-container"]}>
@@ -201,7 +198,7 @@ export const WheelScrollPage = () => {
                   key={index}
                   className={styles["wheel__card"]}
                 >
-                  <img src={stone.url} alt={stone.name} />
+                  <img loading="lazy" src={stone.url} alt={stone.name} />
                 </div>
               );
             })}
