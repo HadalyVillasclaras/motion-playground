@@ -52,7 +52,7 @@ export const useWheelRotation = (wheelRef, imgCardRefs, setCurrentStone, stones)
         onUpdate: (self) => {
           const effectiveProgress = self.progress * (stones.length - 1);
           const index = Math.round(effectiveProgress);
-          if (index < stones.length) {
+          if (index < stones.length && stones) {
             setCurrentStone(stones[index]);
           }
         },

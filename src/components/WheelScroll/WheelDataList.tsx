@@ -8,10 +8,11 @@ gsap.registerPlugin(ScrollTrigger);
 type Props = {
   currentStone: any;
   isRowOpen: boolean,
-  toggleTableVisibility: any
+  toggleTableVisibility: any,
+  setIsRowOpen: any
 }
 
-export const WheelDataList = forwardRef(({ isRowOpen, currentStone, toggleTableVisibility }: Props, ref) => {
+export const WheelDataList = forwardRef(({ setIsRowOpen, isRowOpen, currentStone, toggleTableVisibility }: Props, ref) => {
   const currentStoneRef = useRef(null);
   const toggleRowIconRef = useRef(null);
 
@@ -52,10 +53,12 @@ export const WheelDataList = forwardRef(({ isRowOpen, currentStone, toggleTableV
           y: -10,
           opacity: 0,
           duration: 0.5,
+          visibility: "hidden"
         },
         {
           opacity: 1,
           y: 10,
+          visibility: "visible",
           duration: 0.5,
         },
         0
@@ -66,10 +69,15 @@ export const WheelDataList = forwardRef(({ isRowOpen, currentStone, toggleTableV
     if (isRowOpen) {
       tl2Ref.current.reverse();
       toggleTableVisibility();
-
+      setTimeout(() => {
+        setIsRowOpen(false);
+      }, 1000);
     } else {
       tl2Ref.current.play();
       toggleTableVisibility();
+      setTimeout(() => {
+        setIsRowOpen(true);
+      }, 1000);
     }
     // hide toggle icon while animation
     toggleIconVisibility();
@@ -78,11 +86,11 @@ export const WheelDataList = forwardRef(({ isRowOpen, currentStone, toggleTableV
   function toggleIconVisibility() {
     gsap.to(toggleRowIconRef.current, {
       opacity: 0,
-      duration: 2,
+      duration: 1,
       onComplete: () => {
         gsap.to(toggleRowIconRef.current, {
           opacity: 1,
-          duration: 2,
+          duration: 1,
         });
       },
     });
@@ -91,19 +99,19 @@ export const WheelDataList = forwardRef(({ isRowOpen, currentStone, toggleTableV
   return (
     <ul className={`${styles["wheel-data__list"]}`}>
       <li>
-        <p></p>
         <h3 ref={currentStoneRef}>
           <button
-            className={`btn ${styles["wheel-data__toggle"]}`}
+            className={`btn cursor-xpnd ${styles["wheel-data__toggle"]}`}
             onClick={handleToggleRow}
-            ref={toggleRowIconRef}
           >
-            {isRowOpen ? "-" : "+"}
+           <span ref={toggleRowIconRef}>{isRowOpen ? "-" : "+"}</span> 
+           {` ${currentStone ? currentStone?.name : ''}`}
           </button>
-          {` ${currentStone?.name}`}
         </h3>
       </li>
-      <li className="dw">
+      <li>
+        <ul className={`${styles["wheel-data__list-grid"]}`}>
+        <li className="dw">
         <p>Symbol</p>
         <h4>{currentStone?.symbol}</h4>
       </li>
@@ -119,6 +127,9 @@ export const WheelDataList = forwardRef(({ isRowOpen, currentStone, toggleTableV
         <p>Group</p> 
         <h4>{currentStone?.group}</h4>
       </li>
+        </ul>
+      </li>
+
     </ul>
   )
 })

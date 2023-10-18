@@ -18,7 +18,15 @@ export const stones = [
     group: "Various",
   },
   {
-    name: "Quartz2",
+    name: "Muscovite",
+    url: imgs.muscovite,
+    symbol: "Msc",
+    source: "IMA–CNMNC",
+    formulae: "KAl<sub>2</sub>(AlSi<sub>3</sub>O<sub>10</sub>)(F,OH)<sub>2</sub>",
+    group: "Phyllosilicate"
+  },
+  {
+    name: "Quartz",
     url: imgs.quartz2,
     symbol: "Qtz",
     source: "IMA–CNMNC",
@@ -26,12 +34,12 @@ export const stones = [
     group: "Tectosilicate",
   },
   {
-    name: "Feldspar",
-    url: imgs.feldspar,
-    symbol: "Fsp",
-    source: "IMA–CNMNC",
-    formulae: "CaAl<sub>2</sub>Si<sub>2</sub>O<sub>8</sub>",
-    group: "Tectosilicate",
+    name: "Benitoite",
+    url: imgs.benitoite,  
+    symbol: "Bnt",
+    source: "IMA–CNMNC",  
+    formulae: "BaTiSi<sub>3</sub>O<sub>9</sub>",
+    group: "Cyclosilicate",
   },
   {
     name: "Zinc",
@@ -42,8 +50,8 @@ export const stones = [
     group: "Metal",
   },
   {
-    name: "Oxyphlogopite2",
-    url: imgs.oxyphlogopite2,
+    name: "Oxyphlogopite",
+    url: imgs.oxyphlogopite1,
     symbol: "Oxy",
     source: "IMA–CNMNC",
     formulae: "K(Mg,Fe)<sub>3</sub>AlSi<sub>3</sub>O<sub>10</sub>",
@@ -56,14 +64,6 @@ export const stones = [
     source: "IMA–CNMNC",
     formulae: "Ba(Cu<sub>4</sub>(OH)<sub>6</sub>Cl<sub>2</sub>)",
     group: "Halide",
-  },
-  {
-    name: "Oxyphlogopite4",
-    url: imgs.oxyphlogopite4,
-    symbol: "Oxy",
-    source: "IMA–CNMNC",
-    formulae: "K(Mg,Fe)<sub>3</sub>AlSi<sub>3</sub>O<sub>10</sub>",
-    group: "Phyllosilicate",
   },
   {
     name: "Halite",

@@ -27,6 +27,15 @@
   z-index: -1;
 }
 
+.no-blend {
+  position: fixed;
+  block-size: 400px;
+  inline-size: 600px;
+  overflow: hidden;
+  left: 14%;
+  bottom: 6rem;
+  z-index: 20;
+}
 .picture img {
   position: absolute;
   transform: translate3d(0px, 500px, 0px) scale(1.5);
@@ -54,7 +63,7 @@
 }
 
 .title-full {
-  color: var(--text-light);
+  color: var(--text);
   /* filter: blur(17px); */
 }
 
@@ -85,7 +94,7 @@
 }
 
 .title-transparent {
-  -webkit-text-stroke: 1px var(--text-light);
+  -webkit-text-stroke: 1px var(--text);
   color: transparent;
 }
 

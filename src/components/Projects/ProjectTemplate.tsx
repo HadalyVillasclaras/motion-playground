@@ -1,8 +1,9 @@
-import { ReactNode } from 'react'
+import { ReactNode, useEffect } from 'react'
 import styles from "./Project.module.scss";
 import { ProjectHeader } from './sections/ProjectHeader';
 import { ProjectFooter } from './sections/ProjectFooter';
 import { useSwitchTheme } from '../../hooks/useSwitchTheme';
+import { useCursorEvents } from '../../hooks/useCursorEvents ';
 
 interface ProjectTemplateProps {
   children: ReactNode;
@@ -11,7 +12,11 @@ interface ProjectTemplateProps {
 
 export const ProjectTemplate = ({ children, projectInfo }: ProjectTemplateProps) => {
   useSwitchTheme();
-
+  const { blendModeActive, setBlendModeActive} = useCursorEvents();
+  useEffect(() => {
+    setBlendModeActive(true)
+  }, [projectInfo])
+  
   return (
     <>
       <div className={styles["project-container"]}>

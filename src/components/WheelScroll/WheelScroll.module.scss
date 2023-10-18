@@ -56,11 +56,11 @@
 
   &__card {
     position: absolute;
-    padding-bottom: 150px;
+    padding-bottom: 205px;
     top: 0;
     left: 0;
-    width: 250px;
-    height: 500px;
+    width: 70vw;
+    height: 600px;
     aspect-ratio: 1 / 1;
 
     img {
@@ -105,16 +105,36 @@
       left: 0%;
       width: 100%;
       z-index: 5;
+      text-transform: uppercase;
   
       @include tablet() {
         left: 90%;
-        top: 4px;
+        top: 7px;
       }
     }
   }
 
   &__toggle {
     z-index: 5;
+    text-transform: uppercase;
+    font-weight: var(--font-medium);
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+
+    span {
+      font-size: 1.4rem;
+      width: 12px;
+
+      @include tablet() {
+        font-size: 1.9rem;
+        width: 18px;
+      }
+    }
+    @include tablet() {
+      gap: 0.4rem;
+    }
+
   }
 
   &__table {
@@ -130,14 +150,14 @@
       width: 100%;
     
       th {
-        font-size: 0.7rem;
+        font-size: 0.8rem;
         font-weight: 500;
         text-transform: none;
       }
 
       td {
-        font-size: 0.9rem;
-        font-weight: 500;
+        font-size: 1rem;
+        font-weight: 100;
       }
       th, td {
           text-align: left;
@@ -166,7 +186,7 @@
 .wheel-data__list {
   display: flex;
   flex-direction: column;
-  gap: 1.6rem;
+  gap: 2rem;
 
   h4 {
     font-size: 0.9rem;
@@ -183,6 +203,12 @@
     font-size: var(--size-text-s);
     text-transform: none;
     font-weight: var(--font-regular);
+  }
+
+  &-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.8rem;
   }
 }
 

@@ -1,5 +1,5 @@
 import { rocksData } from '../../utils/data';
-import { wordsData } from '../../utils/data';
+import { wordsData, wordsDataDark } from '../../utils/data';
 
 function shuffleArray(array) {
   for (let i = array.length - 1; i > 0; i--) {
@@ -14,8 +14,8 @@ shuffleArray(combinedData);
 export function getMotionBodies() {
   const isLargeDevice = window.innerWidth > 768;
 
-  const scale = isLargeDevice ? 0.8 : 0.5;
-  const divisor = isLargeDevice ? 1.4 : 2;
+  const scale = isLargeDevice ? 0.75 : 0.5;
+  const divisor = isLargeDevice ? 1.5 : 2;
 
   return combinedData.map((item) => {
     return {

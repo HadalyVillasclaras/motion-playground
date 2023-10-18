@@ -9,6 +9,7 @@ import { useWheelRotation } from "./hooks/useWheelRotation.tsx";
 import { WheelDataTable } from "./WheelDataTable.tsx";
 import { WheelDataList } from "./WheelDataList.tsx";
 import { useDeviceType, DeviceType } from "../../hooks/useDeviceType.tsx";
+import { Cursor } from "../Shared/Cursor.tsx";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -118,7 +119,7 @@ export const WheelScrollPage = () => {
 
     tl3Ref.current = gsap.timeline({
       paused: true,
-      defaults: { duration: 1.7 },
+      defaults: { duration: 1.2 },
     });
 
     tl3Ref.current.fromTo(
@@ -136,14 +137,8 @@ export const WheelScrollPage = () => {
   function toggleContentVisibility() {
     if (isRowOpen) {
       tl3Ref.current.reverse();
-      setTimeout(() => {
-        setIsRowOpen(false);
-      }, 1500);
     } else {
       tl3Ref.current.play();
-      setTimeout(() => {
-        setIsRowOpen(true);
-      }, 1500);
     }
   }
 
@@ -177,6 +172,7 @@ export const WheelScrollPage = () => {
               deviceType === DeviceType.MOBILE
               ?
               <WheelDataList
+              setIsRowOpen={setIsRowOpen}
               isRowOpen={isRowOpen}
               ref={childRefs}
               currentStone={currentStone}
@@ -185,20 +181,18 @@ export const WheelScrollPage = () => {
               :
               <WheelDataTable
               isRowOpen={isRowOpen}
+              setIsRowOpen={setIsRowOpen}
               ref={childRefs}
               currentStone={currentStone}
               toggleTableVisibility={toggleContentVisibility}
             />
-
             }
-          
-         
-
           </div>
           <p ref={scrollRef}>[Scroll]</p>
         </div>
 
         <section className={styles["scroll-slider-section"]}>
+
           <div ref={wheelRef} id="wheel" className={styles["wheel"]}>
             {stones.map((stone, index) => {
               return (

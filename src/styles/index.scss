@@ -8,7 +8,7 @@
   --text-dark: #0C0B0A;
   --text-light: #dbdbdb;
   --bg-dark: #0C0B0A;
-  --bg-light: #b9b6b6;
+  --bg-light: #e5e2e2;
 
   /*Default colors */
   // --bg: var(--bg-dark);
@@ -22,12 +22,15 @@
   --table-color: 12, 11, 10;  
   --bg: var(--bg-light);
   --text: var(--text-dark);
+  --cursor: white;
 }
 
 [data-theme="dark"] {
   --table-color: 219, 219, 219;  
   --bg: var(--bg-dark);
   --text: var(--text-light);
+  --cursor: white;
+
 }
 
 ::selection {

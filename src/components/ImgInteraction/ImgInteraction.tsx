@@ -196,6 +196,7 @@ export const ImgInteraction = () => {
           {/* <p className="scroll-down">&darr;</p> */}
           <p>[Scroll]</p>
         </div>
+          <div className='no-blend'></div>
           <section className="content" ref={contentRef}>
           </section>
       </ProjectTemplate>

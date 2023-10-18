@@ -1,46 +1,38 @@
-import andradite from '../assets/images/andradite.png';
-import augite from '../assets/images/augite.png';
 import benitoite from '../assets/images/benitoite.png';
 import beryl from '../assets/images/beryl.png';
 
 import biotite from '../assets/images/biotite.png';
+import biotiteSm from '../assets/images/biotite-small.png';
+
 import caledonite from '../assets/images/caledonite.png';
 
 import cobaltaustinite from '../assets/images/cobaltaustinite.png';
+import cobaltaustinite2 from '../assets/images/cobaltaustinite-small.png';
 
 import feldspar from '../assets/images/feldspar.png';
-import ferro from '../assets/images/ferro.png';
 import fluorapatite from '../assets/images/fluorapatite.png';
 
-import gem from '../assets/images/gem.png';
 import gemstone from '../assets/images/gemstone.png';
 import gypsum from '../assets/images/gypsum.png';
 import halite from '../assets/images/halite.png';
-import kimbelite from '../assets/images/kimbelite.png';
 import labradorite from '../assets/images/labradorite.png';
-import lawsonite from '../assets/images/lawsonite.png';
-import llanite from '../assets/images/llanite.png';
-import malachite from '../assets/images/malachite.png';
 import mica from '../assets/images/mica.png';
 import mica2 from '../assets/images/mica-2.png';
 import muscovite from '../assets/images/muscovite.png';
 import neptunite from '../assets/images/neptunite.png';
 
-import opal from '../assets/images/opal.png';
 import oxyphlogopite1 from '../assets/images/oxyphlogopite-1.png';
 import oxyphlogopite2 from '../assets/images/oxyphlogopite-2.png';
 import oxyphlogopite3 from '../assets/images/oxyphlogopite-3.png';
 import oxyphlogopite4 from '../assets/images/oxyphlogopite-4.png';
 import potosiite from '../assets/images/potosiite.png';
 
-import prehnite from '../assets/images/prehnite.png';
-
-import pyroxene from '../assets/images/pyroxene.png';
 import quartz from '../assets/images/quartz.png';
 import quartz2 from '../assets/images/quartz-2.png';
 
-import stichite from '../assets/images/stichite.png';
-import weloganite from '../assets/images/weloganite.png';
+import talc from '../assets/images/talc.png';
+
+
 import zinc from '../assets/images/zinc.png';
 
 import rockAugite from '../assets/images/rock-augite.png';
@@ -54,38 +46,49 @@ import rockStichite from '../assets/images/rock-stichite.png';
 import rockZinc from '../assets/images/rock-zinc.png';
 
 import wordAugite from '../assets/images/word-augite.png';
+import wordAugiteBlack from '../assets/images/word-augite-b.png';
+
 import wordFeldspar from '../assets/images/word-feldspar.png';
+import wordFeldsparBlack from '../assets/images/word-feldspar-b.png';
+
 import wordGemstone from '../assets/images/word-gemstone.png';
+import wordGemstoneBlack from '../assets/images/word-gemstone-b.png';
+
 import wordGypsum from '../assets/images/word-gypsum.png';
+import wordGypsumBlack from '../assets/images/word-gypsum-b.png';
+
 import wordHalite from '../assets/images/word-halite.png';
+import wordHaliteBlack from '../assets/images/word-halite-b.png';
+
 import wordLabradorite from '../assets/images/word-labradorite.png';
+import wordLabradoriteBlack from '../assets/images/word-labradorite-b.png';
+
 import wordMalachite from '../assets/images/word-malachite.png';
+import wordMalachiteBlack from '../assets/images/word-malachite-b.png';
+
 import wordStichite from '../assets/images/word-stichite.png';
+import wordStichiteBlack from '../assets/images/word-stichite-b.png';
+
 import wordZinc from '../assets/images/word-zinc.png';
+import wordZincBlack from '../assets/images/word-zinc-b.png';
+
 
 export {
-  andradite,
-  augite,
+  caledonite,
+  cobaltaustinite2,
+  halite, 
+  biotiteSm,
+
   biotite,
   feldspar,
-  ferro,
-  gem,
   gemstone,
   gypsum,
-  halite,
-  kimbelite,
   labradorite,
-  lawsonite,
-  llanite,
-  malachite,
   mica,
   muscovite,
-  opal,
   oxyphlogopite1,
-  pyroxene,
   quartz,
-  stichite,
-  weloganite,
+  talc,
   zinc,
   rockAugite,
   rockFeldspar,
@@ -104,47 +107,43 @@ export {
   wordLabradorite,
   wordMalachite,
   wordStichite,
-  wordZinc
+  wordZinc,
+  wordAugiteBlack,
+  wordFeldsparBlack,
+  wordGemstoneBlack,
+  wordGypsumBlack,
+  wordHaliteBlack,
+  wordLabradoriteBlack,
+  wordMalachiteBlack,
+  wordStichiteBlack,
+  wordZincBlack
 };
 
 export const images = {
-  andradite: andradite,
-  augite: augite,
   benitoite:benitoite,
   beryl: beryl,
   biotite: biotite,
   caledonite: caledonite,
   cobaltaustinite: cobaltaustinite,
   feldspar: feldspar,
-  ferro: ferro,
   fluorapatite: fluorapatite,
-  gem: gem,
   gemstone: gemstone,
   gypsum: gypsum,
   halite: halite,
-  kimbelite: kimbelite,
   labradorite: labradorite,
-  lawsonite: lawsonite,
-  llanite: llanite,
-  malachite: malachite,
   mica: mica,
   mica2: mica2,
 
   muscovite: muscovite,
   neptunite: neptunite,
-  opal: opal,
   oxyphlogopite1: oxyphlogopite1,
   oxyphlogopite2: oxyphlogopite2,
   oxyphlogopite3: oxyphlogopite3,
   oxyphlogopite4: oxyphlogopite4,
   potosiite: potosiite,
-  prehnite:prehnite,
-  pyroxene: pyroxene,
   quartz: quartz,
   quartz2: quartz2,
-
-  stichite: stichite,
-  weloganite: weloganite,
+  talc: talc,
   zinc: zinc,
 };
 
@@ -173,11 +172,23 @@ export const words = {
   zinc: wordZinc,
 };
 
+export const wordsBlack = {
+  augite: wordAugiteBlack,
+  feldspar: wordFeldsparBlack,
+  gemstone: wordGemstoneBlack,
+  gypsum: wordGypsumBlack,
+  halite: wordHaliteBlack,
+  labradorite: wordLabradoriteBlack,
+  malachite: wordMalachiteBlack,
+  stichite: wordStichiteBlack,
+  zinc: wordZincBlack,
+};
+
 export const imgInteractionData = [
   {
     id: 1,
-    title: "Gemstone",
-    img: images.gemstone
+    title: "Quartz",
+    img: images.quartz2
   },
   {
     id: 2,
@@ -186,8 +197,8 @@ export const imgInteractionData = [
   },
   {
     id: 3,
-    title: "Muscovite",
-    img: images.muscovite
+    title: "Potosiite",
+    img: images.potosiite
   },
   {
     id: 4,
@@ -201,13 +212,13 @@ export const imgInteractionData = [
   },
   {
     id: 6,
-    title: "Quartz",
-    img: images.quartz
+    title: "Talc",
+    img: images.talc
   },
   {
     id: 7,
-    title: "Lawsonite",
-    img: images.lawsonite
+    title: "Neptunite",
+    img: images.neptunite
   },
   {
     id: 8,
@@ -216,73 +227,43 @@ export const imgInteractionData = [
   },
   {
     id: 9,
-    title: "Stichtite",
-    img: images.stichite
+    title: "Benitoite",
+    img: images.benitoite
   },
   {
     id: 10,
-    title: "Augite",
-    img: images.augite
+    title: "Fluorapatite",
+    img: images.fluorapatite
   },
   {
     id: 11,
-    title: "Weloganite",
-    img: images.weloganite
+    title: "Muscovite",
+    img: images.muscovite
   },
   {
     id: 12,
-    title: "Pyroxene",
-    img: images.pyroxene
+    title: "Mica",
+    img: images.mica2
   },
   {
     id: 13,
-    title: "Halite",
-    img: images.halite
+    title: "Labradorite",
+    img: images.labradorite
   },
   {
     id: 14,
-    title: "Andradite",
-    img: images.andradite
+    title: "Beryl",
+    img: images.beryl
   },
   {
     id: 15,
-    title: "Mica",
-    img: images.mica
+    title: "Caledonite",
+    img: images.caledonite
   },
   {
     id: 16,
-    title: "Kimbelite",
-    img: images.kimbelite
-  },
-  {
-    id: 17,
-    title: "Gypsum",
-    img: images.gypsum
-  },
-  {
-    id: 18,
-    title: "Malachite",
-    img: images.malachite
-  },
-  {
-    id: 19,
-    title: "Gypsum",
-    img: images.gypsum
-  },
-  {
-    id: 20,
-    title: "Llanite",
-    img: images.llanite
-  },
-  {
-    id: 21,
-    title: "Opal",
-    img: images.opal
-  },
-  {
-    id: 22,
-    title: "Talc",
-    img: images.mica
+    title: "Oxyphlogopite",
+    img: images.oxyphlogopite1
   }
 ];
 
@@ -399,5 +380,62 @@ export const wordsData = [
     width: 374 * 1.2,
     height: 78 * 1.2,
     img: words.augite
+  }
+];
+
+export const wordsDataDark = [
+  {
+    name: "Zinc",
+    width: 277,
+    height: 92,
+    img: wordsBlack.zinc
+  },
+  {
+    name: "Stichite",
+    width: 538,
+    height: 92,
+    img: wordsBlack.stichite
+  },
+  {
+    name: "Malachite",
+    width: 684,
+    height: 92,
+    img: wordsBlack.malachite
+  },
+  {
+    name: "Labradorite",
+    width: 838,
+    height: 92,
+    img: wordsBlack.labradorite
+  },
+  {
+    name: "Gemstone",
+    width: 675,
+    height: 79,
+    img: wordsBlack.gemstone
+  },
+  {
+    name: "Halite",
+    width: 412,
+    height: 88,
+    img: wordsBlack.halite
+  },
+  {
+    name: "Gypsum",
+    width: 498,
+    height: 92,
+    img: wordsBlack.gypsum
+  },
+  {
+    name: "Feldspar",
+    width: 610,
+    height: 92,
+    img: wordsBlack.feldspar
+  },
+  {
+    name: "Augite",
+    width: 435,
+    height: 92,
+    img: wordsBlack.augite
   }
 ];

@@ -8,10 +8,12 @@ gsap.registerPlugin(ScrollTrigger);
 type Props = {
   currentStone: any;
   isRowOpen: boolean,
-  toggleTableVisibility: any
+  toggleTableVisibility: any,
+  setIsRowOpen: any
+
 }
 
-export const WheelDataTable = forwardRef(({ isRowOpen, currentStone, toggleTableVisibility}: Props, ref) => {
+export const WheelDataTable = forwardRef(({ setIsRowOpen, isRowOpen, currentStone, toggleTableVisibility}: Props, ref) => {
   const currentStoneRef = useRef(null);
   const toggleRowIconRef = useRef(null);
 
@@ -31,7 +33,7 @@ export const WheelDataTable = forwardRef(({ isRowOpen, currentStone, toggleTable
   useLayoutEffect(() => {
     tl2Ref.current = gsap.timeline({
       paused: true,
-      defaults: { duration: 1.7 },
+      defaults: { duration: 1.2 },
     });
 
     tl2Ref.current
@@ -53,22 +55,28 @@ export const WheelDataTable = forwardRef(({ isRowOpen, currentStone, toggleTable
           opacity: 0,
           scaleX: 0,
           transformOrigin: "100%",
+          duration: 1
         },
         {
           opacity: 1,
           scaleX: 1,
+          duration: 1
         },
-        1
+        0.8
       )
       .fromTo(
         ".dw",
         {
           y: -10,
-          duration: 1,
+          opacity: 0,
+          duration: 0.5,
+          visibility: "hidden"
         },
         {
-          y: 0,
-          duration: 1,
+          opacity: 1,
+          y: 10,
+          visibility: "visible",
+          duration: 0.5,
         },
         1
       );
@@ -78,11 +86,15 @@ export const WheelDataTable = forwardRef(({ isRowOpen, currentStone, toggleTable
     if (isRowOpen) {
       tl2Ref.current.reverse();
       toggleTableVisibility();
-     
+      setTimeout(() => {
+        setIsRowOpen(false);
+      }, 2000);
     } else {
-      console.log('entra');
       tl2Ref.current.play();
       toggleTableVisibility();
+      setTimeout(() => {
+        setIsRowOpen(true);
+      }, 2000);
     }
 
     // hide toggle icon while animation
@@ -119,10 +131,12 @@ export const WheelDataTable = forwardRef(({ isRowOpen, currentStone, toggleTable
           <tr>
             <td>
               <h3 ref={currentStoneRef}>
-                <button className={`btn ${styles["wheel-data__toggle"]}`} onClick={handleToggleRow} ref={toggleRowIconRef} >
-                  {isRowOpen ? "-" : "+"}
+                <button className={`btn cursor-xpnd ${styles["wheel-data__toggle"]}`} onClick={handleToggleRow}  >
+                 <span ref={toggleRowIconRef}>{isRowOpen ? "-" : "+"}</span> 
+                {
+                ` ${currentStone ? currentStone?.name : ''}`
+                }
                 </button>
-                {` ${currentStone?.name}`}
               </h3>
             </td>
             <td className="dw">{currentStone?.symbol}</td>

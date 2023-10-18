@@ -1,6 +1,6 @@
 import styles from "../Home.module.scss";
 import { Link } from "react-router-dom";
-import { zinc, feldspar, stichite, augite } from '../../../utils/data.ts';
+import { zinc, halite, biotiteSm, caledonite } from '../../../utils/data.ts';
 import Divider from "../../Shared/Divider.tsx";
 
 const projectList = [
@@ -13,21 +13,21 @@ const projectList = [
   },
   {
     to: 'project/wheel',
-    imgSrc: feldspar,
+    imgSrc: biotiteSm ,
     name: 'Wheel Scroll',
     category: 'GSAP',
     year: '2023',
   },
   {
     to: 'project/img-interaction',
-    imgSrc: stichite,
+    imgSrc: halite ,
     name: 'Image Interaction',
     category: 'Inter. obs. | GSAP ',
     year: '2023',
   },
   {
     to: '#',
-    imgSrc: augite,
+    imgSrc: caledonite,
     name: 'Webflow',
     category: 'GSAP',
     year: '2023',
@@ -38,7 +38,7 @@ export const ProjectsNav = () => {
     <nav className={styles["projects-nav"]}>
       <ul className={styles["projects-nav-container"]}>
         {projectList.map((project, index) => (
-          <li key={index} className="expnd-crs">
+          <li key={index} className="cursor-xpnd">
             <Divider />
             <Link className={styles["project"]} to={project.to}>
               <div className={styles["project__l"]}>
