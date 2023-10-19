@@ -185,7 +185,7 @@ export const WheelScrollPage = () => {
             />
             }
           </div>
-          <p ref={scrollRef}>[Scroll]</p>
+          <p className="header-instr-text" ref={scrollRef}>[Scroll]</p>
         </div>
 
         <section className={styles["scroll-slider-section"]}>

@@ -14,11 +14,15 @@ function debounce(func, wait) {
 }
 
 export const MotionBlocks = () => {
+  const { theme } = useContext(ThemeContext); 
+  const [motionBodies, setMotionBodies] = useState([]);
   const canvasDivRef = useRef<HTMLDivElement | null>(null);
   const engineRef = useRef(null);  
   const renderRef = useRef(null);
-  const { theme } = useContext(ThemeContext); 
-  const [motionBodies, setMotionBodies] = useState(getMotionBodies(theme));
+
+useEffect(() => {
+    setMotionBodies(getMotionBodies(theme));
+  }, [theme]);
 
   useEffect(() => {
     if (!canvasDivRef.current) return;

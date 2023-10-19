@@ -5,7 +5,7 @@
   src: url('/fonts/NeueHaasText-Regular.woff2') format('woff2'),
   url('/fonts/NeueHaasText-Regular.woff') format('woff'),
   url('/fonts/NeueHaasGrotesk-Regular.otf') format('opentype');
-  font-weight: normal;
+  font-weight: 400;
   font-style: normal;
   font-display: swap; // show the fallback font until the custom font is loaded
 }
@@ -30,14 +30,14 @@
 
 :root {
   --font-family: 'Neue Haas Grotesk', 'Helvetica', 'Arial';
-  --font-regular: normal;
+  --font-regular: 400;
   --font-medium: 500;
   --font-bold: bold;
   
   --size-text: 0.9rem;
   --size-text-xl: 1.5rem;
-  --size-text-s: 0.8rem;
-
+  --size-text-s: 0.7rem;
+  
   --size-link: 0.9rem;
 
   --h1: 4rem;
@@ -56,6 +56,8 @@
 @include desktop() {
   :root {
     --size-text-xl: 1.7rem;
+    --size-text-s: 0.8rem;
+
 
     --h1: 5rem;
     --h2: 2rem;

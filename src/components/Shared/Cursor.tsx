@@ -1,12 +1,14 @@
+import { ThemeContext } from '../../context/theme/ThemeContext';
 import { useCursorEvents } from '../../hooks/useCursorEvents ';
 import styles from './Cursor.module.scss';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, useContext } from 'react';
 // import gsap from "gsap";
 
 export const Cursor = () => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const cursorRef = useRef(null);
   const { blendModeActive, isLinkHovered } = useCursorEvents();
+  const { theme } = useContext(ThemeContext); 
 
   useEffect(() => {
     const handleMouseMove = (event) => {
@@ -22,6 +24,8 @@ export const Cursor = () => {
       document.removeEventListener('mousemove', handleMouseMove);
     };
   }, []);
+
+  
   return (
     <div
       ref={cursorRef}
@@ -29,8 +33,8 @@ export const Cursor = () => {
       style={{
         left: `${position.x}px`,
         top: `${position.y}px`,
-        mixBlendMode: blendModeActive ? 'difference' : 'normal'
-        //if 
+        mixBlendMode: blendModeActive ? 'difference' : 'unset',
+        filter: !blendModeActive && theme === 'light' ? 'invert(1)' : 'none'
       }}
     ></div>
   );

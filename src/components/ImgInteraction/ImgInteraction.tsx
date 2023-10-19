@@ -190,7 +190,7 @@ export const ImgInteraction = () => {
       <ProjectTemplate projectInfo={project}>
         <div className="header-instr" ref={headingRef}>
           {/* <p className="scroll-down">&darr;</p> */}
-          <p>[Scroll]</p>
+          <p className="header-instr-text">[Scroll]</p>
         </div>
           <div className='no-blend'></div>
           <section className="content" ref={contentRef}>

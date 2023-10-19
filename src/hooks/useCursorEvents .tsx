@@ -1,10 +1,10 @@
 import { useEffect, useState, useRef } from 'react';
 
 export const useCursorEvents = () => {
-
   const [blendModeActive, setBlendModeActive] = useState(true);
   const [isLinkHovered, setIsLinkHovered] = useState(false);
   const observerRef = useRef(null);
+  
   const attachListeners = () => {
     const handleMouseEnterImage = () => setBlendModeActive(false);
     const handleMouseLeaveImage = () => setBlendModeActive(true);
@@ -22,7 +22,6 @@ export const useCursorEvents = () => {
         console.log('Hovered over picture!');
       });
     }
-
 
     const images = document.querySelectorAll('img, .picture, .no-blend, canvas');
     images.forEach(img => {

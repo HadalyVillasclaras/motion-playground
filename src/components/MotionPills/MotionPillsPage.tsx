@@ -14,9 +14,8 @@ export const MotionPillsPage = () => {
     <ProjectTemplate projectInfo={project}>
               <div className="header-instr">
           {/* <p className="scroll-down">&darr;</p> */}
-          <p>[Drag & throw]</p>
+          <p className="header-instr-text">[Drag & throw]</p>
         </div>
-      {/* <MotionPills /> */}
       <MotionBlocks />
     </ProjectTemplate>
   );

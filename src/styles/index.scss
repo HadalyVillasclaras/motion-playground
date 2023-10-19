@@ -72,7 +72,6 @@ body {
   transition: background-color 0.8s ease;
 }
 
-
 h1,
 h3,
 h4 {
@@ -103,7 +102,7 @@ h4 {
 
 p {
   font-size: var(--size-text);
-  font-weight: var(--font-medium);
+  font-weight: var(--font-regular);
 }
 
 a {
@@ -189,11 +188,19 @@ img {
   padding: 0 var(--space-md);
 }
 
+.header p, 
+.footer p,
+.header a, 
+.footer a
+{
+  font-size: var(--size-text-s);
+}
+
 .header {
   width: 100%;
   padding: var(--space-md);
 }
-
+ 
 .header-instr {
   position: fixed;
   top: 0;
@@ -210,6 +217,10 @@ img {
     flex-direction: row;
     align-items: flex-start;
   }
+
+  &-text {
+    font-size: var(--size-text-s);
+  }
 }
 
 .footer {
@@ -224,7 +235,7 @@ img {
   z-index: 999;
   width: 100%;
   grid-template-columns: 1fr;
-  
+  align-items: center;
   & > :nth-child(1) {
     grid-column: 1;
     grid-row: 1;

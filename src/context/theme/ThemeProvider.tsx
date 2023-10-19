@@ -1,33 +1,53 @@
-import  { useState, useEffect, ReactNode } from 'react';
-import { ThemeContext, Theme } from './ThemeContext';  
+import { useState, useEffect, ReactNode } from 'react';
+import { ThemeContext, Theme } from './ThemeContext';
 
 interface ThemeProviderProps {
-    children: ReactNode;
+	children: ReactNode;
 }
 
-export const ThemeProvider = ({ children }:ThemeProviderProps) => {
-    const [theme, setTheme] = useState<Theme>('dark');
+export const ThemeProvider = ({ children }: ThemeProviderProps) => {
+	const [theme, setTheme] = useState<Theme>('dark');
+	const [isThemeLoaded, setIsThemeLoaded] = useState(false);
+	useEffect(() => {
+		const storedTheme = localStorage.getItem('theme-hv') as Theme | null;
 
-    useEffect(() => {
-        const storedTheme = localStorage.getItem('theme-hv') as Theme | null;
+		if (storedTheme) {
+			setTheme(storedTheme);
+		} else {
+			setTheme('dark');
+		}
 
-        if (storedTheme) {
-            setTheme(storedTheme);
-        }
-    }, []);
+		setIsThemeLoaded(true);
+	}, []);
 
-    useEffect(() => {
-        localStorage.setItem('theme-hv', theme);
-        document.body.setAttribute("data-theme", theme);
-    }, [theme]);
+	useEffect(() => {
+		if (theme) {
+			localStorage.setItem('theme-hv', theme);
+			document.body.setAttribute("data-theme", theme);
+	}
+	}, [theme]);
 
-    const toggleTheme = () => {
-        setTheme(currentTheme => currentTheme === 'light' ? 'dark' : 'light');
-    };
 
-    return (
-        <ThemeContext.Provider value={{ theme, toggleTheme }}>
-            {children}
-        </ThemeContext.Provider>
-    );
+	useEffect(() => {
+		const handleKeyDown = (event: KeyboardEvent) => {
+			if (event.key === 'l' || event.key === 'L') {
+				toggleTheme();
+			}
+		};
+		document.addEventListener('keydown', handleKeyDown);
+		return () => {
+			document.removeEventListener('keydown', handleKeyDown);
+		};
+	}, []);
+
+	const toggleTheme = () => {
+		setTheme(currentTheme => currentTheme === 'light' ? 'dark' : 'light');
+	};
+
+	if (!isThemeLoaded) return null;
+	return (
+		<ThemeContext.Provider value={{ theme, toggleTheme }}>
+			{children}
+		</ThemeContext.Provider>
+	);
 };
