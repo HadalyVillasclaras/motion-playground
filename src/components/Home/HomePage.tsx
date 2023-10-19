@@ -3,12 +3,12 @@ import '../../styles/index.scss'
 import { motion } from "framer-motion";
 import { Header, ProjectsNav, About, Footer } from './sections';
 import transition from "../Shared/transition";
-import { Fader } from "../Shared/Fader";
+import { PageTransition } from "../Shared/PageTransition";
 
 const HomePage = () => {
   return (
     <>
-      <Fader/> 
+    <PageTransition/> 
     <motion.div className={styles.home}>
       <Header/>
       <main className="main">

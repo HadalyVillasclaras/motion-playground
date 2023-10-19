@@ -3,7 +3,7 @@ import styles from "./Project.module.scss";
 import { ProjectHeader } from './sections/ProjectHeader';
 import { ProjectFooter } from './sections/ProjectFooter';
 import { useCursorEvents } from '../../hooks/useCursorEvents ';
-import { Fader } from '../Shared/Fader';
+import { PageTransition } from '../Shared/PageTransition';
 
 interface ProjectTemplateProps {
   children: ReactNode;
@@ -19,7 +19,7 @@ export const ProjectTemplate = ({ children, projectInfo }: ProjectTemplateProps)
   
   return (
     <>
-      <Fader/>
+      <PageTransition/>
       <div className={styles["project-container"]}>
         <ProjectHeader />
         <main>
