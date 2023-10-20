@@ -8,13 +8,27 @@
   bottom: 0;
   right: 0;
   // background-color: var(--bg);
-  background-color: gray;
-
+  background-color: rgb(46, 45, 45);
   z-index: 5;
-  transition: top 2.2s cubic-bezier(.075,2,.165,1);
   transform-origin: center top;
+  overflow: hidden;
+
+
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 1rem;
 }
+
+
+
+ .textWrapper {
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  z-index: 99;
+  position: relative;
+  height: 2rem;
+  // border: 1px solid pink;
+  // background-color: rgb(73, 71, 71);
+ }

@@ -1,7 +1,9 @@
 import styles from "../Home.module.scss";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { zinc, halite, biotiteSm, caledonite } from '../../../utils/data.ts';
 import Divider from "../../Shared/Divider.tsx";
+import { useContext } from "react";
+import { PageTransitionContext } from "../../../context/pageTransition/PageTransitionContext.tsx";
 
 const projectList = [
   {
@@ -34,16 +36,29 @@ const projectList = [
   },
 ];
 export const ProjectsNav = () => {
-  
+  const {triggerTransition , timings} = useContext(PageTransitionContext);
 
-  
+  const navigate = useNavigate();
+
+  const handleLinkClick = (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>, to: string) => {
+    event.preventDefault();
+    triggerTransition();
+
+    setTimeout(() => {
+      navigate(to);
+    }, timings.navigationDelay);
+  }
   return (
     <nav className={styles["projects-nav"]}>
       <ul className={styles["projects-nav-container"]}>
         {projectList.map((project, index) => (
           <li key={index} className="cursor-xpnd">
             <Divider />
-            <Link className={styles["project"]} to={project.to}>
+            <Link 
+              className={styles["project"]} 
+              // to={project.to} 
+              onClick={(event) => handleLinkClick(event, project.to)}
+              >
               <div className={styles["project__l"]}>
                 <div className={styles["project__l-img"]}>
                   <img loading="lazy" src={project.imgSrc} alt="" />

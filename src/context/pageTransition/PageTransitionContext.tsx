@@ -1,3 +1,7 @@
 import { createContext } from 'react';
 
-const PageTransitionContext = createContext('');
+interface PageTransitionContextType {
+  triggerTransition: () => void;
+  timings: any;
+}
+export const PageTransitionContext = createContext<PageTransitionContextType | undefined>(undefined);

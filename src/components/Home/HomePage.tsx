@@ -8,7 +8,6 @@ import { PageTransition } from "../Shared/PageTransition";
 const HomePage = () => {
   return (
     <>
-    <PageTransition/> 
     <motion.div className={styles.home}>
       <Header/>
       <main className="main">
