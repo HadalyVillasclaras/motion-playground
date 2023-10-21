@@ -34,11 +34,11 @@ export const stones = [
     group: "Tectosilicate",
   },
   {
-    name: "Benitoite",
-    url: imgs.benitoite,  
-    symbol: "Bnt",
-    source: "IMA–CNMNC",  
-    formulae: "BaTiSi<sub>3</sub>O<sub>9</sub>",
+    name: "Beryl",
+    url: imgs.berylVertical,  
+    symbol: "Brl",
+    source: "IMA–CNMNC",
+    formulae: "Be<sub>3</sub>Al<sub>2</sub>Si<sub>6</sub>O<sub>18</sub>",
     group: "Cyclosilicate",
   },
   {
@@ -46,7 +46,7 @@ export const stones = [
     url: imgs.zinc,
     symbol: "Zn",
     source: "Metal",
-    formulae: "Zn",
+    formulae: "IMA–CNMNC",
     group: "Metal",
   },
   {

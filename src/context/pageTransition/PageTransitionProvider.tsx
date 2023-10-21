@@ -19,7 +19,7 @@ export const PageTransitionProvider = ({ children }: PageTransitionProviderProps
     setIsAnimating(true);
     setTimeout(() => {
       setIsAnimating(false);
-    }, 6000);  
+    }, 5500);  
   }, []);
 
   return (

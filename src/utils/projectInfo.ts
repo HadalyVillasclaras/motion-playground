@@ -8,7 +8,7 @@ export const projectsInfo = [
     category: "p5 | Matter",
     year: "2023",
     thumbnail: zinc,
-    url: 'project/pills',
+    url: 'project/rocks',
   },
   {
     id: 'wheel',
@@ -20,12 +20,12 @@ export const projectsInfo = [
   },
   {
     id: 'inter',
-    title: 'Intersecting imgs',
+    title: 'Intersected imgs',
     description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum nobis itaque laboriosam! Temporibus esse eius iusto voluptatum maiores at asperiores, quo quos omnis delectus cumque consequuntur provident dolores minus tenetur quisquam rem odit. Aut unde velit sint natus recusandae eos! Lorem ipsum dolor sit amet consectetur adipisicing elit.',
     category: 'Gsap | Intersection Observer API',
     year: '2023',
     thumbnail: halite,
-    url: 'project/img-interaction',
+    url: 'project/intersection',
   },
   {
     id: 'webflow',

@@ -1,5 +1,7 @@
 import benitoite from '../assets/images/benitoite.png';
 import beryl from '../assets/images/beryl.png';
+import berylVertical from '../assets/images/beryl-vertical.png';
+
 
 import biotite from '../assets/images/biotite.png';
 import biotiteSm from '../assets/images/biotite-small.png';
@@ -122,6 +124,7 @@ export {
 export const images = {
   benitoite:benitoite,
   beryl: beryl,
+  berylVertical: berylVertical,
   biotite: biotite,
   caledonite: caledonite,
   cobaltaustinite: cobaltaustinite,

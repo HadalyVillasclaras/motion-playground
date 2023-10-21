@@ -15,7 +15,6 @@ export const ProjectTemplate = ({ children, projectInfo }: ProjectTemplateProps)
   const mainRef = useRef<HTMLElement | null>(null);
   const projectContainerRef = useRef<HTMLDivElement | null>(null);
 
-  console.log(projectInfo);
   useEffect(() => {
     setBlendModeActive(true);
   }, [projectInfo]);

@@ -1,4 +1,4 @@
-import {createHashRouter} from 'react-router-dom';
+import { createHashRouter} from 'react-router-dom';
 import HomePage from '../components/Home/HomePage';
 import { MotionPillsPage } from '../components/MotionPills/MotionPillsPage';
 import { ImgInteraction } from '../components/ImgInteraction/ImgInteraction';
@@ -12,24 +12,21 @@ export const router = createHashRouter([
     errorElement: '',
   },
   {
-    path: '/project',
-    errorElement: '',
-    children: [
-      {
-        path: 'pills/',
-        element: <MotionPillsPage/>,
-      },
-      {
-        path: 'wheel',
-        element: <WheelScrollPage/>,
-      },
-      {
-        path: 'img-interaction',
-        element: <ImgInteraction/>,
-      },
-    ]
+    path: '/project/rocks',
+    element: <MotionPillsPage/>,
   },
-  
+  {
+    path: '/project/wheel',
+    element: <WheelScrollPage/>,
+  },
+  {
+    path: '/project/intersection',
+    element: <ImgInteraction/>,
+  },
+  { 
+    path: "*", 
+    element: <HomePage /> 
+  },
  
 ], {
   // basename: "/playground"
