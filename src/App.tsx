@@ -7,7 +7,9 @@ import { PageTransitionProvider } from './context/pageTransition/PageTransitionP
 
 function App() {
   const deviceType = useDeviceType();
-
+  console.groupCollapsed("Website credits"),
+  console.log("%cDesign and development by Hadaly Villasclaras 🤍", "background-color: black; color: white"),
+  console.groupEnd()
   return (
     <>
     <PageTransitionProvider>

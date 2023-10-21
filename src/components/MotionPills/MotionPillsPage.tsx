@@ -1,21 +1,14 @@
 import { ProjectTemplate } from "../Projects/ProjectTemplate";
 import { MotionBlocks } from "./MotionBlocks";
-
-const project = {
-  title: "Motion pills",
-  description:
-    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum nobis itaque laboriosam! Temporibus esse eius iusto voluptatum maiores at asperiores, quo quos omnis delectus cumque consequuntur provident dolores minus tenetur quisquam rem odit. Aut unde velit sint natus recusandae eos! Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-  category: "p5.js | Matter",
-  year: "2023",
-};
+import { projectsInfo } from '../../utils/projectInfo.ts';
 
 export const MotionPillsPage = () => {
+  const rocksProject = projectsInfo.find(project => project.id === 'rocks');
   return (
-    <ProjectTemplate projectInfo={project}>
-              <div className="header-instr">
-          {/* <p className="scroll-down">&darr;</p> */}
-          <p className="header-instr-text">[Drag & throw]</p>
-        </div>
+    <ProjectTemplate projectInfo={rocksProject}>
+      <div className="header-instr">
+        <p className="header-instr-text">[Drag & throw]</p>
+      </div>
       <MotionBlocks />
     </ProjectTemplate>
   );

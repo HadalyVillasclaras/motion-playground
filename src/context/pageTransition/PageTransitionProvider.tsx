@@ -17,7 +17,9 @@ export const PageTransitionProvider = ({ children }: PageTransitionProviderProps
 
   const triggerTransition = useCallback(() => {
     setIsAnimating(true);
-    setTimeout(() => setIsAnimating(false), 6000000);  
+    setTimeout(() => {
+      setIsAnimating(false);
+    }, 6000);  
   }, []);
 
   return (

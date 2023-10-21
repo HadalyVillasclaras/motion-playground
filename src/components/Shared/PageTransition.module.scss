@@ -1,14 +1,15 @@
+@import "../../styles/breakpoints";
 
 .pageTransition {
   position: fixed;
-  width: 100%;
-  height: 92vh;
+  width: 100vw;
+  height: 100vh;
   top: 0;
   left: 0;
   bottom: 0;
   right: 0;
-  // background-color: var(--bg);
-  background-color: rgb(46, 45, 45);
+  background-color: var(--bg);
+  // background-color: rgb(46, 45, 45);
   z-index: 5;
   transform-origin: center top;
   overflow: hidden;
@@ -18,6 +19,11 @@
   justify-content: center;
   align-items: center;
   padding: 1rem;
+
+  h4 {
+    z-index: 99999;
+  }
+ 
 }
 
 
@@ -28,7 +34,16 @@
   align-items: center;
   z-index: 99;
   position: relative;
-  height: 2rem;
+  height: 30px;
   // border: 1px solid pink;
   // background-color: rgb(73, 71, 71);
  }
+ 
+ .letter {
+  display: inline-block;
+  font-size: 1.2rem;
+  
+  @include tablet() {
+    font-size: 2rem;
+  }
+}

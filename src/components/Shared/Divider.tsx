@@ -12,7 +12,7 @@ export const Divider = () => {
         width: "100%",
         transition: {
           duration: 1.5,
-          ease: [0.83, 0, 0.17, 1],
+          ease: [0, 0, 0.17, 1],
         },
       }}
     ></motion.div>

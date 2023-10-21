@@ -8,7 +8,7 @@ export const ProjectFooter = ({ project }: any) => {
     <>
       <footer className={`${styles['footer-project']} footer`}>
       <Divider />
-        <DownUpAnimate>
+        <DownUpAnimate delay={0.1}>
           <div className={`${styles['footer-project__data']} `}>
           <div className="grid">
             <div>
@@ -22,7 +22,6 @@ export const ProjectFooter = ({ project }: any) => {
             </div>
           </div>
           </div>
-
         </DownUpAnimate>
       </footer>
     </>

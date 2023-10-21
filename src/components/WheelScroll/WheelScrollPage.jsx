@@ -9,17 +9,16 @@ import { useWheelRotation } from "./hooks/useWheelRotation.tsx";
 import { WheelDataTable } from "./WheelDataTable.tsx";
 import { WheelDataList } from "./WheelDataList.tsx";
 import { useDeviceType, DeviceType } from "../../hooks/useDeviceType.tsx";
+import { projectsInfo } from '../../utils/projectInfo.ts';
 
 gsap.registerPlugin(ScrollTrigger);
-const project = {
-  title: "Wheel Scroll",
-  category: "GSAP",
-  year: "2023",
-};
 
 export const WheelScrollPage = () => {
   const [isRowOpen, setIsRowOpen] = useState(false);
   const { isScrolling, hasStoppedScrolling } = useScrollDetect();
+
+  const wheelProject = projectsInfo.find(project => project.id === 'wheel');
+
   const [currentStone, setCurrentStone] = useState(null);
   const deviceType = useDeviceType();
 
@@ -158,7 +157,7 @@ export const WheelScrollPage = () => {
   }
 
   return (
-    <ProjectTemplate projectInfo={project}>
+    <ProjectTemplate projectInfo={wheelProject}>
       <div className={styles["scroll-container"]}>
         <div className={`header-instr ${styles["wheel-data"]}`}>
           <div

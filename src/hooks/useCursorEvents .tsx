@@ -16,13 +16,6 @@ export const useCursorEvents = () => {
       setBlendModeActive(true);
     };
 
-    const picture = document.querySelector('.picture');
-    if (picture) {
-      picture.addEventListener('mouseenter', () => {
-        console.log('Hovered over picture!');
-      });
-    }
-
     const images = document.querySelectorAll('img, .picture, .no-blend, canvas');
     images.forEach(img => {
       img.addEventListener('mouseenter', handleMouseEnterImage);

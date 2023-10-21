@@ -17,7 +17,7 @@ export const Footer = () => {
             <div className="grid">
               <p>Last update: october 2023</p>
               <Clock />
-              <p>Press [L] or <button onClick={toggleTheme} className="btn link">here</button> for theme switch</p>
+              <p>Press [L] or click <button onClick={toggleTheme} className="btn link">here</button> for theme switch</p>
             </div>
           </div>
         </DownUpAnimate>

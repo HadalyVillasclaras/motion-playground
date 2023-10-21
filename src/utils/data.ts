@@ -262,7 +262,7 @@ export const imgInteractionData = [
   },
   {
     id: 16,
-    title: "Oxyphlopite",
+    title: "Oxylopite",
     img: images.oxyphlogopite1
   }
 ];

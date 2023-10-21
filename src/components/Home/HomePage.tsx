@@ -1,23 +1,22 @@
-import styles from "./Home.module.scss";
 import '../../styles/index.scss'
-import { motion } from "framer-motion";
 import { Header, ProjectsNav, About, Footer } from './sections';
-import transition from "../Shared/transition";
-import { PageTransition } from "../Shared/PageTransition";
+// import { motion } from "framer-motion";
+// import transition from "../Shared/transition";
 
 const HomePage = () => {
   return (
     <>
-    <motion.div className={styles.home}>
+    {/* <motion.div className={styles.home}> */}
       <Header/>
       <main className="main">
         <ProjectsNav />
         <About />
       </main>
       <Footer/>
-    </motion.div>
+    {/* </motion.div> */}
     </>
   );
 };
 
-export default transition(HomePage);
+// export default transition(HomePage);
+export default HomePage;

@@ -1,72 +1,66 @@
 import styles from "../Home.module.scss";
 import { Link, useNavigate } from "react-router-dom";
-import { zinc, halite, biotiteSm, caledonite } from '../../../utils/data.ts';
 import Divider from "../../Shared/Divider.tsx";
-import { useContext } from "react";
+import { useContext, useLayoutEffect, useRef } from "react";
 import { PageTransitionContext } from "../../../context/pageTransition/PageTransitionContext.tsx";
+import { projectsInfo } from '../../../utils/projectInfo.ts';
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
 
-const projectList = [
-  {
-    to: 'project/pills',
-    imgSrc: zinc,
-    name: 'Physics rocks',
-    category: 'p5 | Matter',
-    year: '2023',
-  },
-  {
-    to: 'project/wheel',
-    imgSrc: biotiteSm ,
-    name: 'Wheel Scroll',
-    category: 'GSAP',
-    year: '2023',
-  },
-  {
-    to: 'project/img-interaction',
-    imgSrc: halite ,
-    name: 'Image Interaction',
-    category: 'Inter. obs. | GSAP ',
-    year: '2023',
-  },
-  {
-    to: '#',
-    imgSrc: caledonite,
-    name: 'Webflow',
-    category: 'GSAP',
-    year: '2023',
-  },
-];
+gsap.registerPlugin(ScrollTrigger);
+
 export const ProjectsNav = () => {
   const {triggerTransition , timings} = useContext(PageTransitionContext);
+  const navRef = useRef(null);
+  const projectRefs = useRef([]);
 
   const navigate = useNavigate();
 
   const handleLinkClick = (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>, to: string) => {
     event.preventDefault();
-    triggerTransition();
-
-    setTimeout(() => {
-      navigate(to);
-    }, timings.navigationDelay);
+    if (to === 'webflow') {
+      return;
+    } else {
+      triggerTransition();
+      setTimeout(() => {
+        navigate(to);
+      }, timings.navigationDelay);
+    }
   }
+
+  useLayoutEffect(() => {
+    let ctx = gsap.context(() => {
+        gsap.from(projectRefs.current, {
+          delay: 1,
+          opacity: 0,
+          x: -20,
+          stagger: 0.1  
+        });
+      
+    }, navRef.current); 
+    
+    return () => ctx.revert();
+  }, []);
+  
   return (
-    <nav className={styles["projects-nav"]}>
+    <nav ref={navRef} className={styles["projects-nav"]}>
       <ul className={styles["projects-nav-container"]}>
-        {projectList.map((project, index) => (
-          <li key={index} className="cursor-xpnd">
+        {projectsInfo.map((project, index) => (
+          <li ref={el => projectRefs.current[index] = el} key={index} className={`prjxt cursor-xpnd`} >
             <Divider />
             <Link 
-              className={styles["project"]} 
-              // to={project.to} 
-              onClick={(event) => handleLinkClick(event, project.to)}
+              className={` ${styles["project"]}`} 
+              to={project.url} 
+              onClick={(event) => handleLinkClick(event, project.url)}
               >
               <div className={styles["project__l"]}>
                 <div className={styles["project__l-img"]}>
-                  <img loading="lazy" src={project.imgSrc} alt="" />
+                  <img loading="lazy" src={project.thumbnail} alt="" />
                 </div>
-                <div className={`${project.name === 'Webflow' ? styles['project__l-name-soon'] : ''} ${styles["project__l-name"]}`}>
-                  <h2>{project.name}</h2>
+                <div className={`${project.title === 'Webflow' ? styles['project__l-name-soon'] : ''} ${styles["project__l-name"]}`}>
+                  <h2>{project.title}</h2>
                   {
-                    project.name === 'Webflow' &&
+                    project.title === 'Webflow' &&
                     <span className={styles["project-soon"]}>[coming soon]</span>
                   }
                 </div>

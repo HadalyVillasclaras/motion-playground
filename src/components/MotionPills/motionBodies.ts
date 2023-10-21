@@ -18,7 +18,6 @@ export function getMotionBodies(theme: Theme) {
 
   const scale = isLargeDevice ? 0.75 : 0.5;
   const divisor = isLargeDevice ? 1.5 : 2;
-console.log(dataToUse);
   return combinedData.map((item) => {
     return {
       x: Math.floor(Math.random() * window.innerWidth),

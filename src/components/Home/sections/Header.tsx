@@ -9,8 +9,8 @@ export const Header = () => {
           <span>
             <a className="link" href="/">Hadaly Villasclaras</a>
           </span>
-          <p>[Work in progress]</p>
-          <p className="">Motion Playground</p>
+          <p className={`${styles["in-progress"]}`}>[Work in progress]</p>
+          <p>Motion Playground</p>
         </div>
       </DownUpAnimate>
     </header>
