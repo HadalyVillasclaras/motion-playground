@@ -60,7 +60,7 @@ export const About = () => {
   return (
     <section ref={sectionRef} className={styles.about}>
       <div ref={aboutRef} className={styles['about-desc']}>
-        <p>This space brings together a selection of experiments on web animations and interactions.
+        <p>This space brings together a selection of experiments on web animations and interactivity.
           I am collecting them here as a trace of my learning process. The motif is minerals, but it could be anything else.
           {/* <span className={styles['lil-text']}>Im also open to creative prohects and experimental stuff</span> */}
         </p>

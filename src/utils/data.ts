@@ -13,6 +13,8 @@ import cobaltaustinite2 from '../assets/images/cobaltaustinite-small.png';
 
 import feldspar from '../assets/images/feldspar.png';
 import fluorapatite from '../assets/images/fluorapatite.png';
+import fluorite from '../assets/images/fluorite.png';
+
 
 import gemstone from '../assets/images/gemstone.png';
 import gypsum from '../assets/images/gypsum.png';
@@ -130,6 +132,7 @@ export const images = {
   cobaltaustinite: cobaltaustinite,
   feldspar: feldspar,
   fluorapatite: fluorapatite,
+  fluorite: fluorite,
   gemstone: gemstone,
   gypsum: gypsum,
   halite: halite,

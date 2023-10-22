@@ -1,16 +1,11 @@
 import { ProjectTemplate } from '../Projects/ProjectTemplate'
-
-const project = {
-  id: 'inter',
-  title: 'Intersecting imgs',
-  description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum nobis itaque laboriosam! Temporibus esse eius iusto voluptatum maiores at asperiores, quo quos omnis delectus cumque consequuntur provident dolores minus tenetur quisquam rem odit. Aut unde velit sint natus recusandae eos! Lorem ipsum dolor sit amet consectetur adipisicing elit.',
-  category: 'Gsap | Intersection Observer API',
-  year: '2023'
-};
+import { projectsInfo } from '../../utils/projectInfo.ts';
 
 export const ImgInteractionPage = () => {
+  const interProject = projectsInfo.find(project => project.id === 'inter');
+
   return (
-    <ProjectTemplate projectInfo={project}>
+    <ProjectTemplate projectInfo={interProject}>
     </ProjectTemplate>
   )
 }

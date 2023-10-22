@@ -4,18 +4,12 @@ import Scrollbar from "smooth-scrollbar";
 import { gsap } from "gsap";
 import { imgInteractionData } from '../../utils/data';
 import { ProjectTemplate } from '../Projects/ProjectTemplate';
-
-const project =
-{
-  title: 'Image interaction',
-  description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum nobis itaque laboriosam! Temporibus esse eius iusto voluptatum maiores at asperiores, quo quos omnis delectus cumque consequuntur provident dolores minus tenetur quisquam rem odit. Aut unde velit sint natus recusandae eos! Lorem ipsum dolor sit amet consectetur adipisicing elit.',
-  category: 'Gsap | Intersection Observer API',
-  year: '2023'
-};
+import { projectsInfo } from '../../utils/projectInfo.ts';
 
 export const ImgInteraction = () => {
   const contentRef = useRef(null);
   const headingRef = useRef(null);
+  const interProject = projectsInfo.find(project => project.id === 'inter');
 
   //fix top position on resize!!
   // fix: images dont fit!
@@ -187,7 +181,7 @@ export const ImgInteraction = () => {
 
   return (
     <>
-      <ProjectTemplate projectInfo={project}>
+      <ProjectTemplate projectInfo={interProject}>
         <div className="header-instr" ref={headingRef}>
           {/* <p className="scroll-down">&darr;</p> */}
           <p className="header-instr-text">[Scroll]</p>

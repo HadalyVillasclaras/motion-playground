@@ -48,6 +48,7 @@ export const PageTransition = () => {
         .to(pageTransitionRef.current, { 
           y: "0%", 
           duration: 0.8,
+
         }, 0)
         .to(pageTransitionRef.current, { 
           delay: 2.3,

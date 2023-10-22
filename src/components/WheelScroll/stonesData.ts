@@ -10,12 +10,12 @@ export const stones = [
     group: "Phyllosilicate",
   },
   {
-    name: "Gemstone",
-    url: imgs.gemstone,
-    symbol: "Gst",
-    source: "Gemological",
-    formulae: "Varies",
-    group: "Various",
+    name: "Fluorite",
+    url: imgs.fluorite,
+    symbol: "Flr",
+    source: "IMA–CNMNC",
+    formulae: "CaF<sub>2</sub>",
+    group: "Halide"
   },
   {
     name: "Muscovite",
