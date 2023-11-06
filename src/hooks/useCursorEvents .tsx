@@ -4,9 +4,10 @@ export const useCursorEvents = () => {
   const [blendModeActive, setBlendModeActive] = useState(true);
   const [isLinkHovered, setIsLinkHovered] = useState(false);
   const observerRef = useRef(null);
-  
   const attachListeners = () => {
-    const handleMouseEnterImage = () => setBlendModeActive(false);
+    const handleMouseEnterImage = () => {
+      setBlendModeActive(false);
+    };
     const handleMouseLeaveImage = () => setBlendModeActive(true);
     const handleMouseEnterLink = () => setIsLinkHovered(true);
     const handleMouseLeaveLink = () => setIsLinkHovered(false);
@@ -16,7 +17,7 @@ export const useCursorEvents = () => {
       setBlendModeActive(true);
     };
 
-    const images = document.querySelectorAll('img, .picture, .no-blend, canvas');
+    const images = document.querySelectorAll('img, .picture, .no-blend-nav, .no-blend, canvas');
     images.forEach(img => {
       img.addEventListener('mouseenter', handleMouseEnterImage);
       img.addEventListener('mouseleave', handleMouseLeaveImage);

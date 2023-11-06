@@ -264,6 +264,8 @@ section.about {
   &__l {
     display: flex;
     flex: 4;
+    position: relative;
+
 
     &-img {
       margin-right: var(--space-sm);
@@ -271,7 +273,7 @@ section.about {
       height: 100%;
       overflow: hidden;
       transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
-
+      position: relative;
       img {
         transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
       }

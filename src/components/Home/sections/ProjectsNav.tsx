@@ -43,7 +43,7 @@ export const ProjectsNav = () => {
   }, []);
   
   return (
-    <nav ref={navRef} className={styles["projects-nav"]}>
+    <nav ref={navRef} className={` ${styles["projects-nav"]}`}>
       <ul className={styles["projects-nav-container"]}>
         {projectsInfo.map((project, index) => (
           <li ref={el => projectRefs.current[index] = el} key={index} className={`prjxt cursor-xpnd`} >
@@ -54,7 +54,9 @@ export const ProjectsNav = () => {
               onClick={(event) => handleLinkClick(event, project.url)}
               >
               <div className={styles["project__l"]}>
-                <div className={styles["project__l-img"]}>
+                  <div className="no-blend-nav">
+                  </div>
+                <div className={`${styles["project__l-img"]}`}>
                   <img loading="lazy" src={project.thumbnail} alt="" />
                 </div>
                 <div className={`${project.title === 'Webflow' ? styles['project__l-name-soon'] : ''} ${styles["project__l-name"]}`}>
