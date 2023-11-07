@@ -4,11 +4,11 @@ I use this project as a playground to bring together a selection of experiments 
 I used GSAP, Matter, p5, Framer; as well as JavaScript native tools such as Intersection Observer API. The goal is to better understand the technical behaviour and creative posibilities of animation and interactivity web tools.
 
 ## Techs. & tools
-TypeScript
-React
-GSAP
-Intersection Observer API
-p5.js
-Framer
-Matter
+- TypeScript
+- React
+- GSAP
+- Intersection Observer API
+- p5.js
+- Framer
+- Matter
 
