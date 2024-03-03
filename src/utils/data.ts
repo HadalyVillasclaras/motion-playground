@@ -39,16 +39,21 @@ import talc from '../assets/images/talc.png';
 
 import zinc from '../assets/images/zinc.png';
 
-import rockAugite from '../assets/images/rock-augite.png';
-import rockFeldspar from '../assets/images/rock-feldspar.png';
-import rockGemstone from '../assets/images/rock-gemstone.png';
-import rockGypsum from '../assets/images/rock-gypsum.png';
-import rockHalite from '../assets/images/rock-halite.png';
-import rockLabradorite from '../assets/images/rock-labradorite.png';
-import rockMalachite from '../assets/images/rock-malachite.png';
-import rockStichite from '../assets/images/rock-stichite.png';
-import rockZinc from '../assets/images/rock-zinc.png';
+//rocks
+import rockAugite from '../assets/images/rock/rock-augite.png';
+import rockFeldspar from '../assets/images/rock/rock-feldspar.png';
+import rockGemstone from '../assets/images/rock/rock-gemstone.png';
+import rockGypsum from '../assets/images/rock/rock-gypsum.png';
+import rockHalite from '../assets/images/rock/rock-halite.png';
+import rockKunzite from '../assets/images/rock/rock-kunzite.png';
 
+import rockLabradorite from '../assets/images/rock/rock-labradorite.png';
+import rockMalachite from '../assets/images/rock/rock-malachite.png';
+import rockStichite from '../assets/images/rock/rock-stichite.png';
+import rockZinc from '../assets/images/rock/rock-zinc.png';
+
+
+//words
 import wordAugite from '../assets/images/word-augite.png';
 import wordAugiteBlack from '../assets/images/word-augite-b.png';
 
@@ -99,6 +104,7 @@ export {
   rockGemstone,
   rockGypsum,
   rockHalite,
+  rockKunzite,
   rockLabradorite,
   rockMalachite,
   rockStichite,
@@ -164,6 +170,7 @@ export const rocks = {
   malachite: rockMalachite,
   stichite: rockStichite,
   zinc: rockZinc,
+  kunzite: rockKunzite
 };
 
 export const words = {
@@ -322,11 +329,17 @@ export const rocksData = [
     height: 292,
     img: rocks.feldspar
   },
+  // {
+  //   name: "Augite",
+  //   width: 307,
+  //   height: 338,
+  //   img: rocks.augite
+  // },
   {
-    name: "Augite",
-    width: 307,
-    height: 338,
-    img: rocks.augite
+    name: "Kunzite",
+    width: 290,
+    height: 175,
+    img: rocks.kunzite
   }
 ];
 
