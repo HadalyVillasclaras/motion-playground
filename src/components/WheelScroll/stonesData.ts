@@ -1,4 +1,4 @@
-import { images as imgs } from "../../utils/data.ts";
+import { images as imgs } from "../../utils/imgs-data/data.ts";
 
 export const stones = [
   {
@@ -19,7 +19,7 @@ export const stones = [
   },
   {
     name: "Muscovite",
-    url: imgs.muscovite,
+    url: imgs.blueFluorite,
     symbol: "Msc",
     source: "IMA–CNMNC",
     formulae: "KAl<sub>2</sub>(AlSi<sub>3</sub>O<sub>10</sub>)(F,OH)<sub>2</sub>",
@@ -35,7 +35,7 @@ export const stones = [
   },
   {
     name: "Beryl",
-    url: imgs.berylVertical,  
+    url: imgs.beryl5,  
     symbol: "Brl",
     source: "IMA–CNMNC",
     formulae: "Be<sub>3</sub>Al<sub>2</sub>Si<sub>6</sub>O<sub>18</sub>",
@@ -51,7 +51,7 @@ export const stones = [
   },
   {
     name: "Oxyphlogopite",
-    url: imgs.oxyphlogopite1,
+    url: imgs.untitled1,
     symbol: "Oxy",
     source: "IMA–CNMNC",
     formulae: "K(Mg,Fe)<sub>3</sub>AlSi<sub>3</sub>O<sub>10</sub>",

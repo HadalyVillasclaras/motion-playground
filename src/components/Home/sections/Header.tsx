@@ -7,7 +7,7 @@ export const Header = () => {
       <DownUpAnimate>
         <div className="grid">
           <span>
-            <a className="link" href="/">Hadaly Villasclaras</a>
+            <a className="link" href="/motion-playground/">Hadaly Villasclaras</a>
           </span>
           <p className={`${styles["in-progress"]}`}>[Work in progress]</p>
           <p>Motion Playground</p>

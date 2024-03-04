@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react'
 import './style.css';
 import Scrollbar from "smooth-scrollbar";
 import { gsap } from "gsap";
-import { imgInteractionData } from '../../utils/data';
+import { imgInteractionData } from '../../utils/imgs-data/data.ts';
 import { ProjectTemplate } from '../Projects/ProjectTemplate';
 import { projectsInfo } from '../../utils/projectInfo.ts';
 

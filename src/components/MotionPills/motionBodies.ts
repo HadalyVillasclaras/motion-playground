@@ -1,6 +1,6 @@
 import { Theme } from '../../context/theme/ThemeContext';
-import { rocksData } from '../../utils/data';
-import { wordsData, wordsDataDark } from '../../utils/data';
+import { rocksData } from '../../utils/imgs-data/rocks';
+import { wordsData, wordsDataDark } from '../../utils/imgs-data/words';
 
 function shuffleArray(array) {
   for (let i = array.length - 1; i > 0; i--) {
