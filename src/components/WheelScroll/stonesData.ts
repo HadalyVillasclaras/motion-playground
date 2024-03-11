@@ -19,7 +19,7 @@ export const stones = [
   },
   {
     name: "Muscovite",
-    url: imgs.blueFluorite,
+    url: imgs.muscovite,
     symbol: "Msc",
     source: "IMA–CNMNC",
     formulae: "KAl<sub>2</sub>(AlSi<sub>3</sub>O<sub>10</sub>)(F,OH)<sub>2</sub>",
@@ -35,7 +35,7 @@ export const stones = [
   },
   {
     name: "Beryl",
-    url: imgs.beryl5,  
+    url: imgs.berylVertical,  
     symbol: "Brl",
     source: "IMA–CNMNC",
     formulae: "Be<sub>3</sub>Al<sub>2</sub>Si<sub>6</sub>O<sub>18</sub>",
@@ -50,12 +50,12 @@ export const stones = [
     group: "Metal",
   },
   {
-    name: "Labradorite",
-    url: imgs.labradorite,
-    symbol: "pending",
-    source: "pending",
-    formulae: "pending",
-    group: "pending",
+    name: "Oxyphlogopite",
+    url: imgs.oxyphlogopite1,
+    symbol: "Oxy",
+    source: "IMA–CNMNC",
+    formulae: "K(Mg,Fe)<sub>3</sub>AlSi<sub>3</sub>O<sub>10</sub>",
+    group: "Phyllosilicate",
   },
   {
     name: "Potosiite",
@@ -72,5 +72,5 @@ export const stones = [
     source: "Evaporite",
     formulae: "NaCl",
     group: "Halide",
-  }
+  },
 ];

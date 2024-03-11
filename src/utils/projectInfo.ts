@@ -1,4 +1,4 @@
-import { zinc, halite, biotiteSm, beryl2 } from './imgs-data/data.ts';
+import { zinc, halite, biotiteSm, feldspar } from './imgs-data/data.ts';
 
 export const projectsInfo = [
   {
@@ -32,7 +32,7 @@ export const projectsInfo = [
     title: 'Webflow',
     category: 'GSAP',
     year: '2023',
-    thumbnail: beryl2,
+    thumbnail: feldspar,
     url: 'webflow',
   }
 ];
