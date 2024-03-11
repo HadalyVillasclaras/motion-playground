@@ -50,12 +50,12 @@ export const stones = [
     group: "Metal",
   },
   {
-    name: "Oxyphlogopite",
-    url: imgs.untitled1,
-    symbol: "Oxy",
-    source: "IMA–CNMNC",
-    formulae: "K(Mg,Fe)<sub>3</sub>AlSi<sub>3</sub>O<sub>10</sub>",
-    group: "Phyllosilicate",
+    name: "Labradorite",
+    url: imgs.labradorite,
+    symbol: "pending",
+    source: "pending",
+    formulae: "pending",
+    group: "pending",
   },
   {
     name: "Potosiite",
@@ -72,5 +72,5 @@ export const stones = [
     source: "Evaporite",
     formulae: "NaCl",
     group: "Halide",
-  },
+  }
 ];

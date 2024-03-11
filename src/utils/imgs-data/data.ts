@@ -1,13 +1,12 @@
 import benitoite from '../../assets/images/benitoite.png';
 
-import beryl from '../../assets/images/beryl.png';
-
-import berylVertical from '../../assets/images/beryl-vertical.png';
-
 import azurite from '../../assets/images/azurite.jpeg';
 import potosiite2 from '../../assets/images/potosiite2.jpeg';
 import potosiite3 from '../../assets/images/potosiite3.png';
 import corkite from '../../assets/images/corkite.jpeg';
+
+import chalcocite from '../../assets/images/chalcocite.jpeg';
+
 
 import corkite2 from '../../assets/images/corkite2.jpeg';
 import biotite from '../../assets/images/biotite.png';
@@ -39,7 +38,6 @@ import tourmaline from '../../assets/images/tourmaline.png';
 import tourmaline2 from '../../assets/images/tourmaline-2.png';
 
 import untitled1 from '../../assets/images/untitled-1.png';
-import untitled2 from '../../assets/images/untitled-2.png';
 import untitled3 from '../../assets/images/untitled-3.jpeg';
 import untitled4 from '../../assets/images/untitled-4.jpeg';
 import untitled5 from '../../assets/images/untitled-5.jpeg';
@@ -51,14 +49,7 @@ import gypsum from '../../assets/images/gypsum.png';
 import halite from '../../assets/images/halite.png';
 import labradorite from '../../assets/images/labradorite.png';
 import mica from '../../assets/images/mica.png';
-import mica2 from '../../assets/images/mica-2.png';
-import muscovite from '../../assets/images/muscovite.png';
-import neptunite from '../../assets/images/neptunite.png';
 
-import oxyphlogopite1 from '../../assets/images/oxyphlogopite-1.png';
-import oxyphlogopite2 from '../../assets/images/oxyphlogopite-2.png';
-import oxyphlogopite3 from '../../assets/images/oxyphlogopite-3.png';
-import oxyphlogopite4 from '../../assets/images/oxyphlogopite-4.png';
 import potosiite from '../../assets/images/potosiite.png';
 
 import quartz from '../../assets/images/quartz.png';
@@ -139,6 +130,7 @@ export {
   azurite,
   potosiite2,
   potosiite3,
+  chalcocite,
   corkite,
   corkite2,
   feldspar,
@@ -146,8 +138,6 @@ export {
   gypsum,
   labradorite,
   mica,
-  muscovite,
-  oxyphlogopite1,
   quartz,
   talc,
   zinc,
@@ -194,10 +184,10 @@ export {
 
 export const images = {
   benitoite: benitoite,
-  beryl: beryl,
   azurite: azurite,
   potosiite2: potosiite2,
   potosiite3: potosiite3,
+  chalcocite: chalcocite,
   corkite: corkite,
   corkite2: corkite2,
   beryl2: beryl2,
@@ -214,12 +204,10 @@ export const images = {
   tourmaline: tourmaline,
   tourmaline2: tourmaline2,
   untitled1: untitled1,
-  untitled2: untitled2,
   untitled3: untitled3,
   untitled4: untitled4,
   untitled5: untitled5,
 
-  berylVertical: berylVertical,
   biotite: biotite,
   cobaltaustinite: cobaltaustinite,
   feldspar: feldspar,
@@ -230,14 +218,7 @@ export const images = {
   halite: halite,
   labradorite: labradorite,
   mica: mica,
-  mica2: mica2,
 
-  muscovite: muscovite,
-  neptunite: neptunite,
-  oxyphlogopite1: oxyphlogopite1,
-  oxyphlogopite2: oxyphlogopite2,
-  oxyphlogopite3: oxyphlogopite3,
-  oxyphlogopite4: oxyphlogopite4,
   potosiite: potosiite,
   quartz: quartz,
   quartz2: quartz2,
@@ -317,7 +298,7 @@ export const imgInteractionData = [
   {
     id: 4,
     title: "Cobalt",
-    img: images.cobaltaustinite
+    img: images.fluorite2
 
   },
   {
@@ -338,8 +319,8 @@ export const imgInteractionData = [
   },
   {
     id: 8,
-    title: "Neptunite",
-    img: images.neptunite
+    title: "Neptunitependin",
+    img: images.labradorite
   },
   {
     id: 9,
@@ -359,8 +340,8 @@ export const imgInteractionData = [
   },
   {
     id: 12,
-    title: "Muscovite",
-    img: images.untitled5
+    title: "pending",
+    img: images.labradorite
   },
   {
     id: 13,
@@ -384,8 +365,8 @@ export const imgInteractionData = [
   },
   {
     id: 17,
-    title: "Oxylopite",
-    img: images.oxyphlogopite1
+    title: "pending",
+    img: images.labradorite
   },
   {
     id: 18,
@@ -395,12 +376,12 @@ export const imgInteractionData = [
   {
     id: 19,
     title: "Corkite",
-    img: images.corkite
+    img: images.corkite2
   },
   {
     id: 20,
-    title: "Kirkiite",
-    img: images.potosiite3
+    title: "Chalcocite",
+    img: images.chalcocite
   },
   {
     id: 21,
