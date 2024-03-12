@@ -6,8 +6,8 @@ import potosiite3 from '../../assets/images/potosiite3.png';
 import corkite from '../../assets/images/corkite.jpeg';
 import calcite from '../../assets/images/calcite.png';
 
-
 import chalcocite from '../../assets/images/chalcocite.jpeg';
+// import chalcocite from '../../assets/images/chalcocite.jpeg';
 
 import cuprite1 from '../../assets/images/cuprite1.jpeg';
 
