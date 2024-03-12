@@ -43,7 +43,7 @@ export const WheelScrollPage = () => {
   const currentStoneRef = useRef(null);
   const toggleRowIconRef = useRef(null);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (childRefs.current) {
       currentStoneRef.current = childRefs.current.ref1.current;
       toggleRowIconRef.current = childRefs.current.ref2.current;
@@ -51,21 +51,17 @@ export const WheelScrollPage = () => {
   }, []);
 
   useLayoutEffect(() => {
-    if (!scrollRef.current || !contentWrapperRef.current || !currentStoneRef.current || !toggleRowIconRef.current) {
-      return; 
-    }
     tl1Ref.current = gsap.timeline({
       scrollTrigger: {
         start: "50px top",
         end: "+=500 bottom",
         toggleActions: "play none reverse none",
-        // markers: true,
       },
     });
 
     gsap.set(contentWrapperRef.current, { color: "rgba(255, 255, 255, 0)" });
 
-    currentStoneRef.current && gsap.set(currentStoneRef?.current, { opacity: 0 });
+    currentStoneRef.current && gsap.set(currentStoneRef.current, { opacity: 0 });
     toggleRowIconRef.current && gsap.set(toggleRowIconRef?.current, { opacity: 0 });
 
     const ctx = gsap.context(() => {
@@ -92,7 +88,7 @@ export const WheelScrollPage = () => {
           0
         )
         .to(
-          currentStoneRef?.current,
+          currentStoneRef.current,
           {
             opacity: 1,
           },
@@ -120,7 +116,7 @@ export const WheelScrollPage = () => {
 
     tl3Ref.current = gsap.timeline({
       paused: true,
-      defaults: { duration: 1 },
+      defaults: { duration: 1.2 },
     });
 
     tl3Ref.current.fromTo(
@@ -147,13 +143,13 @@ export const WheelScrollPage = () => {
     if (hasStoppedScrolling) {
       gsap.to(toggleRowIconRef.current, {
         opacity: 1,
-        duration: .5,
+        duration: 1,
         ease: "slow",
       });
     } else {
       gsap.to(toggleRowIconRef.current, {
         opacity: 0,
-        duration: .5,
+        duration: 1,
         ease: "slow",
       });
     }

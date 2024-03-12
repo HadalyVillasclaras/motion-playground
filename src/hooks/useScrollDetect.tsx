@@ -34,7 +34,7 @@ export const useScrollDetect = (ref) => {
           setIsScrolling(false);
           setHasStoppedScrolling(true);
         }
-      }, 800);
+      }, 500);
     };
 
     target.addEventListener('scroll', handleScroll);

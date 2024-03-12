@@ -282,6 +282,15 @@ section.about {
     &-name {
       position: relative;
 
+      h2 {
+        font-size: 17px;
+        line-height: 14px;
+        @include tablet() {
+          font-size: 2rem;
+        line-height: 2.3rem;
+
+        }
+      }
       &-soon {
         display: flex;
         flex-wrap: wrap;
@@ -292,10 +301,15 @@ section.about {
 
         .project-soon {
           position: relative;
-          top: 5px;
+          top: 0px;
           text-wrap: nowrap;
-          font-size: 0.7rem;
+          font-size: 0.5rem;
           height: 14px;
+
+          @include tablet() {
+            top: 5px;
+            font-size: 0.7rem;
+          }
         }
 
       }
