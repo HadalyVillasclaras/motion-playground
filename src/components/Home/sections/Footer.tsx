@@ -15,7 +15,7 @@ export const Footer = () => {
         <DownUpAnimate>
           <div className={`${styles['home-footer__data']}`}>
             <div className="grid">
-              <p>Last update: october 2023</p>
+              <p>Last march: october 2024</p>
               <Clock />
               <p>Press [L] or click <button onClick={toggleTheme} className="btn link">here</button> for theme switch</p>
             </div>
