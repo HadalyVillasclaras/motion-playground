@@ -1,13 +1,13 @@
-import { zinc, halite, biotiteSm, feldspar } from './imgs-data/data.ts';
+import { rocksGroup, blueFluorite, thumbWheel, cuprite1 } from './imgs-data/data.ts';
 
 export const projectsInfo = [
   {
     id: 'rocks',
-    title: "Physical rocks",
+    title: "Physic rocks",
     description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum nobis itaque laboriosam! Temporibus esse eius iusto voluptatum maiores at asperiores, quo quos omnis delectus cumque consequuntur provident dolores minus tenetur quisquam rem odit. Aut unde velit sint natus recusandae eos! Lorem ipsum dolor sit amet consectetur adipisicing elit.",
     category: "p5 | Matter",
     year: "2023",
-    thumbnail: zinc,
+    thumbnail: rocksGroup,
     url: 'project/rocks',
   },
   {
@@ -15,7 +15,7 @@ export const projectsInfo = [
     title: "Wheel Scroll",
     category: "GSAP",
     year: "2023",
-    thumbnail: biotiteSm,
+    thumbnail: thumbWheel,
     url: 'project/wheel',
   },
   {
@@ -24,7 +24,7 @@ export const projectsInfo = [
     description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum nobis itaque laboriosam! Temporibus esse eius iusto voluptatum maiores at asperiores, quo quos omnis delectus cumque consequuntur provident dolores minus tenetur quisquam rem odit. Aut unde velit sint natus recusandae eos! Lorem ipsum dolor sit amet consectetur adipisicing elit.',
     category: 'Gsap | Inters. Observer API',
     year: '2023',
-    thumbnail: halite,
+    thumbnail: blueFluorite,
     url: 'project/intersection',
   },
   {
@@ -32,7 +32,7 @@ export const projectsInfo = [
     title: 'Webflow',
     category: 'GSAP',
     year: '2023',
-    thumbnail: feldspar,
+    thumbnail: cuprite1,
     url: 'webflow',
   }
 ];

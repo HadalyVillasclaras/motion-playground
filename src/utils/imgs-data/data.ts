@@ -1,3 +1,6 @@
+import thumbWheel from '../../assets/images/thumb-wheel.png';
+
+
 import benitoite from '../../assets/images/benitoite.png';
 
 import azurite from '../../assets/images/azurite.jpeg';
@@ -6,8 +9,8 @@ import potosiite3 from '../../assets/images/potosiite3.png';
 import corkite from '../../assets/images/corkite.jpeg';
 import calcite from '../../assets/images/calcite.png';
 
+
 import chalcocite from '../../assets/images/chalcocite.jpeg';
-// import chalcocite from '../../assets/images/chalcocite.jpeg';
 
 import cuprite1 from '../../assets/images/cuprite1.jpeg';
 
@@ -124,6 +127,7 @@ import rockKunzite2 from '../../assets/images/cards/rock-kunzite.png';
 import rockBismuto from '../../assets/images/cards/rock-bismuto.png';
 
 
+import rocksGroup from '../../assets/images/rock/rocks-group.png';
 
 
 
@@ -160,31 +164,58 @@ import wordZincBlack from '../../assets/images/word-zinc-b.png';
 
 
 export {
-  cobaltaustinite2,
-  halite,
+  rocksGroup,
+  thumbWheel,
+
+
+  azurite,
+  benitoite,
+  potosiite2,
+  potosiite3,
+  corkite,
+  calcite,
+  chalcocite,
+  cuprite1,
+  corkite2,
+  biotite,
   biotiteSm,
+  cobaltaustinite,
+  cobaltaustinite2,
+  feldspar,
+  fluorapatite,
+  fluorite,
   beryl2,
   beryl3,
   beryl4,
   beryl5,
   beryl7,
   fluorite2,
-  biotite,
-  azurite,
-  potosiite2,
-  potosiite3,
-  calcite,
-  chalcocite,
-  corkite,
-  corkite2,
-  feldspar,
+  blueFluorite,
+  kunzite,
+  mica4,
+  opal,
+  pyrite,
+  stephanite,
+  sylvite,
+  tourmaline,
+  tourmaline2,
+  untitled1,
+  untitled3,
+  untitled4,
+  untitled5,
   gemstone,
   gypsum,
+  halite,
   labradorite,
   mica,
+  potosiite,
   quartz,
+  quartz2,
   talc,
   zinc,
+
+
+
 
   rockAlbite,
   rockAquamarine,
@@ -493,10 +524,10 @@ export const imgInteractionData = [
   //   title: "Biotite",
   //   img: images.biotite
   // },
-  {
-    id: 21,
-    title: "Azurite",
-    img: images.azurite
-  },
+  // {
+  //   id: 21,
+  //   title: "Azurite",
+  //   img: images.azurite
+  // },
 ];
 
