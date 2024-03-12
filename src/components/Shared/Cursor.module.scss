@@ -1,0 +1,24 @@
+@import "../../styles/index.scss";
+
+.customCursor {
+  width: 20px;
+  height: 20px;
+  opacity: 1;
+  border-radius: 50%;
+  position: fixed;
+  z-index: 999999999;
+  background-color: var(--cursor);
+  pointer-events: none;
+  transform: translate(-50%, -50%) scale(1);
+ 
+  transition: 0.6s transform, 0.1s fiter, 0.1s mix-blend-mode, 0.1s background-color;
+}
+
+.expanded {
+  transform: translate(-50%, -50%) scale(2);
+  transform-origin: center;
+}
+
+ canvas .customCursor {
+  background-color: black!important;
+ }
