@@ -51,6 +51,9 @@ export const WheelScrollPage = () => {
   }, []);
 
   useLayoutEffect(() => {
+    if (!scrollRef.current || !contentWrapperRef.current || !currentStoneRef.current || !toggleRowIconRef.current) {
+      return; 
+    }
     tl1Ref.current = gsap.timeline({
       scrollTrigger: {
         start: "50px top",
@@ -89,7 +92,7 @@ export const WheelScrollPage = () => {
           0
         )
         .to(
-          currentStoneRef.current,
+          currentStoneRef?.current,
           {
             opacity: 1,
           },
