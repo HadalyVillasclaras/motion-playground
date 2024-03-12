@@ -33,7 +33,7 @@ export const WheelDataTable = forwardRef(({ setIsRowOpen, isRowOpen, currentSton
   useLayoutEffect(() => {
     tl2Ref.current = gsap.timeline({
       paused: true,
-      defaults: { duration: 1.2, ease: "none"},
+      defaults: { duration: 1, ease: "none"},
     });
 
     tl2Ref.current
@@ -55,12 +55,12 @@ export const WheelDataTable = forwardRef(({ setIsRowOpen, isRowOpen, currentSton
           opacity: 0,
           scaleX: 0,
           transformOrigin: "100%",
-          duration: 1
+          duration: .8
         },
         {
           opacity: 1,
           scaleX: 1,
-          duration: 1
+          duration: .8
         },
         0.4
       )
@@ -69,14 +69,14 @@ export const WheelDataTable = forwardRef(({ setIsRowOpen, isRowOpen, currentSton
         {
           y: -20,
           opacity: 0,
-          duration: 0.8,
+          duration: 0.6,
           visibility: "hidden"
         },
         {
           opacity: 1,
           y: 10,
           visibility: "visible",
-          duration: 0.8,
+          duration: 0.6,
         },
         0.3
       );
@@ -104,11 +104,11 @@ export const WheelDataTable = forwardRef(({ setIsRowOpen, isRowOpen, currentSton
   function toggleIconVisibility() {
     gsap.to(toggleRowIconRef.current, {
       opacity: 0,
-      duration: 2,
+      duration: 1.8,
       onComplete: () => {
         gsap.to(toggleRowIconRef.current, {
           opacity: 1,
-          duration: 2,
+          duration: 1.8,
         });
       },
     });

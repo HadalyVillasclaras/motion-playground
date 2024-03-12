@@ -37,9 +37,12 @@ export const PageTransition = () => {
       onStart: () => {
         document.body.style.overflow = 'hidden';
       },
-      onComplete: () => {
-        document.body.style.overflow = 'unset';
-
+      onUpdate: () => {
+        if (tl1Ref.current.progress() >= 0.7) {
+          document.body.style.overflow = 'unset';
+          // Prevent further updates by removing the onUpdate callback
+          tl1Ref.current.eventCallback('onUpdate', null);
+        }
       }
     });
 

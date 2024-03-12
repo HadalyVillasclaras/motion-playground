@@ -120,7 +120,7 @@ export const WheelScrollPage = () => {
 
     tl3Ref.current = gsap.timeline({
       paused: true,
-      defaults: { duration: 1.2 },
+      defaults: { duration: 1 },
     });
 
     tl3Ref.current.fromTo(
@@ -147,13 +147,13 @@ export const WheelScrollPage = () => {
     if (hasStoppedScrolling) {
       gsap.to(toggleRowIconRef.current, {
         opacity: 1,
-        duration: 1,
+        duration: .5,
         ease: "slow",
       });
     } else {
       gsap.to(toggleRowIconRef.current, {
         opacity: 0,
-        duration: 1,
+        duration: .5,
         ease: "slow",
       });
     }
