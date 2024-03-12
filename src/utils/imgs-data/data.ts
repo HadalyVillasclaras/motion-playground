@@ -494,7 +494,7 @@ export const imgInteractionData = [
   //   img: images.biotite
   // },
   {
-    id: 17,
+    id: 21,
     title: "Azurite",
     img: images.azurite
   },

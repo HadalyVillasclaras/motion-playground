@@ -1,4 +1,3 @@
-import { images as imgs } from "../../utils/imgs-data/data.ts";
 import { rocks as rock } from "../../utils/imgs-data/data.ts";
 
 
